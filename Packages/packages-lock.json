@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.annulusgames.alchemy": {
+      "version": "file:com.annulusgames.alchemy@ab6e1c7121",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "9.2.0",
       "depth": 1,
@@ -114,18 +120,20 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.collections": {
-      "version": "1.2.4",
-      "depth": 2,
+      "version": "2.4.2",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.burst": "1.6.6",
-        "com.unity.test-framework": "1.1.31"
+        "com.unity.burst": "1.8.13",
+        "com.unity.nuget.mono-cecil": "1.11.4",
+        "com.unity.test-framework": "1.4.3",
+        "com.unity.test-framework.performance": "3.0.3"
       },
       "url": "https://packages.unity.cn"
     },
     "com.unity.ext.nunit": {
-      "version": "1.0.6",
-      "depth": 1,
+      "version": "2.0.3",
+      "depth": 3,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.cn"
@@ -170,6 +178,13 @@
       "dependencies": {},
       "url": "https://packages.unity.cn"
     },
+    "com.unity.nuget.mono-cecil": {
+      "version": "1.11.4",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.cn"
+    },
     "com.unity.render-pipelines.core": {
       "version": "14.0.12",
       "depth": 1,
@@ -208,6 +223,16 @@
       "dependencies": {},
       "url": "https://packages.unity.cn"
     },
+    "com.unity.serialization": {
+      "version": "3.1.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.8.13",
+        "com.unity.collections": "2.4.2"
+      },
+      "url": "https://packages.unity.cn"
+    },
     "com.unity.shadergraph": {
       "version": "14.0.12",
       "depth": 1,
@@ -218,12 +243,22 @@
       }
     },
     "com.unity.test-framework": {
-      "version": "1.1.33",
-      "depth": 0,
+      "version": "1.4.3",
+      "depth": 2,
       "source": "registry",
       "dependencies": {
-        "com.unity.ext.nunit": "1.0.6",
+        "com.unity.ext.nunit": "2.0.3",
         "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
+      },
+      "url": "https://packages.unity.cn"
+    },
+    "com.unity.test-framework.performance": {
+      "version": "3.0.3",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.31",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.cn"
