@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Alchemy.Serialization;
-using QFramework;
 using UnityEngine;
 public class GameBoot : MonoBehaviour
 {
@@ -11,4 +7,3 @@ public class GameBoot : MonoBehaviour
         // UIKit.OpenPanel<TestPanel>();
     }
 }
-
