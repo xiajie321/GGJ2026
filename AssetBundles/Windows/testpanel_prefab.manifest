@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 1319970147
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6a9e91cdde7c43aef94e26876067af55
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3d309baaeef27f984bb5d866b7d64903
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 6a9e91cdde7c43aef94e26876067af55
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: db26c496ff9a6a648a3b47319bf6d223, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/UIPrefabs/TestPanel.prefab
+Dependencies: []

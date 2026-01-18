@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3192620550
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: testpanel_prefab
+      Dependencies: {}
