@@ -1,10 +1,18 @@
 using QFramework;
+using Script.Service.Architecture;
 using UnityEngine;
+/// <summary>
+/// 不对外提供任何接口,仅作为游戏的入口
+/// </summary>
 public class GameBoot : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
+        DontDestroyOnLoad(this);
+        Debug.Log("[GameBoot] ResKit开始初始化...");
         ResKit.Init();
-        // UIKit.OpenPanel<TestPanel>();
+        Debug.Log("[GameBoot] ResKit初始化完成...");
+        GameArchitecture.InitArchitecture();
+        Debug.Log("[GameBoot] 游戏入口加载完毕");
     }
 }
