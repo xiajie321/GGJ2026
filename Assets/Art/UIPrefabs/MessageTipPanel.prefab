@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 3303971633764918918}
   - component: {fileID: 1385675581823059713}
   - component: {fileID: 2327046076530497810}
+  - component: {fileID: 6499935735428704158}
   m_Layer: 0
   m_Name: MessageExit
   m_TagString: Untagged
@@ -946,6 +947,25 @@ MonoBehaviour:
   CustomComponentName: Exit
   CustomComment: "\u9000\u51FA\u6309\u94AE"
   mComponentName: UnityEngine.UI.Button
+--- !u!114 &6499935735428704158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6782916607169907858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92da796fcc044b8ba37c62228bdb7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useScaleEffect: 1
+  hoverScale: 1.1
+  clickScale: 0.95
+  animDuration: 0.2
+  animEase: 27
+  usePunchEffect: 0
+  punchVector: {x: 0.1, y: 0.1, z: 0}
 --- !u!1 &6913176743090187281
 GameObject:
   m_ObjectHideFlags: 0

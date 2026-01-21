@@ -740,10 +740,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 757576763}
     m_Modifications:
-    - target: {fileID: 2168541454445657711, guid: 0f3ea76649ea2b24ca64050178d87362, type: 3}
-      propertyPath: m_Name
-      value: MessageText
-      objectReference: {fileID: 0}
     - target: {fileID: 3665093348856825833, guid: 0f3ea76649ea2b24ca64050178d87362, type: 3}
       propertyPath: m_Name
       value: MessageTipPanel
@@ -827,18 +823,6 @@ PrefabInstance:
     - target: {fileID: 4748960871153200470, guid: 0f3ea76649ea2b24ca64050178d87362, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5314654634560726320, guid: 0f3ea76649ea2b24ca64050178d87362, type: 3}
-      propertyPath: m_Name
-      value: MessageTitleText
-      objectReference: {fileID: 0}
-    - target: {fileID: 6394296079669724433, guid: 0f3ea76649ea2b24ca64050178d87362, type: 3}
-      propertyPath: m_text
-      value: Title
-      objectReference: {fileID: 0}
-    - target: {fileID: 6782916607169907858, guid: 0f3ea76649ea2b24ca64050178d87362, type: 3}
-      propertyPath: m_Name
-      value: MessageExit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
