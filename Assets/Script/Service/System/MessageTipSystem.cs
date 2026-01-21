@@ -2,21 +2,16 @@ using QFramework;
 using Service.View.UI.Panel;
 using UnityEngine;
 
-namespace Script.Service.Utility
+namespace Script.Service.System
 {
-    public class MessageTipUtility:Singleton<MessageTipUtility>
+    public class MessageTipSystem:AbstractSystem
     {
-        private MessageTipUtility()
-        {
-        }
-
         MessageTipPanel _messageTipPanel;
         /// <summary>
         /// 显示一下的提示
         /// </summary>
         public void ShowTip(string message)
         {
-            Init();
             _messageTipPanel.ShowTip(message);
         }
         /// <summary>
@@ -41,16 +36,15 @@ namespace Script.Service.Utility
             _messageTipPanel.ShowMessage(title, message, position);
         }
 
-        public override void OnSingletonInit()
-        {
-            Init();
-        }
         private void Init()
         {
-            if (!_messageTipPanel)
-            {
-                _messageTipPanel = UIKit.OpenPanel<MessageTipPanel>(UILevel.PopUI);
-            }
+            if (_messageTipPanel) return;
+            _messageTipPanel = UIKit.OpenPanel<MessageTipPanel>(UILevel.PopUI);
+        }
+
+        protected override void OnInit()
+        {
+            Init();
         }
     }
 }

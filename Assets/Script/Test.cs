@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using QFramework;
-using Script.Service.Utility;
+using Script.Service.Architecture;
+using Script.Service.System;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public class Test : MonoBehaviour,IController
 {
     void Start()
     {
@@ -13,7 +14,12 @@ public class Test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MessageTipUtility.Instance.ShowTip("测试",Input.mousePosition);
+            this.GetSystem<MessageTipSystem>().ShowTip("测试",Input.mousePosition);
         }
+    }
+
+    public IArchitecture GetArchitecture()
+    {
+        return GameArchitecture.Interface;
     }
 }
