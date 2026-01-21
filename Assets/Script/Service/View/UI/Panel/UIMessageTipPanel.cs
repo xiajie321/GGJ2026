@@ -8,7 +8,7 @@ namespace Service.View.UI.Panel
 	public class MessageTipPanelData : UIPanelData
 	{
 	}
-	public partial class MessageTipPanel : UIPanel
+	public partial class UIMessageTipPanel : UIPanel
 	{
 		protected override void OnInit(IUIData uiData = null)
 		{

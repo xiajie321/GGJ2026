@@ -6,7 +6,7 @@ namespace Script.Service.System
 {
     public class MessageTipSystem:AbstractSystem
     {
-        MessageTipPanel _messageTipPanel;
+        UIMessageTipPanel _messageTipPanel;
         /// <summary>
         /// 显示一下的提示
         /// </summary>
@@ -39,7 +39,7 @@ namespace Script.Service.System
         private void Init()
         {
             if (_messageTipPanel) return;
-            _messageTipPanel = UIKit.OpenPanel<MessageTipPanel>(UILevel.PopUI);
+            _messageTipPanel = UIKit.OpenPanel<UIMessageTipPanel>(UILevel.PopUI);
         }
 
         protected override void OnInit()

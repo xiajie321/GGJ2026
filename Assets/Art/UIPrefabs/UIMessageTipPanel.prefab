@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 4748960871153200470}
   - component: {fileID: 788147499610770305}
   m_Layer: 0
-  m_Name: MessageTipPanel
+  m_Name: UIMessageTipPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

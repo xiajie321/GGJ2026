@@ -6,9 +6,9 @@ using QFramework;
 namespace Service.View.UI.Panel
 {
 	// Generate Id:d5b91028-93d7-4a91-98ea-c2307efa8375
-	public partial class MessageTipPanel
+	public partial class UIMessageTipPanel
 	{
-		public const string Name = "MessageTipPanel";
+		public const string Name = "UIMessageTipPanel";
 		
 		/// <summary>
 		/// 用于控制MessagePanel开关
