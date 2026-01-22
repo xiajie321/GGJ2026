@@ -1,0 +1,46 @@
+ManifestFileVersion: 0
+CRC: 420821581
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 36b488ed144cb292d23ee2a7c0780450
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 43e59ae6e2eabf1eab9a33103aa608ee
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 36b488ed144cb292d23ee2a7c0780450
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 23041faff29a3f543801cd8039e3cb21, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1c607d8e7eaf8402ab4e9229aed20cf4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b722176a077b4e69a5cb2cb63a2e92d6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8b61713768fc4d0e9be8ae8c4b40c652, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Script.SODataScript.MouseCursorSystem.CursorStateConfig
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- Assets/Art/UIPrefabs/UIMouseCursorPanel.prefab
+Dependencies: []

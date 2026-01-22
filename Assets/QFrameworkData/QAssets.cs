@@ -16,4 +16,9 @@ namespace QAssetBundle
         public const string BundleName = "uimessagetippanel_prefab";
         public const string UIMESSAGETIPPANEL = "UIMessageTipPanel";
     }
+    public class Uimousecursorpanel_prefab
+    {
+        public const string BundleName = "uimousecursorpanel_prefab";
+        public const string UIMOUSECURSORPANEL = "UIMouseCursorPanel";
+    }
 }
