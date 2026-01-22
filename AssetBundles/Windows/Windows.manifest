@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 1558239845
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uimessagetippanel_prefab
+      Dependencies: {}
