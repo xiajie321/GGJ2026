@@ -4,7 +4,7 @@ using DG.Tweening;
 
 namespace Service.View.UI
 {
-    public class UI_ButtonAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
+    public class UIButtonAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler,
         IPointerUpHandler
     {
         [Header("Settings")] [SerializeField] private bool useScaleEffect = true;

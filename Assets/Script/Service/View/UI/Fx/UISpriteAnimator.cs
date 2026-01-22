@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Image))]
-public class UI_SpriteAnimator : MonoBehaviour
+public class UISpriteAnimator : MonoBehaviour
 {
     [Header("Settings")]
     [Tooltip("每秒播放的帧数")]
