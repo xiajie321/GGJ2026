@@ -17,7 +17,6 @@ namespace Service.View.UI.Panel
 			BtnClose.onClick.AddListener(() =>
 			{
 				this.CloseSelf();
-				UIKit.OpenPanel<UIHomePanel>();
 			});
 		}
 		

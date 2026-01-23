@@ -16,12 +16,11 @@ namespace Service.View.UI.Panel
 
 			BtnStart.onClick.AddListener(() =>
 			{
-				Debug.Log("¿ªÊ¼ÓÎÏ·");
+				Debug.Log("å¼€å§‹æ¸¸æˆ");
 			});
 
 			BtnSettings.onClick.AddListener(() =>
 			{
-				this.CloseSelf();
 				UIKit.OpenPanel<UISettingsPanel>();
 			});
 		}
