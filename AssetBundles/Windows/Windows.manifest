@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 1556961598
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uimessagetippanel_prefab
+      Dependencies: {}
+    Info_1:
+      Name: uimousecursorpanel_prefab
+      Dependencies: {}

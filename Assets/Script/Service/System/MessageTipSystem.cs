@@ -7,6 +7,16 @@ namespace Script.Service.System
     public class MessageTipSystem:AbstractSystem
     {
         UIMessageTipPanel _messageTipPanel;
+        private void Init()
+        {
+            if (_messageTipPanel) return;
+            _messageTipPanel = UIKit.OpenPanel<UIMessageTipPanel>(UILevel.PopUI);
+        }
+
+        protected override void OnInit()
+        {
+            Init();
+        }
         /// <summary>
         /// 显示一下的提示
         /// </summary>
@@ -36,15 +46,6 @@ namespace Script.Service.System
             _messageTipPanel.ShowMessage(title, message, position);
         }
 
-        private void Init()
-        {
-            if (_messageTipPanel) return;
-            _messageTipPanel = UIKit.OpenPanel<UIMessageTipPanel>(UILevel.PopUI);
-        }
 
-        protected override void OnInit()
-        {
-            Init();
-        }
     }
 }

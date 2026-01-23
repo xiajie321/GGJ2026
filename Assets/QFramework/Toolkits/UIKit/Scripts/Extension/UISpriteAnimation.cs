@@ -72,7 +72,7 @@ namespace QFramework
 		private void SetSprite(int idx)
 		{
 			mImageSource.sprite = SpriteFrames[idx];
-			mImageSource.SetNativeSize();
+			//mImageSource.SetNativeSize();
 		}
 
 		public void Play()

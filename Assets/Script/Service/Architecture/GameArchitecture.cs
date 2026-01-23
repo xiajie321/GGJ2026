@@ -18,6 +18,7 @@ namespace Script.Service.Architecture
         private void RegisterSystem()
         {
             RegisterSystem(new MessageTipSystem());
+            RegisterSystem(new MouseCursorSystem());
         }
         protected override void Init()
         {

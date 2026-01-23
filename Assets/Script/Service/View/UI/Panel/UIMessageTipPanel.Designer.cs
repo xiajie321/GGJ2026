@@ -5,7 +5,7 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:d5b91028-93d7-4a91-98ea-c2307efa8375
+	// Generate Id:52d8916d-8818-4a61-8517-95068424ec0b
 	public partial class UIMessageTipPanel
 	{
 		public const string Name = "UIMessageTipPanel";
@@ -43,7 +43,7 @@ namespace Service.View.UI.Panel
 		[SerializeField]
 		public TMPro.TextMeshProUGUI TipText;
 		
-		private MessageTipPanelData mPrivateData = null;
+		private UIMessageTipPanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
@@ -58,7 +58,7 @@ namespace Service.View.UI.Panel
 			mData = null;
 		}
 		
-		public MessageTipPanelData Data
+		public UIMessageTipPanelData Data
 		{
 			get
 			{
@@ -66,11 +66,11 @@ namespace Service.View.UI.Panel
 			}
 		}
 		
-		MessageTipPanelData mData
+		UIMessageTipPanelData mData
 		{
 			get
 			{
-				return mPrivateData ?? (mPrivateData = new MessageTipPanelData());
+				return mPrivateData ?? (mPrivateData = new UIMessageTipPanelData());
 			}
 			set
 			{

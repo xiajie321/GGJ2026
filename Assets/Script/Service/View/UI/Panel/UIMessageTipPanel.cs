@@ -5,14 +5,14 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	public class MessageTipPanelData : UIPanelData
+	public class UIMessageTipPanelData : UIPanelData
 	{
 	}
 	public partial class UIMessageTipPanel : UIPanel
 	{
 		protected override void OnInit(IUIData uiData = null)
 		{
-			mData = uiData as MessageTipPanelData ?? new MessageTipPanelData();
+			mData = uiData as UIMessageTipPanelData ?? new UIMessageTipPanelData();
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

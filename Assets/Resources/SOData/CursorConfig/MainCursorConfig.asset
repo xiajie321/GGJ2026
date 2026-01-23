@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b61713768fc4d0e9be8ae8c4b40c652, type: 3}
+  m_Name: MainCursorConfig
+  m_EditorClassIdentifier: 
+  DefaultState:
+    Sprite: {fileID: 1099999519, guid: 1483546fb97885c488cc4335270e8a5d, type: 3}
+    Animator: {fileID: 11400000, guid: d003ff9c6987f6b4fa78b50b97acf2d4, type: 2}
+  HoverState:
+    Sprite: {fileID: 567328745045655870, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
+    Animator: {fileID: 11400000, guid: 659967bb3745ea8429c91a3bc99cc781, type: 2}
+  DownState:
+    Sprite: {fileID: 2750705142841656183, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
+    Animator: {fileID: 11400000, guid: 03421f55317480b44805f1cd60fb9039, type: 2}
+  UpState:
+    Sprite: {fileID: 3351748369286481944, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
+    Animator: {fileID: 11400000, guid: f19bf2813d5ffda4a83b72609ecf850e, type: 2}
+  MoveState:
+    Sprite: {fileID: 2785564300681498144, guid: 4dffe6eab57ca4e4ba2f967307bd1c29, type: 3}
+    Animator: {fileID: 11400000, guid: b31b621454c01e14f85c58f53f1e0a0f, type: 2}
+  IdleThreshold: 0.1
+  MoveThreshold: 1
+  EnableSpeedBasedAnim: 0
+  MinSpeedThreshold: 100
+  MaxSpeedThreshold: 1000
