@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23041faff29a3f543801cd8039e3cb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteAnimator: {fileID: 4024071527235132545}
   mConfig: {fileID: 11400000, guid: 48559cbd76b065e41a33d9dc574292fd, type: 2}
-  spriteAnimation: {fileID: 4024071527235132545}
   MouseCursor: {fileID: 400637057445339945}
 --- !u!1 &5446194077865786729
 GameObject:

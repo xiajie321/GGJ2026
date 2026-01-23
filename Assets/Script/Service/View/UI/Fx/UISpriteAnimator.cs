@@ -25,6 +25,11 @@ public class UISpriteAnimator : MonoBehaviour
     private int _currentIndex;
     private bool _isPlaying;
 
+    public float FPS { get => frameRate; set => frameRate = value; }
+    public bool Loop { get => loop; set => loop = value; }
+    public bool IsPlaying { get => _isPlaying; set => _isPlaying = value; }
+    public List<Sprite> SpriteFrames { get => sprites; set => sprites = value; }
+
     private void Awake()
     {
         _targetImage = GetComponent<Image>();

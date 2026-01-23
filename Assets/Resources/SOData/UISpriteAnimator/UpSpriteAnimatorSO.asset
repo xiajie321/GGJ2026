@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b722176a077b4e69a5cb2cb63a2e92d6, type: 3}
-  m_Name: DefSpriteAnimator
+  m_Name: UpSpriteAnimatorSO
   m_EditorClassIdentifier: 
-  Sprites:
-  - {fileID: 2112191744, guid: 1483546fb97885c488cc4335270e8a5d, type: 3}
-  - {fileID: -544495881, guid: 1483546fb97885c488cc4335270e8a5d, type: 3}
-  - {fileID: 1099999519, guid: 1483546fb97885c488cc4335270e8a5d, type: 3}
-  FPS: 12
+  Sprites: []
+  FPS: 5
   Loop: 1

@@ -180,7 +180,7 @@ Material:
     - _Box_Offset: {r: 1, g: 0.5, b: 0, a: 0}
     - _Box_Size: {r: 0.23, g: 0.23, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CurrentColour: {r: 0.58049726, g: 0.83148146, b: 0.6519549, a: 1}
+    - _CurrentColour: {r: 0.99276984, g: 0.85316116, b: 0.73270625, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _InnerBox_Edges: {r: 0.025, g: 0.025, b: 0.025, a: 0.025}
