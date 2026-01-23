@@ -19,7 +19,7 @@ namespace Script.Service.View.UI.Panel
 	public partial class UIMouseCursorPanel : UIPanel
 	{
 		// 动画播放器组件引用
-		[SerializeField] private UISpriteAnimation spriteAnimator; 
+		[SerializeField] private UISpriteAnimator spriteAnimator; 
 		
 		// 当前使用的鼠标指针配置资源
 		[SerializeField] private CursorConfig mConfig;
@@ -264,13 +264,11 @@ namespace Script.Service.View.UI.Panel
 			// 根据速度调整 FPS
 			// 简单的线性映射示例，根据需求细化
 			float t = Mathf.InverseLerp(mConfig.MinSpeedThreshold, mConfig.MaxSpeedThreshold, speed);
-			// 假设默认 FPS 对应 MinSpeed，可以按比例增加
-			// 或者根据 Animator 的基础 FPS 进行缩放
+
 			if (mConfig.MoveState != null && mConfig.MoveState.Animator != null)
 			{
-				float baseFPS = mConfig.MoveState.Animator.FPS;
-				// 这是一个简单的倍率示例，可以根据具体感觉调整
-				float targetFPS = Mathf.Lerp(baseFPS, baseFPS * 2f, t); 
+				// 使用配置的 MinFPS 和 MaxFPS 进行插值
+				float targetFPS = Mathf.Lerp(mConfig.MinFPS, mConfig.MaxFPS, t); 
 				spriteAnimator.FPS = targetFPS;
 			}
 		}
