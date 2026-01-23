@@ -25,17 +25,10 @@ namespace Script.SODataScript.MouseCursorSystem
         [Tooltip("是否启用根据移动速度决定移动状态的播放速度")]
         public bool EnableSpeedBasedAnim = false;
 
-        [Tooltip("根据移动速度决定移动状态动画播放速度的最小阈值")]
-        public float MinSpeedThreshold = 100.0f;
-
-        [Tooltip("根据移动速度决定移动状态动画播放速度的最大阈值")]
-        public float MaxSpeedThreshold = 1000.0f;
-
-        [Header("动态 FPS 配置")]
-        [Tooltip("移动状态时的最小 FPS (对应最小速度阈值)")]
+        [Tooltip("根据移动速度决定移动状态动画播放速度的最小阈值(FPS)")]
         public float MinFPS = 5.0f;
 
-        [Tooltip("移动状态时的最大 FPS (对应最大速度阈值)")]
+        [Tooltip("根据移动速度决定移动状态动画播放速度的最大阈值(FPS)")]
         public float MaxFPS = 30.0f;
     }
 }

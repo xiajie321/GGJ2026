@@ -30,5 +30,5 @@ MonoBehaviour:
   IdleThreshold: 0.1
   MoveThreshold: 1
   EnableSpeedBasedAnim: 0
-  MinSpeedThreshold: 100
-  MaxSpeedThreshold: 1000
+  MinFPS: 5
+  MaxFPS: 30
