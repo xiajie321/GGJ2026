@@ -19,7 +19,7 @@ namespace Script.Service.View.UI.Panel
 	public partial class UIMouseCursorPanel : UIPanel
 	{
 		// 动画播放器组件引用
-		[SerializeField] private UISpriteAnimator spriteAnimator; 
+		[SerializeField] private UISpriteAnimation spriteAnimation; 
 		
 		// 当前使用的鼠标指针配置资源
 		[SerializeField] private CursorConfig mConfig;
@@ -171,7 +171,7 @@ namespace Script.Service.View.UI.Panel
 			}
 
 			// 5. 更新 Move 状态的动画速度
-			if (_currentState == CursorState.Move && mConfig.EnableSpeedBasedAnim && spriteAnimator != null && spriteAnimator.IsPlaying)
+			if (_currentState == CursorState.Move && mConfig.EnableSpeedBasedAnim && spriteAnimation != null && spriteAnimation.IsPlaying)
 			{
 				UpdateMoveAnimSpeed(speed);
 			}
@@ -180,11 +180,11 @@ namespace Script.Service.View.UI.Panel
 			if (_currentState == CursorState.Up)
 			{
 				// 如果动画播放结束（非循环）或者没有动画
-				if (spriteAnimator != null && !spriteAnimator.Loop && !spriteAnimator.IsPlaying)
+				if (spriteAnimation != null && !spriteAnimation.Loop && !spriteAnimation.IsPlaying)
 				{
 					OnUpStateFinished();
 				}
-				else if (spriteAnimator == null || !spriteAnimator.enabled) // 只有图片的情况，Up状态可能需要立即结束或持续一帧？
+				else if (spriteAnimation == null || !spriteAnimation.enabled) // 只有图片的情况，Up状态可能需要立即结束或持续一帧？
 				{
 					// 如果只有图片，Up状态在逻辑上可能瞬间完成或者持续到下一次操作。
 					// 需求说: "Up状态...动画播放完毕就会...返回"
@@ -261,15 +261,18 @@ namespace Script.Service.View.UI.Panel
 
 		private void UpdateMoveAnimSpeed(float speed)
 		{
+			// 定义速度参考范围，用于计算 FPS 插值比例 (硬编码参考值)
+			const float MIN_SPEED_REF = 100f;
+			const float MAX_SPEED_REF = 1000f;
+
 			// 根据速度调整 FPS
-			// 简单的线性映射示例，根据需求细化
-			float t = Mathf.InverseLerp(mConfig.MinSpeedThreshold, mConfig.MaxSpeedThreshold, speed);
+			// 使用配置的 MinFPS 和 MaxFPS 进行插值
+			float t = Mathf.InverseLerp(MIN_SPEED_REF, MAX_SPEED_REF, speed);
 
 			if (mConfig.MoveState != null && mConfig.MoveState.Animator != null)
 			{
-				// 使用配置的 MinFPS 和 MaxFPS 进行插值
 				float targetFPS = Mathf.Lerp(mConfig.MinFPS, mConfig.MaxFPS, t); 
-				spriteAnimator.FPS = targetFPS;
+				spriteAnimation.FPS = targetFPS;
 			}
 		}
 
@@ -327,7 +330,7 @@ namespace Script.Service.View.UI.Panel
 				: "No Resources";
 
 			// 输出状态切换日志
-			Debug.Log($"[MouseCursorSystem] State Changed: {_currentState} -> {targetState}. Resources: [{resourceStatus}]");
+			//Debug.Log($"[MouseCursorSystem] State Changed: {_currentState} -> {targetState}. Resources: [{resourceStatus}]");
 
 			_currentState = targetState;
 			ApplyVisual(config);
@@ -364,10 +367,10 @@ namespace Script.Service.View.UI.Panel
 
 		private void ShowSprite(Sprite sprite)
 		{
-			if (spriteAnimator != null)
+			if (spriteAnimation != null)
 			{
-				spriteAnimator.Stop();
-				spriteAnimator.enabled = false;
+				spriteAnimation.Stop();
+				spriteAnimation.enabled = false;
 			}
 			if (MouseCursor != null)
 			{
@@ -378,13 +381,13 @@ namespace Script.Service.View.UI.Panel
 
 		private void ShowAnimator(SpriteAnimator animConfig)
 		{
-			if (spriteAnimator == null) return;
+			if (spriteAnimation == null) return;
 			
-			spriteAnimator.enabled = true;
-			spriteAnimator.SpriteFrames = animConfig.Sprites;
-			spriteAnimator.FPS = animConfig.FPS;
-			spriteAnimator.Loop = animConfig.Loop;
-			spriteAnimator.Play();
+			spriteAnimation.enabled = true;
+			spriteAnimation.SpriteFrames = animConfig.Sprites;
+			spriteAnimation.FPS = animConfig.FPS;
+			spriteAnimation.Loop = animConfig.Loop;
+			spriteAnimation.Play();
 			
 			// 如果有第一帧，更新 _lastValidSprite
 			if (animConfig.Sprites != null && animConfig.Sprites.Count > 0)
