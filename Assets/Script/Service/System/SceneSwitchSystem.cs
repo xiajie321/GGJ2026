@@ -9,16 +9,18 @@ namespace Script.Service.System
     public interface ISceneSwitch
     {
         /// <summary>
-        /// 正在加载时会调用的方法
+        /// 正在 (加载/卸载) 场景时会调用的方法,每帧都会返回一个当前的加载进度,如果进度>=0.9则不会不会执行该方法
         /// </summary>
         /// <param name="progress">加载的进度</param>
-        public void OnLoad(float progress);
+        /// <param name="isLoad">用于判断当前调用属于加载还是卸载</param>
+        public void OnLoad(float progress,bool isLoad);
 
         /// <summary>
-        /// 加载完成时会调用的方法
+        ///  (加载/卸载) 场景完成时会调用的方法,如果返回值为false每帧都会执行一次,如果返回值为true则会将加载好的场景载入。
         /// </summary>
         /// <param name="progress">加载的进度</param>
-        public bool OnLoadCompleted(float progress);
+        /// <param name="isLoad">用于判断当前调用属于加载还是卸载</param>
+        public bool OnLoadCompleted(float progress,bool isLoad);
     }
 
     public class SceneSwitchSystem : AbstractSystem
@@ -80,10 +82,10 @@ namespace Script.Service.System
             operation.allowSceneActivation = false;
             while (!operation.isDone)
             {
-                _sceneSwitch.OnLoad(operation.progress);
+                _sceneSwitch.OnLoad(operation.progress,true);
                 if (operation.progress >= 0.9f)
                 {
-                    if (_sceneSwitch.OnLoadCompleted(operation.progress))
+                    if (_sceneSwitch.OnLoadCompleted(operation.progress,true))
                     {
                         operation.allowSceneActivation = true;
                     }
@@ -121,9 +123,10 @@ namespace Script.Service.System
             operation.allowSceneActivation = false;
             while (!operation.isDone)
             {
+                _sceneSwitch.OnLoad(operation.progress,false);
                 if (operation.progress >= 0.9f)
                 {
-                    if (_sceneSwitch.OnLoadCompleted(operation.progress))
+                    if (_sceneSwitch.OnLoadCompleted(operation.progress,false))
                     {
                         operation.allowSceneActivation = true;
                     }
