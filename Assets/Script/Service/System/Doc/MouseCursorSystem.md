@@ -110,12 +110,21 @@ cursorSystem.SetCursorConfig(yourConfig);
 | 接口方法 | 说明 |
 | :--- | :--- |
 | `SetCursorConfig(CursorConfig config)` | 设置并应用完整的状态配置资源 |
+| `SetDefaultCursorIcon(Sprite sprite)` | 设置默认状态的鼠标指针图标 |
+| `SetDefaultCursorAnimator(SpriteAnimator animator)` | 设置默认状态的鼠标指针动画 |
 | `SetCursorOffset(Vector2 offset)` | 设置光标相对于物理坐标的偏移 |
 | `ShowMouseCursor(bool show)` | 显示或隐藏自定义光标 |
+| `GetCursorTransform()` | 获取鼠标指针的 Transform 组件 |
 | `AddMouseEnterEvent(Action action)` | 订阅鼠标进入 UI 区域事件 |
+| `RemoveMouseEnterEvent(Action action)` | 移除鼠标进入 UI 区域事件订阅 |
 | `AddMouseExitEvent(Action action)` | 订阅鼠标离开 UI 区域事件 |
+| `RemoveMouseExitEvent(Action action)` | 移除鼠标离开 UI 区域事件订阅 |
 | `AddMouseDownEvent(Action action)` | 订阅鼠标左键按下事件 |
+| `RemoveMouseDownEvent(Action action)` | 移除鼠标左键按下事件订阅 |
+| `AddMouseUpEvent(Action action)` | 订阅鼠标左键抬起事件 |
+| `RemoveMouseUpEvent(Action action)` | 移除鼠标左键抬起事件订阅 |
 | `AddMouseMoveEvent(Action<Vector2> action)`| 订阅鼠标移动事件（参数为移动方向） |
+| `RemoveMouseMoveEvent(Action<Vector2> action)`| 移除鼠标移动事件订阅 |
 
 ---
 
