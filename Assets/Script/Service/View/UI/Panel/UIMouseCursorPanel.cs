@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using QFramework;
 using Script.SODataScript.MouseCursorSystem;
 using UnityEngine;
@@ -52,9 +53,12 @@ namespace Script.Service.View.UI.Panel
 		// 当前是否在UI上
 		private bool _isOverUI;
 
+		// 上一次所在的UI对象
+		private GameObject _lastOverUIObject;
+
 		// 事件委托
-		private Action _enter;
-		private Action _exit;
+		private Action<GameObject> _enter;
+		private Action<GameObject> _exit;
 		private Action<Vector2> _move;
 		private Action _down;
 		private Action _up;
@@ -118,11 +122,30 @@ namespace Script.Service.View.UI.Panel
 
 			// 2. 检测UI悬浮状态
 			bool isOverUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+			GameObject currentObj = null;
+			if (isOverUI)
+			{
+				currentObj = GetCurrentObjectUnderPointer();
+				// 如果已经在UI上，持续更新当前对象，以便Exit时能传递正确的对象
+				if (_isOverUI)
+				{
+					_lastOverUIObject = currentObj;
+				}
+			}
+
 			if (isOverUI != _isOverUI)
 			{
 				_isOverUI = isOverUI;
-				if (_isOverUI) _enter?.Invoke();
-				else _exit?.Invoke();
+				if (_isOverUI)
+				{
+					_lastOverUIObject = currentObj;
+					_enter?.Invoke(currentObj);
+				}
+				else
+				{
+					_exit?.Invoke(_lastOverUIObject);
+					_lastOverUIObject = null;
+				}
 			}
 
 			// 3. 检测鼠标点击
@@ -197,7 +220,24 @@ namespace Script.Service.View.UI.Panel
 			_lastMousePosition = currentMousePosition;
 		}
 
-		private void OnMouseEnterUI()
+		private GameObject GetCurrentObjectUnderPointer()
+		{
+			PointerEventData pointerData = new PointerEventData(EventSystem.current)
+			{
+				position = Input.mousePosition
+			};
+
+			List<RaycastResult> results = new List<RaycastResult>();
+			EventSystem.current.RaycastAll(pointerData, results);
+
+			if (results.Count > 0)
+			{
+				return results[0].gameObject;
+			}
+			return null;
+		}
+
+		private void OnMouseEnterUI(GameObject obj)
 		{
 			// 优先级: Hover > Default. Down/Up 优先级更高
 			if (_currentState == CursorState.Default || _currentState == CursorState.Move)
@@ -206,7 +246,7 @@ namespace Script.Service.View.UI.Panel
 			}
 		}
 
-		private void OnMouseExitUI()
+		private void OnMouseExitUI(GameObject obj)
 		{
 			// 退出UI，如果在 Hover 状态，切回 Default
 			if (_currentState == CursorState.Hover)
@@ -432,10 +472,10 @@ namespace Script.Service.View.UI.Panel
 
 		public Transform GetCursorTransform() => MouseCursor != null ? MouseCursor.transform : transform;
 
-		public void AddMouseEnterEvent(Action action) => _enter += action;
-		public void RemoveMouseEnterEvent(Action action) => _enter -= action;
-		public void AddMouseExitEvent(Action action) => _exit += action;
-		public void RemoveMouseExitEvent(Action action) => _exit -= action;
+		public void AddMouseEnterEvent(Action<GameObject> action) => _enter += action;
+		public void RemoveMouseEnterEvent(Action<GameObject> action) => _enter -= action;
+		public void AddMouseExitEvent(Action<GameObject> action) => _exit += action;
+		public void RemoveMouseExitEvent(Action<GameObject> action) => _exit -= action;
 		public void AddMouseDownEvent(Action action) => _down += action;
 		public void RemoveMouseDownEvent(Action action) => _down -= action;
 		public void AddMouseUpEvent(Action action) => _up += action;

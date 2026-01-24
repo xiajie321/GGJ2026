@@ -85,8 +85,8 @@ namespace Script.Service.System
         /// <summary>
         /// 添加鼠标进入 UI 元素的事件回调
         /// </summary>
-        /// <param name="action">回调动作</param>
-        public void AddMouseEnterEvent(Action action)
+        /// <param name="action">回调动作, 参数为进入的 UI 对象</param>
+        public void AddMouseEnterEvent(Action<GameObject> action)
         {
             _mouseCursorPanel.AddMouseEnterEvent(action);
         }
@@ -95,7 +95,7 @@ namespace Script.Service.System
         /// 移除鼠标进入 UI 元素的事件回调
         /// </summary>
         /// <param name="action">回调动作</param>
-        public void RemoveMouseEnterEvent(Action action)
+        public void RemoveMouseEnterEvent(Action<GameObject> action)
         {
             _mouseCursorPanel.RemoveMouseEnterEvent(action);
         }
@@ -103,8 +103,8 @@ namespace Script.Service.System
         /// <summary>
         /// 添加鼠标离开 UI 元素的事件回调
         /// </summary>
-        /// <param name="action">回调动作</param>
-        public void AddMouseExitEvent(Action action)
+        /// <param name="action">回调动作, 参数为退出的 UI 对象</param>
+        public void AddMouseExitEvent(Action<GameObject> action)
         {
             _mouseCursorPanel.AddMouseExitEvent(action);
         }
@@ -113,7 +113,7 @@ namespace Script.Service.System
         /// 移除鼠标离开 UI 元素的事件回调
         /// </summary>
         /// <param name="action">回调动作</param>
-        public void RemoveMouseExitEvent(Action action)
+        public void RemoveMouseExitEvent(Action<GameObject> action)
         {
             _mouseCursorPanel.RemoveMouseExitEvent(action);
         }
