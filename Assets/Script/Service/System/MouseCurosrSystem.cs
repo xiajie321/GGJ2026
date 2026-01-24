@@ -25,6 +25,7 @@ namespace Script.Service.System
             if(_mouseCursorPanel) return;
             // 打开自定义鼠标指针面板
             _mouseCursorPanel = UIKit.OpenPanel<UIMouseCursorPanel>(UILevel.PopUI);
+            Debug.Log("[MouseCursorSystem] 加载完成...");
         }
 
         /// <summary>

@@ -16,6 +16,7 @@ namespace Script.Service.System
         protected override void OnInit()
         {
             Init();
+            Debug.Log("[MessageTipSystem] 加载完成...");
         }
         /// <summary>
         /// 显示一下的提示
