@@ -5,7 +5,7 @@ using Script.Service.Architecture;
 using Script.Service.System;
 using UnityEngine;
 
-public class Test : MonoBehaviour,IController
+public class TestTemplateScript : MonoBehaviour,IController
 {
     void Start()
     {
