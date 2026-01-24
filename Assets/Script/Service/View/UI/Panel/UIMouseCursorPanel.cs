@@ -66,10 +66,18 @@ namespace Script.Service.View.UI.Panel
 		// 上一次显示的精灵，用于在配置为空时回退显示
 		private Sprite _lastValidSprite;
 
+		// 缓存 Raycast 相关对象以优化性能
+		private PointerEventData _pointerEventData;
+		private List<RaycastResult> _raycastResults;
+
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIMouseCursorPanelData ?? new UIMouseCursorPanelData();
 			
+			// 初始化 Raycast 缓存
+			_pointerEventData = new PointerEventData(EventSystem.current);
+			_raycastResults = new List<RaycastResult>();
+
 			// 获取初始精灵作为备份
 			if (MouseCursor != null)
 			{
@@ -222,17 +230,20 @@ namespace Script.Service.View.UI.Panel
 
 		private GameObject GetCurrentObjectUnderPointer()
 		{
-			PointerEventData pointerData = new PointerEventData(EventSystem.current)
-			{
-				position = Input.mousePosition
-			};
+			if (EventSystem.current == null) return null;
 
-			List<RaycastResult> results = new List<RaycastResult>();
-			EventSystem.current.RaycastAll(pointerData, results);
+			// 重用 PointerEventData
+			_pointerEventData.Reset();
+			_pointerEventData.position = Input.mousePosition;
 
-			if (results.Count > 0)
+			// 清除上次的结果
+			_raycastResults.Clear();
+			
+			EventSystem.current.RaycastAll(_pointerEventData, _raycastResults);
+
+			if (_raycastResults.Count > 0)
 			{
-				return results[0].gameObject;
+				return _raycastResults[0].gameObject;
 			}
 			return null;
 		}
