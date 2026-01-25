@@ -18,7 +18,6 @@ namespace Service.View.UI.Panel
 			{
 				Debug.Log("开始游戏");
 			});
-			
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
