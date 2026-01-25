@@ -22,5 +22,5 @@ MonoBehaviour:
   Hp: 3
   Speed: 1
   JumpHeight: 1.5
-  Attack: 0
+  Attack: 1
   InvincibilityTime: 1

@@ -69,7 +69,7 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
                 }
             }
 
-            if (Input.GetKeyDown(config.JumpKey) && mController.IsGrounded)
+            if (Input.GetKey(config.JumpKey) && mController.IsGrounded)
             {
                 mFSM.ChangeState(PlayerStateEnum.Jump);
             }
