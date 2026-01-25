@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2a091226ac8640c9bac2c152cd9db88
+guid: 424a9f6e25e364d299471ad2144ab54c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,9 +46,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
-  spritePixelsToUnits: 16
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,30 +106,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_jump_0
+      name: Enemy_Zombie_0
       rect:
         serializedVersion: 2
-        x: 37
+        x: 0
         y: 0
-        width: 23
-        height: 43
+        width: 61
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76b46e38c49af429ca73a29e0019954f
-      internalID: 2054085371
+      spriteID: 529e74aa9e505474ab4fbe13cb5226e7
+      internalID: 1094694294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_jump_1
+      name: Enemy_Zombie_1
       rect:
         serializedVersion: 2
-        x: 133
-        y: 7
-        width: 24
-        height: 34
+        x: 61
+        y: 0
+        width: 61
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bddefc711ad714dcf9900e16e1df5b34
-      internalID: 497987579
+      spriteID: 92b431e7d3e2547899a7105c40b99e3f
+      internalID: 1760459609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_jump_2
+      name: Enemy_Zombie_2
       rect:
         serializedVersion: 2
-        x: 229
+        x: 122
         y: 0
-        width: 23
-        height: 40
+        width: 61
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 950131c9d7f2d40fab0c4f6ec801d4f7
-      internalID: -1132365130
+      spriteID: 4d6810aa159ee45d98f049edc5b2b4eb
+      internalID: 367499236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_jump_3
+      name: Enemy_Zombie_3
       rect:
         serializedVersion: 2
-        x: 329
+        x: 183
         y: 0
-        width: 26
-        height: 33
+        width: 61
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 843747fb7a1ad470a85a2fa8ab87e258
-      internalID: -432293361
+      spriteID: 53a9ed197573c45da8d30e90d103aee0
+      internalID: 191641161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_jump_4
+      name: Enemy_Zombie_4
       rect:
         serializedVersion: 2
-        x: 424
+        x: 244
         y: 0
-        width: 20
-        height: 40
+        width: 61
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +208,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0668aa05021b84c39b1666d785723ebd
-      internalID: 1666019325
+      spriteID: ecbd4dbd46f3d409f8d94e883e7784e8
+      internalID: -94250430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Zombie_5
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 0
+        width: 61
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb7a58a5df264e43b06de0a7b02af34
+      internalID: 2061698304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Zombie_6
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 0
+        width: 61
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bccf2c0f0bd37460380108756a051267
+      internalID: 2067477526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Zombie_7
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 0
+        width: 61
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba6d48ee263c43209a2cad07d69bbdf
+      internalID: -1594766987
       vertices: []
       indices: 
       edges: []
@@ -238,11 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_jump_0: 2054085371
-      Player_jump_1: 497987579
-      Player_jump_2: -1132365130
-      Player_jump_3: -432293361
-      Player_jump_4: 1666019325
+      Enemy_Zombie_0: 1094694294
+      Enemy_Zombie_1: 1760459609
+      Enemy_Zombie_2: 367499236
+      Enemy_Zombie_3: 191641161
+      Enemy_Zombie_4: -94250430
+      Enemy_Zombie_5: 2061698304
+      Enemy_Zombie_6: 2067477526
+      Enemy_Zombie_7: -1594766987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
