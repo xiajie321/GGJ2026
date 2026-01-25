@@ -13,20 +13,14 @@ namespace Service.View.UI.Panel
 		[SerializeField]
 		public UnityEngine.UI.Button BtnStart;
 		[SerializeField]
-		public UnityEngine.UI.Button BtnSettings;
-		[SerializeField]
 		public UnityEngine.UI.Button BtnExit;
-		[SerializeField]
-		public TMPro.TextMeshProUGUI TextTitle;
 		
 		private UIHomePanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
 			BtnStart = null;
-			BtnSettings = null;
 			BtnExit = null;
-			TextTitle = null;
 			
 			mData = null;
 		}
