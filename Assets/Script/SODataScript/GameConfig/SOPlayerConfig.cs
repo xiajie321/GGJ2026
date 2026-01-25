@@ -11,8 +11,10 @@ namespace Script.SODataScript.GameConfig
         public KeyCode MoveRightKey;
         public KeyCode AttackKey;
         public AnimatorController AnimatorController;
+        public int MaxHp;
+        public float MaxSpeed;
         public int Hp;
-        public int Speed;
+        public float Speed;
         public float JumpHeight = 1.5f;
         public int Attack;
         public float InvincibilityTime = 1f;//无敌时间

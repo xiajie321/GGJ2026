@@ -9,7 +9,7 @@ namespace Script.Service.View.Game.Controller
     {
         public override int Hp { get; set; }
 
-        public override int Speed { get; set; }
+        public override float Speed { get; set; }
 
         public override void Harm(HarmData data)
         {

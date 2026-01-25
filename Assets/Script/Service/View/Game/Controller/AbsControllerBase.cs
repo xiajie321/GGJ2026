@@ -23,7 +23,7 @@ namespace Script.Service.View.Game.Controller
         /// <summary>
         /// 变更速度执行的方法
         /// </summary>
-        public abstract int Speed { get; set; }
+        public abstract float Speed { get; set; }
         /// <summary>
         /// 被伤害时执行的方法
         /// </summary>
