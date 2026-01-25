@@ -1,4 +1,4 @@
-﻿using QFramework;
+using QFramework;
 using Script.Service.View.Game.Controller;
 
 namespace Script.Service.Model

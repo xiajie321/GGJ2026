@@ -1,4 +1,4 @@
-﻿using QFramework;
+using QFramework;
 using Script.Service.Architecture;
 using Script.Service.View.Game.Component;
 using UnityEngine;
@@ -38,5 +38,8 @@ namespace Script.Service.View.Game.Controller
     public struct HarmData
     {
         public int Hp;
+
+        public int Damage { get; internal set; }
+        public EnemyController Attacker { get; internal set; }
     }
 }
