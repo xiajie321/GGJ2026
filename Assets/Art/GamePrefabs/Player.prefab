@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9196175230659936900
 Transform:
   m_ObjectHideFlags: 0
@@ -127,7 +127,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1665003596737457814}
   - component: {fileID: 3852003632632238975}
-  m_Layer: 0
+  - component: {fileID: 5688079408465433687}
+  m_Layer: 9
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,13 +195,26 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0}
-      - {x: -0.5859576, y: -0.54676926}
-      - {x: -0.4690765, y: -0.77239454}
-      - {x: -0.23982814, y: -0.95948493}
-      - {x: 0.20814556, y: -0.96541893}
-      - {x: 0.45001787, y: -0.8330608}
-      - {x: 0.5496923, y: -0.5502391}
+      - {x: -0.7500163, y: -0.9001265}
+      - {x: -0.49901903, y: -1.116391}
+      - {x: -0.16592428, y: -1.2757268}
+      - {x: 0.39097023, y: -1.2564205}
+      - {x: 0.631771, y: -1.1154014}
+      - {x: 0.81796914, y: -0.9331665}
   m_UseDelaunayMesh: 1
+--- !u!114 &5688079408465433687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387703053796985015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f42aee1b93540c1837784e7fdcd3ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 1621274296022712538}
 --- !u!1 &7702482115709850900
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +229,7 @@ GameObject:
   - component: {fileID: 4781717967801368776}
   - component: {fileID: 1621274296022712538}
   - component: {fileID: 3660212845693388769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,6 +378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a693b2e2e2454491e98b81d279730d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackGameObject: {fileID: 934493309255059742}
+  groundCheckDistance: 0.1
+  wallCheckDistance: 0.1
 --- !u!95 &3660212845693388769
 Animator:
   serializedVersion: 5
