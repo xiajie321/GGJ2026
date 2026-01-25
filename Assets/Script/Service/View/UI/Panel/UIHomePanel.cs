@@ -18,11 +18,7 @@ namespace Service.View.UI.Panel
 			{
 				Debug.Log("开始游戏");
 			});
-
-			BtnSettings.onClick.AddListener(() =>
-			{
-				UIKit.OpenPanel<UISettingsPanel>();
-			});
+			
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

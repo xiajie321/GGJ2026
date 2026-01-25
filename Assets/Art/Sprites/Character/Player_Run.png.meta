@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,12 +126,12 @@ TextureImporter:
       name: Player_Run_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 33
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 30
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +147,12 @@ TextureImporter:
       name: Player_Run_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 133
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 23
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +168,12 @@ TextureImporter:
       name: Player_Run_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 225
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +189,12 @@ TextureImporter:
       name: Player_Run_3
       rect:
         serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 319
+        y: 3
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +210,12 @@ TextureImporter:
       name: Player_Run_4
       rect:
         serializedVersion: 2
-        x: 384
+        x: 415
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +231,12 @@ TextureImporter:
       name: Player_Run_5
       rect:
         serializedVersion: 2
-        x: 480
+        x: 518
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +252,12 @@ TextureImporter:
       name: Player_Run_6
       rect:
         serializedVersion: 2
-        x: 576
+        x: 610
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 27
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,12 +273,12 @@ TextureImporter:
       name: Player_Run_7
       rect:
         serializedVersion: 2
-        x: 672
-        y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 704
+        y: 3
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

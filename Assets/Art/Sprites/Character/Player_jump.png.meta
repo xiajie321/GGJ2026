@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -113,12 +126,12 @@ TextureImporter:
       name: Player_jump_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 37
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +147,12 @@ TextureImporter:
       name: Player_jump_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 133
+        y: 7
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +168,12 @@ TextureImporter:
       name: Player_jump_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 229
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +189,12 @@ TextureImporter:
       name: Player_jump_3
       rect:
         serializedVersion: 2
-        x: 288
+        x: 329
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +210,12 @@ TextureImporter:
       name: Player_jump_4
       rect:
         serializedVersion: 2
-        x: 384
+        x: 424
         y: 0
-        width: 96
-        height: 84
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 20
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
