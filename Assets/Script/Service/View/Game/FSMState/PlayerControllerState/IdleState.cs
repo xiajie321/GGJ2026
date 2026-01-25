@@ -20,7 +20,7 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
                 mController.Rigidbody.velocity = velocity;
             }
             // 播放待机动画
-            // TODO mController.Animator.Play("Idle");
+            mController.GetAnimator().Play("Idle");
         }
 
         protected override void OnUpdate()

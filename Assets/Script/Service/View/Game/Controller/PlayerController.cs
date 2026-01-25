@@ -35,6 +35,7 @@ namespace Script.Service.View.Game.Controller
         [SerializeField]
         private GameObject attackGameObject;//用于鼠标控制attack的游戏对象的开关。
         public GameObject AttackGameObject => attackGameObject;
+        public Animator GetAnimator() => Animator;
         
         [SerializeField]
         private float groundCheckDistance = 0.1f; // 向下射线检测距离

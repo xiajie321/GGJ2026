@@ -13,7 +13,7 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
         protected override void OnEnter()
         {
             // 播放移动动画
-            // TODO mController.Animator.Play("Move");
+            mController.GetAnimator().Play("Move");
         }
 
         protected override void OnUpdate()
