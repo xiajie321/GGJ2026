@@ -28,7 +28,7 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
             }
             
             // 播放跳跃动画
-            // TODO mController.Animator.Play("Jump");
+            mController.GetAnimator().Play("Jump");
         }
 
         protected override void OnUpdate()
