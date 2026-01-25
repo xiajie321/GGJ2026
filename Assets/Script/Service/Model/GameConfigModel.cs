@@ -1,0 +1,15 @@
+﻿using QFramework;
+using Script.SODataScript.GameConfig;
+using UnityEngine;
+namespace Script.Service.Model
+{
+    public class GameConfigModel:AbstractModel
+    {
+        private SOGameConfig _gameConfig;
+        public SOGameConfig GameConfig => _gameConfig;
+        protected override void OnInit()
+        {
+            _gameConfig = Resources.Load<SOGameConfig>("SOData/GameConfig/MainGameConfig");
+        }
+    }
+}

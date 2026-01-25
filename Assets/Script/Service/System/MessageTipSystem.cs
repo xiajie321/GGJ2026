@@ -1,4 +1,6 @@
 using QFramework;
+using Script.Service.Model;
+using Script.SODataScript.GameConfig;
 using Service.View.UI.Panel;
 using UnityEngine;
 

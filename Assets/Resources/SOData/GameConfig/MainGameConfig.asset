@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7565235b01e6afa42b0a6105afcd48ac, type: 3}
   m_Name: MainGameConfig
   m_EditorClassIdentifier: 
-  EnemyConfig: {fileID: 11400000, guid: 3c57958361d51b9429422b6e4d97a09d, type: 2}
+  _enemyConfig: {fileID: 11400000, guid: 3c57958361d51b9429422b6e4d97a09d, type: 2}

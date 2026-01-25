@@ -5,6 +5,8 @@ namespace Script.SODataScript.GameConfig
     [CreateAssetMenu(fileName = "NewGameConfig", menuName = "GameConfig/MainGameConfig")]
     public class SOGameConfig : ScriptableObject
     {
-        public SOEnemyConfig EnemyConfig;
+        [SerializeField]
+        private readonly SOEnemyConfig _enemyConfig;
+        public SOEnemyConfig EnemyConfig => _enemyConfig;
     }
 }

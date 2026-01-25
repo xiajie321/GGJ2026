@@ -5,12 +5,19 @@ using UnityEngine;
 
 namespace Script.SODataScript.GameConfig
 {
-    [AlchemySerialize,CreateAssetMenu(fileName = "NewEnemyConfig", menuName = "GameConfig/EnemyConfig")]
-    public partial class SOEnemyConfig:ScriptableObject
+    [CreateAssetMenu(fileName = "NewEnemyConfig", menuName = "GameConfig/EnemyConfig")]
+    public partial class SOEnemyConfig: AbsSOConfigBase<TbEnemyConfig>
     {
-        [AlchemySerializeField,NonSerialized]
-        public Dictionary<int,TbEnemyConfig> TbEnemyConfigs = new();
-        
+        public override TbEnemyConfig Get(int id)
+        {
+            TbEnemyConfig ls = _tbData[id];
+            return new TbEnemyConfig()
+            {
+                Name = ls.Name,
+                Hp = ls.Hp,
+                Speed = ls.Speed,
+            };
+        }
     }
     [Serializable]
     public class TbEnemyConfig
