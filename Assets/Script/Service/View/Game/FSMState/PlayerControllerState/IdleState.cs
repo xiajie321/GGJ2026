@@ -20,7 +20,7 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
                 mController.Rigidbody.velocity = velocity;
             }
             // 播放待机动画
-            // mController.Animator.Play("Idle");
+            // TODO mController.Animator.Play("Idle");
         }
 
         protected override void OnUpdate()
@@ -33,7 +33,7 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
             {
                 mFSM.ChangeState(PlayerStateEnum.Move);
             }
-            else if (Input.GetKeyDown(config.JumpKey))
+            else if (Input.GetKey(config.JumpKey) && mController.IsGrounded)
             {
                 mFSM.ChangeState(PlayerStateEnum.Jump);
             }
