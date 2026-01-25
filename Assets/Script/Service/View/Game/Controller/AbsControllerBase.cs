@@ -15,7 +15,7 @@ namespace Script.Service.View.Game.Controller
         /// <summary>
         /// 用于切换动画控制器
         /// </summary>
-        protected Animation Animation;
+        protected Animator Animator;
 
         /// <summary>
         /// 临时速度(生物速度 = 配表速度 + 临时速度)

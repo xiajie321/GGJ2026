@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Script.SODataScript.GameConfig
@@ -23,5 +24,6 @@ namespace Script.SODataScript.GameConfig
         public string Name ="";
         public int Hp;
         public float Speed;
+        public AnimatorController AnimatorController;
     }
 }
