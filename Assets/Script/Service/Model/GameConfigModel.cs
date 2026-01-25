@@ -10,6 +10,7 @@ namespace Script.Service.Model
         protected override void OnInit()
         {
             _gameConfig = Resources.Load<SOGameConfig>("SOData/GameConfig/MainGameConfig");
+            Debug.Log("[GameConfigModel] 加载完成...");
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Script.SODataScript.GameConfig
     [Serializable]
     public class TbEnemyConfig
     {
-        public string Name;
+        public string Name ="";
         public int Hp;
         public float Speed;
     }
