@@ -18,9 +18,10 @@ namespace Script.Service.Architecture
 
         private void RegisterSystem()
         {
-            RegisterSystem(new SceneSwitchSystem());
-            RegisterSystem(new MessageTipSystem());
-            RegisterSystem(new MouseCursorSystem());
+            RegisterSystem(new GameManagerSystem());//游戏管理系统
+            RegisterSystem(new SceneSwitchSystem());//游戏场景切换系统
+            RegisterSystem(new MessageTipSystem());//消息弹窗系统
+            RegisterSystem(new MouseCursorSystem());//鼠标光标系统
         }
 
         protected override void Init()

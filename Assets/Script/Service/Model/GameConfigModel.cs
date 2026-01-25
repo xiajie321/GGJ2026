@@ -7,6 +7,7 @@ namespace Script.Service.Model
     {
         private SOGameConfig _gameConfig;
         public SOGameConfig GameConfig => _gameConfig;
+        public GameObject PlayerObject;
         protected override void OnInit()
         {
             _gameConfig = Resources.Load<SOGameConfig>("SOData/GameConfig/MainGameConfig");
