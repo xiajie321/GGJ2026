@@ -1,5 +1,6 @@
 using QFramework;
 using Script.Service.View.Game.Controller;
+using System.Collections.Generic;
 
 namespace Script.Service.Model
 {
@@ -13,6 +14,10 @@ namespace Script.Service.Model
         /// 当前游戏关卡下玩家的积分
         /// </summary>
         public BindableProperty<int> Points =  new();
+        /// <summary>
+        /// 存活的敌人列表
+        /// </summary>
+        public List<EnemyController> AliveEnemies = new List<EnemyController>();
         protected override void OnInit()
         {
         }
