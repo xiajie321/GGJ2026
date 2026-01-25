@@ -16,7 +16,7 @@ MonoBehaviour:
   MoveLeftKey: 97
   MoveRightKey: 100
   AttackKey: 32
-  AnimatorController: {fileID: 9100000, guid: 7cf126d12c1e9fe41b449fec3b0faca6, type: 2}
+  AnimatorController: {fileID: 9100000, guid: 1a4928359dc0b0d428e93f46016a955b, type: 2}
   MaxHp: 0
   MaxSpeed: 3
   Hp: 3
