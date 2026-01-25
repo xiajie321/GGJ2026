@@ -6,7 +6,10 @@ namespace Script.SODataScript.GameConfig
     public class SOGameConfig : ScriptableObject
     {
         [SerializeField]
-        private readonly SOEnemyConfig _enemyConfig;
+        private SOEnemyConfig _enemyConfig;
+        [SerializeField]
+        private SOPlayerConfig _playerConfig;
         public SOEnemyConfig EnemyConfig => _enemyConfig;
+        public SOPlayerConfig PlayerConfig => _playerConfig;
     }
 }

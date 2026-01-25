@@ -1,6 +1,7 @@
 using QFramework;
 using Script.Service.Model;
 using Script.Service.System;
+using Script.Service.Utility;
 using UnityEngine;
 
 namespace Script.Service.Architecture
@@ -9,11 +10,12 @@ namespace Script.Service.Architecture
     {
         private void RegisterModel()
         {
-            RegisterModel(new GameConfigModel());
+            
         }
 
         private void RegisterUtility()
         {
+            RegisterUtility(new GameConfigUility());
         }
 
         private void RegisterSystem()

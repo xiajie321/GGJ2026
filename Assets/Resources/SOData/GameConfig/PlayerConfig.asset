@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7565235b01e6afa42b0a6105afcd48ac, type: 3}
-  m_Name: MainGameConfig
+  m_Script: {fileID: 11500000, guid: dc06baf3bd644074856f6f867adc42cf, type: 3}
+  m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  _enemyConfig: {fileID: 11400000, guid: 3c57958361d51b9429422b6e4d97a09d, type: 2}
-  _playerConfig: {fileID: 11400000, guid: 49cfa63a4f99e8b4593324f4281a159f, type: 2}
+  __alchemySerializationData_Script_SODataScript_GameConfig_AbsSOConfigBase1:
+    _tbData:
+      isCreated: 1
+      data: '[]'
+    unityObjectReferences: []
