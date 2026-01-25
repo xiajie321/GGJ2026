@@ -9,6 +9,7 @@ namespace Script.Service.View.Game.Controller
         private PlayerController _playerController;
         private void OnTriggerEnter2D(Collider2D other)
         {
+            Debug.Log($"{other} 测试");
             //图层筛选已经在编辑器搞好了
             other.GetComponent<EnemyController>().Harm(new()
             {

@@ -41,34 +41,32 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
 
             if (Input.GetKey(config.MoveLeftKey))
             {
-                moveX = -1;
+                // 墙壁检测
+                if (!mController.IsTouchingLeftWall)
+                {
+                    moveX = -1;
+                }
             }
             else if (Input.GetKey(config.MoveRightKey))
             {
-                moveX = 1;
+                // 墙壁检测
+                if (!mController.IsTouchingRightWall)
+                {
+                    moveX = 1;
+                }
             }
 
-            if (mController.Rigidbody != null && moveX != 0)
+            if (mController.Rigidbody != null)
             {
                 Vector2 velocity = mController.Rigidbody.velocity;
                 velocity.x = moveX * mController.Speed;
                 mController.Rigidbody.velocity = velocity;
             }
 
-            // 落地检测：这里简单判断 y 速度小于等于 0 且接触地面
-            // 实际项目中可能需要使用射线检测或碰撞检测
-            if (mController.Rigidbody.velocity.y <= 0.01f) // 简单模拟落地
+            // 落地检测：使用 IsGrounded 以及向下的速度
+            if (mController.Rigidbody.velocity.y <= 0.01f && mController.IsGrounded)
             {
-                // 注意：这里需要配合碰撞检测来确定是否真的落地，
-                // 如果没有物理碰撞检测逻辑，可能导致无限跳或者无法切回 Idle
-                // 暂时假设速度向下且接近0就切换（这通常不准确，应该用 OnCollisionEnter2D 或者 射线检测）
-                
-                // 由于任务只要求实现状态机逻辑，没有具体的地面检测组件代码，
-                // 这里我们假设如果垂直速度接近0，就是落地了
-                if (Mathf.Abs(mController.Rigidbody.velocity.y) < 0.01f)
-                {
-                   mFSM.ChangeState(PlayerStateEnum.Idle);
-                }
+                mFSM.ChangeState(PlayerStateEnum.Idle);
             }
             
             if (Input.GetKeyDown(config.AttackKey))

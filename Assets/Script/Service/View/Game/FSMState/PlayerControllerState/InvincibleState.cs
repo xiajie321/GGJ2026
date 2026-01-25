@@ -87,11 +87,19 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
 
             if (Input.GetKey(config.MoveLeftKey))
             {
-                moveX = -1;
+                // 墙壁检测
+                if (!mController.IsTouchingLeftWall)
+                {
+                    moveX = -1;
+                }
             }
             else if (Input.GetKey(config.MoveRightKey))
             {
-                moveX = 1;
+                // 墙壁检测
+                if (!mController.IsTouchingRightWall)
+                {
+                    moveX = 1;
+                }
             }
 
             if (mController.Rigidbody != null)
@@ -101,7 +109,7 @@ namespace Script.Service.View.Game.FSMState.PlayerControllerState
                 mController.Rigidbody.velocity = velocity;
             }
             
-            if (Input.GetKeyDown(config.JumpKey) && mController.Rigidbody.velocity.y <= 0.01f)
+            if (Input.GetKey(config.JumpKey) && mController.IsGrounded)
             {
                  // 允许无敌状态跳跃
                  // 简单的跳跃逻辑复用

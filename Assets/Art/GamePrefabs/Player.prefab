@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9196175230659936900
 Transform:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665003596737457814}
   - component: {fileID: 3852003632632238975}
+  - component: {fileID: 5688079408465433687}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -201,6 +202,19 @@ PolygonCollider2D:
       - {x: 0.45001787, y: -0.8330608}
       - {x: 0.5496923, y: -0.5502391}
   m_UseDelaunayMesh: 1
+--- !u!114 &5688079408465433687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7387703053796985015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f42aee1b93540c1837784e7fdcd3ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 1621274296022712538}
 --- !u!1 &7702482115709850900
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackGameObject: {fileID: 934493309255059742}
+  groundCheckDistance: 0.1
+  wallCheckDistance: 0.1
 --- !u!95 &3660212845693388769
 Animator:
   serializedVersion: 5
