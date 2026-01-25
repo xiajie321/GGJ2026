@@ -24,6 +24,7 @@ namespace Script.Service.View.Game.Controller
         /// 变更速度执行的方法
         /// </summary>
         public abstract float Speed { get; set; }
+        public abstract int Attack {get;set;}
         /// <summary>
         /// 被伤害时执行的方法
         /// </summary>
@@ -37,6 +38,6 @@ namespace Script.Service.View.Game.Controller
 
     public struct HarmData
     {
-        public int Hp;
+        public int Hp;//扣除的生命值
     }
 }
