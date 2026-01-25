@@ -7,8 +7,15 @@ namespace Script.Service.View.Game.Controller
 {
     public class EnemyController:AbsControllerBase
     {
-        public override float Speed { get; }
-        public override int Hp { get; }
+        public override int Hp { get; set; }
+
+        public override int Speed { get; set; }
+
+        public override void Harm(HarmData data)
+        {
+            
+        }
+
         GameConfigUility _gameConfig;
         private void Start()
         {

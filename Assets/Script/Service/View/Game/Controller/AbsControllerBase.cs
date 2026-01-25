@@ -16,27 +16,27 @@ namespace Script.Service.View.Game.Controller
         /// 用于切换动画控制器
         /// </summary>
         protected Animator Animator;
-
         /// <summary>
-        /// 临时速度(生物速度 = 配表速度 + 临时速度)
+        /// 变更生命值执行的方法
         /// </summary>
-        protected float TemporarySpeed;
+        public abstract int Hp { get; set; }
         /// <summary>
-        /// 临时生命(生物生命 = 配表生命 + 临时生命)
+        /// 变更速度执行的方法
         /// </summary>
-        private int TemporaryHp;
+        public abstract int Speed { get; set; }
         /// <summary>
-        /// 配表的速度
+        /// 被伤害时执行的方法
         /// </summary>
-        public abstract float Speed { get; }
-        /// <summary>
-        /// 配表的生命值
-        /// </summary>
-        public abstract int Hp { get; }
+        public abstract void Harm(HarmData data);
 
         public IArchitecture GetArchitecture()
         {
             return GameArchitecture.Interface;
         }
+    }
+
+    public struct HarmData
+    {
+        public int Hp;
     }
 }

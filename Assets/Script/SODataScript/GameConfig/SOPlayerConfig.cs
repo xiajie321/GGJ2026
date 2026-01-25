@@ -13,7 +13,8 @@ namespace Script.SODataScript.GameConfig
         public AnimatorController AnimatorController;
         public int Hp;
         public int Speed;
-        public int JumpHeight;
+        public float JumpHeight = 1.5f;
         public int Attack;
+        public float InvincibilityTime = 1f;//无敌时间
     }
 }
