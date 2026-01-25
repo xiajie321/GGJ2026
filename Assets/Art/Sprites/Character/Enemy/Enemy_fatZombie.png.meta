@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ad748916a50546a4851468499a56d92
-      internalID: -1308173814
+      spriteID: d593e1f4fdb2d40bcaba61c7c0be8f2d
+      internalID: -260605162
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d42367482816c4ba2b1cc6ddda9e6967
-      internalID: 186324500
+      spriteID: 8db4a8714221244e0936158d20a594b4
+      internalID: -356140914
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9c32932c21cd4325a06b81e201144fe
-      internalID: -1054753051
+      spriteID: d423fd2acdcdd4b1ca2eadaf33675b49
+      internalID: 2146514378
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3d5f84551cf642c3a4f429c4a90d02f
-      internalID: 1206993536
+      spriteID: 91112d491b67a46e49fbe9ab736af48c
+      internalID: -1104598393
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d88d852a7342947a99b59b671de089f1
-      internalID: 1895821378
+      spriteID: 8551beb45dcf84398af5b55be9840298
+      internalID: 497905267
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4b76f714b61c409eb5bf8ab876becb5
-      internalID: -1932015243
+      spriteID: 512c954fdee4641e19074583e968605a
+      internalID: -865969113
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy_fatZombie_0: -1308173814
-      Enemy_fatZombie_1: 186324500
-      Enemy_fatZombie_2: -1054753051
-      Enemy_fatZombie_3: 1206993536
-      Enemy_fatZombie_4: 1895821378
-      Enemy_fatZombie_5: -1932015243
+      Enemy_fatZombie_0: -260605162
+      Enemy_fatZombie_1: -356140914
+      Enemy_fatZombie_2: 2146514378
+      Enemy_fatZombie_3: -1104598393
+      Enemy_fatZombie_4: 497905267
+      Enemy_fatZombie_5: -865969113
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
