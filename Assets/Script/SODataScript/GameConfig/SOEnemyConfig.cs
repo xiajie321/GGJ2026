@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Alchemy.Serialization;
 using UnityEngine;
 
 namespace Script.SODataScript.GameConfig
