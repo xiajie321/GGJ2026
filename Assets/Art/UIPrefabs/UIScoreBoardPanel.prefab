@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MarkType: 0
-  CustomComponentName: 
+  CustomComponentName: ScoreBoardPanelBg
   CustomComment: 
   mComponentName: UnityEngine.UI.Image
 --- !u!1 &8564990609287508359
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MarkType: 0
-  CustomComponentName: 
+  CustomComponentName: TextScore
   CustomComment: 
   mComponentName: TMPro.TextMeshProUGUI
 --- !u!1 &8697214685063473218

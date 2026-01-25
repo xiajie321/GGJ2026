@@ -13,7 +13,7 @@ namespace Script.Service.Model
         /// <summary>
         /// 当前游戏关卡下玩家的积分
         /// </summary>
-        public BindableProperty<int> Points =  new();
+        public readonly BindableProperty<int> Points =  new();
         /// <summary>
         /// 存活的敌人列表
         /// </summary>

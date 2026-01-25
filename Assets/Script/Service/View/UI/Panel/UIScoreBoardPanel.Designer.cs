@@ -5,7 +5,7 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:bd4c7c7b-a10d-44d1-bf40-a2d07177fbdb
+	// Generate Id:b2a999c1-ffc3-4981-9546-455a6950f44c
 	public partial class UIScoreBoardPanel
 	{
 		public const string Name = "UIScoreBoardPanel";

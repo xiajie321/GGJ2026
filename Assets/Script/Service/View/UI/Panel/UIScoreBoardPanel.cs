@@ -1,6 +1,7 @@
     using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using Script.Service.Architecture;
 using Script.Service.Model;
 using TMPro;
 
@@ -12,33 +13,33 @@ namespace Service.View.UI.Panel
 	public partial class UIScoreBoardPanel : UIPanel, ICanGetModel
 	{
         private GameModel _gameModel;
-        private TextMeshProUGUI _textScore;
 
         protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIScoreBoardPanelData ?? new UIScoreBoardPanelData();
             // please add init code here
-            _gameModel = this.GetModel<GameModel>();
 
-            _textScore = TextScore.GetComponent<TextMeshProUGUI>();
-            UpdateScoreDisplay();
-
-            _gameModel.Points.Register(newValue =>
-            {
-                UpdateScoreDisplay();
-            }).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
-        private void UpdateScoreDisplay()
+        private void UpdateScoreDisplay(int value)
         {
-            if (_textScore != null)
+            if (TextScore != null)
             {
-                _textScore.text = $"{_gameModel.Points.Value}";
+                TextScore.text = $"{value}";
             }
+            
         }
 
         protected override void OnOpen(IUIData uiData = null)
 		{
+			_gameModel = this.GetModel<GameModel>();
+
+			UpdateScoreDisplay(_gameModel.Points.Value);
+
+			_gameModel.Points.Register(newValue =>
+			{
+				UpdateScoreDisplay(newValue);
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
 		
 		protected override void OnShow()
@@ -55,7 +56,7 @@ namespace Service.View.UI.Panel
 
         public IArchitecture GetArchitecture()
         {
-            throw new System.NotImplementedException();
+	        return GameArchitecture.Interface;
         }
     }
 }
