@@ -13,6 +13,7 @@ namespace Script.Service.System
             this.RegisterEvent<GamePauseEvent>(GamePause);
             this.RegisterEvent<GameResumeEvent>(GameResume);
             this.RegisterEvent<GameLevelTransitionEvent>(GameLevelTransition);
+            this.RegisterEvent<GameExitEvent>(GameExit);
         }
 
         private void GameEnter(GameEnterEvent gameEnterEvent)//进入游戏关卡触发
@@ -33,6 +34,11 @@ namespace Script.Service.System
 
         private void GameLevelTransition(GameLevelTransitionEvent gameLevelTransitionEvent)//游戏内关卡切换时触发
         {
+        }
+
+        private void GameExit(GameExitEvent gameExitEvent)
+        {
+            
         }
     }
 }
