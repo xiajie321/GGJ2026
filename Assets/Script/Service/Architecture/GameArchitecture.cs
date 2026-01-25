@@ -24,6 +24,7 @@ namespace Script.Service.Architecture
             RegisterSystem(new SceneSwitchSystem());//游戏场景切换系统
             RegisterSystem(new MessageTipSystem());//消息弹窗系统
             RegisterSystem(new MouseCursorSystem());//鼠标光标系统
+            RegisterSystem(new EnemySpawnSystem());//敌人生成系统
         }
 
         protected override void Init()

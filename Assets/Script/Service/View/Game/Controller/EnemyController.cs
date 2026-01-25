@@ -1,5 +1,6 @@
 using QFramework;
 using Script.Service.Model;
+using Script.Service.System;
 using Script.Service.Utility;
 using Script.Service.View.Game.Component;
 using System;
@@ -129,6 +130,12 @@ namespace Script.Service.View.Game.Controller
             if (_gameModel != null)
             {
                 _gameModel.Points.Value += 30;
+            }
+
+            var enemySpawnSystem = this.GetSystem<EnemySpawnSystem>();
+            if (enemySpawnSystem != null)
+            {
+                enemySpawnSystem.RemoveEnemy(this);
             }
 
             Destroy(gameObject);
