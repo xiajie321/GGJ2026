@@ -10,7 +10,7 @@ namespace Service.View.UI.Panel
 	public class UIHomePanelData : UIPanelData
 	{
 	}
-	public partial class UIHomePanel : UIPanel,IController
+	public partial class UIHomePanel : UIPanel, IController
 	{
 		protected override void OnInit(IUIData uiData = null)
 		{

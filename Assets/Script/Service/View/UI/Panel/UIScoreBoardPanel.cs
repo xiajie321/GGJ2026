@@ -1,4 +1,4 @@
-    using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using Script.Service.Architecture;
@@ -10,7 +10,7 @@ namespace Service.View.UI.Panel
 	public class UIScoreBoardPanelData : UIPanelData
 	{
 	}
-	public partial class UIScoreBoardPanel : UIPanel, ICanGetModel
+	public partial class UIScoreBoardPanel : UIPanel, IController
 	{
         private GameModel _gameModel;
 
