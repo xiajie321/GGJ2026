@@ -11,6 +11,21 @@
 namespace QAssetBundle
 {
     
+    public class Uidamagefloatingtextpanel_prefab
+    {
+        public const string BundleName = "uidamagefloatingtextpanel_prefab";
+        public const string UIDAMAGEFLOATINGTEXTPANEL = "UIDamageFloatingTextPanel";
+    }
+    public class Uidamagetextcomponent_prefab
+    {
+        public const string BundleName = "uidamagetextcomponent_prefab";
+        public const string UIDAMAGETEXTCOMPONENT = "UIDamageTextComponent";
+    }
+    public class Uihomepanel_prefab
+    {
+        public const string BundleName = "uihomepanel_prefab";
+        public const string UIHOMEPANEL = "UIHomePanel";
+    }
     public class Uimessagetippanel_prefab
     {
         public const string BundleName = "uimessagetippanel_prefab";
@@ -20,5 +35,10 @@ namespace QAssetBundle
     {
         public const string BundleName = "uimousecursorpanel_prefab";
         public const string UIMOUSECURSORPANEL = "UIMouseCursorPanel";
+    }
+    public class Uisettingspanel_prefab
+    {
+        public const string BundleName = "uisettingspanel_prefab";
+        public const string UISETTINGSPANEL = "UISettingsPanel";
     }
 }

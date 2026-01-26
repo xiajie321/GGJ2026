@@ -16,6 +16,7 @@ namespace Script.Service.Architecture
 
         private void RegisterSystem()
         {
+            RegisterSystem(new DamageFloatingTextSystem());
             RegisterSystem(new SceneSwitchSystem());
             RegisterSystem(new MessageTipSystem());
             RegisterSystem(new MouseCursorSystem());
@@ -24,7 +25,7 @@ namespace Script.Service.Architecture
         protected override void Init()
         {
 #if !UNITY_EDITOR
-            Debug.logger.logEnabled = false;
+            Debug.unityLogger.logEnabled = false;
 #endif
             Debug.Log("[GameArchitecture] Model开始注册...");
             RegisterModel();

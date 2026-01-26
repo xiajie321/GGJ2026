@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1556961598
+CRC: 1065473632
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -7,4 +7,16 @@ AssetBundleManifest:
       Dependencies: {}
     Info_1:
       Name: uimousecursorpanel_prefab
+      Dependencies: {}
+    Info_2:
+      Name: uihomepanel_prefab
+      Dependencies: {}
+    Info_3:
+      Name: uisettingspanel_prefab
+      Dependencies: {}
+    Info_4:
+      Name: uidamagefloatingtextpanel_prefab
+      Dependencies: {}
+    Info_5:
+      Name: uidamagetextcomponent_prefab
       Dependencies: {}
