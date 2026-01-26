@@ -1,5 +1,6 @@
 using QFramework;
 using Script.Service.System;
+using Script.Service.Utility;
 using UnityEngine;
 
 namespace Script.Service.Architecture
@@ -12,6 +13,7 @@ namespace Script.Service.Architecture
 
         private void RegisterUtility()
         {
+            RegisterUtility(new ConfigUtility());
         }
 
         private void RegisterSystem()

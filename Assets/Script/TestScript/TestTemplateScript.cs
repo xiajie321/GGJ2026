@@ -6,6 +6,7 @@ using Febucci.TextAnimatorForUnity.TextMeshPro;
 using QFramework;
 using Script.Service.Architecture;
 using Script.Service.System;
+using Script.Service.Utility;
 using Service.View.UI.Panel;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class TestTemplateScript : MonoBehaviour,IController
     {
         UIKit.OpenPanel<UIDamageFloatingTextPanel>();
         Run().Forget();
+        Debug.Log(this.GetUtility<ConfigUtility>().Config.TbTestDataConfig.TestData);//通过工具拿到对应的数据
     }
     void Update()
     {
@@ -32,7 +34,7 @@ public class TestTemplateScript : MonoBehaviour,IController
         while (true)
         {
             count++;
-            this.GetSystem<DamageFloatingTextSystem>().SetText($"<sprite=0> {Random.Range(-1000,1000).ToString()}",Objecta.transform.position);
+            this.GetSystem<DamageFloatingTextSystem>().SetText($"<sprite=0> {Random.Range(-1000,1000).ToString()}",Objecta.transform.position);//通过系统调用显示飘字
             await UniTask.Yield();
             if(count == 10) 
                 return;
