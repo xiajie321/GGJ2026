@@ -8,5 +8,8 @@ namespace Script.SODataScript.TbConfig
         [SerializeField]
         private SOTestDataConfig _tbTestDataConfig;
         public SOTestDataConfig TbTestDataConfig => _tbTestDataConfig;
+        
+        [SerializeField] private SOEnemyConfig _tbEnemyConfig;
+        public SOEnemyConfig TbEnemyConfig => _tbEnemyConfig;
     }
 }
