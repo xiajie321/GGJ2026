@@ -26,6 +26,21 @@ public class TestTemplateScript : MonoBehaviour,IController
         {
             this.GetSystem<MessageTipSystem>().ShowTip("测试",Input.mousePosition);
         }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            Objecta.transform.position += Objecta.transform.up * (Time.deltaTime * 10);
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            Objecta.transform.Rotate(0,0,100*Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            Objecta.transform.Rotate(0,0,-100*Time.deltaTime);
+        }
     }
     
     async UniTask Run()

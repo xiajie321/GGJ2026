@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a099f93a4f04e6587f8b7db03e37e09, type: 3}
   m_Name: MainConfig
   m_EditorClassIdentifier: 
+  _tbTestDataConfig: {fileID: 11400000, guid: 5b33707ac37b6af498952132b83bb0bd, type: 2}
+  _tbEnemyConfig: {fileID: 11400000, guid: 6e96eba365a2ca2489eaa769a515ce77, type: 2}
