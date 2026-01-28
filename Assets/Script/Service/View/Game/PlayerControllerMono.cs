@@ -11,7 +11,7 @@ namespace Script.Service.View.Game
         SideView,//侧面观察模式
         TopDown//俯视角模式
     }
-    public class PlayerAbsControllerMono : AbsControllerMono
+    public class PlayerControllerMono : AbsControllerMono<PlayerState>
     {
         [SerializeField]
         private PlayerControllerMode _mode;

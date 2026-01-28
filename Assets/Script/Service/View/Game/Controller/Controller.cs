@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace Script.Service.View.Game.Controller
 {
-    public abstract class Controller
+    public abstract class Controller<T>
     {
         protected Rigidbody2D _rigidbody2D;
         protected Animator _animation;
         protected Collider2D _collider2D;
-        protected FSM<State> _fsm;
+        protected FSM<T> _fsm;
         internal void SetAnimation(Animator animation)
         {
             _animation = animation;
         }
-        internal void SetFsm(FSM<State> fsm)
+        internal void SetFsm(FSM<T> fsm)
         {
             _fsm?.Clear();
             _fsm = fsm;
@@ -29,6 +29,6 @@ namespace Script.Service.View.Game.Controller
             _collider2D = collider2D;
         }
 
-        protected abstract void Init(FSM<State> fsm);
+        protected abstract void Init(FSM<T> fsm);
     }
 }

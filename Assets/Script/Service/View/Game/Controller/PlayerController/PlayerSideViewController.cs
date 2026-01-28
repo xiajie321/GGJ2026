@@ -13,9 +13,9 @@ namespace Script.Service.View.Game.Controller.PlayerController
     /// <summary>
     /// 侧面观察模式控制器
     /// </summary>
-    public class PlayerSideViewController:Controller
+    public class PlayerSideViewController:Controller<PlayerState>
     {
-        protected override void Init(FSM<State> fsm)
+        protected override void Init(FSM<PlayerState> fsm)
         {
             var ls = new PlayerSideViewControllerData()
             {
@@ -23,9 +23,9 @@ namespace Script.Service.View.Game.Controller.PlayerController
                 Rigidbody2D = _rigidbody2D,
                 Collider2D = _collider2D,
             };
-            fsm.AddState(State.Idle,new PlayerSideViewIdle(fsm,ls));
+            fsm.AddState(PlayerState.Idle,new PlayerSideViewIdle(fsm,ls));
             //TODO 后续状态往这里添加
-            fsm.StartState(State.Idle);
+            fsm.StartState(PlayerState.Idle);
         }
     }
 }

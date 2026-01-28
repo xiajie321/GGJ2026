@@ -2,9 +2,9 @@
 
 namespace Script.Service.View.Game.Controller.PlayerController.PlayerSideViewControllerState
 {
-    public class PlayerSideViewIdle:AbstractState<State,PlayerSideViewControllerData>
+    public class PlayerSideViewIdle:AbstractState<PlayerState,PlayerSideViewControllerData>
     {
-        public PlayerSideViewIdle(FSM<State> fsm, PlayerSideViewControllerData owner) : base(fsm, owner)
+        public PlayerSideViewIdle(FSM<PlayerState> fsm, PlayerSideViewControllerData owner) : base(fsm, owner)
         {
             
         }

@@ -1,6 +1,6 @@
 ﻿namespace Script.Service.View.Game.Controller
 {
-    public enum State//TODO 如有需要可以在这里补充状态
+    public enum PlayerState//TODO 如有需要可以在这里补充状态
     {
         /// <summary>
         /// 静止状态
