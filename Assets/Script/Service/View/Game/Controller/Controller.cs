@@ -7,6 +7,7 @@ namespace Script.Service.View.Game.Controller
     {
         protected Rigidbody2D _rigidbody2D;
         protected Animator _animation;
+        protected Collider2D _collider2D;
         protected FSM<State> _fsm;
         internal void SetAnimation(Animator animation)
         {
@@ -18,15 +19,19 @@ namespace Script.Service.View.Game.Controller
             _fsm = fsm;
             Init(fsm);
         }
-
         internal void SetRigidbody2D(Rigidbody2D rigidbody2D)
         {
             _rigidbody2D = rigidbody2D;
         }
 
+        internal void SetCollider2D(Collider2D collider2D)
+        {
+            _collider2D = collider2D;
+        }
+
         protected abstract void Init(FSM<State> fsm);
     }
-    public enum State
+    public enum State//TODO 如有需要可以在这里补充状态
     {
         /// <summary>
         /// 静止状态

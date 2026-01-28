@@ -15,6 +15,7 @@ namespace Script.Service.View.Game
     {
         private Animator _animation;//动画控制
         private Rigidbody2D _rigidbody2D;
+        private Collider2D _collider2D;
         private Controller.Controller _controller;
         private FSM<State> _fsm = new();
         [SerializeField]
@@ -29,14 +30,18 @@ namespace Script.Service.View.Game
                 ModeSwitch();
             }
         }
+        public Animator Animation => _animation;
+        public Rigidbody2D Rigidbody2D => _rigidbody2D;
+        public Collider2D Collider2D => _collider2D;
         private void Start()
         {
             _animation ??= GetComponent<Animator>();
             _rigidbody2D ??= GetComponent<Rigidbody2D>();
+            _collider2D ??= GetComponent<Collider2D>();
             ModeSwitch();//尽量让这个方法在Start中的位置靠后,以免出现赋值为空的情况
         }
 
-        private void ModeSwitch()
+        private void ModeSwitch()//TODO 控制器切换
         {
             switch (_mode)
             {
@@ -62,12 +67,13 @@ namespace Script.Service.View.Game
             _fsm.FixedUpdate();
         }
 
-        public void SetController<T>(T controller)where T : Controller.Controller, new()
+        public void SetController<T>(T controller)where T : Controller.Controller, new()//TODO 设置对应的控制器
         {
             _controller = controller;
             _controller.SetAnimation(_animation);
             _controller.SetRigidbody2D(_rigidbody2D);
             _controller.SetFsm(_fsm);
+            _controller.SetCollider2D(_collider2D);
         }
     }
 }
