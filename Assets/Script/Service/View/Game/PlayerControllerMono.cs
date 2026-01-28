@@ -6,15 +6,32 @@ using UnityEngine;
 
 namespace Script.Service.View.Game
 {
+    /// <summary>
+    /// 玩家控制模式
+    /// </summary>
     public enum PlayerControllerMode
     {
-        SideView,//侧面观察模式
-        TopDown//俯视角模式
+        /// <summary>
+        /// 侧视角模式 (Platformer)
+        /// </summary>
+        SideView,
+        /// <summary>
+        /// 俯视角模式 (TopDown)
+        /// </summary>
+        TopDown
     }
+
+    /// <summary>
+    /// 玩家控制器的 MonoBehaviour 实现，负责处理模式切换和生命周期回调
+    /// </summary>
     public class PlayerControllerMono : AbsControllerBaseMono<PlayerState>
     {
         [SerializeField]
         private PlayerControllerMode _mode;
+
+        /// <summary>
+        /// 当前玩家控制模式，设置时会自动切换控制器
+        /// </summary>
         public PlayerControllerMode Mode
         {
             get => _mode;
@@ -25,6 +42,7 @@ namespace Script.Service.View.Game
                 ModeSwitch();
             }
         }
+
         public Animator Animation => _animation;
         public Rigidbody2D Rigidbody2D => _rigidbody2D;
         public Collider2D Collider2D => _collider2D;

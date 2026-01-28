@@ -1,9 +1,12 @@
-﻿using QFramework;
+using QFramework;
 using Script.Service.View.Game.Controller.PlayerController.PlayerSideViewControllerState;
 using UnityEngine;
 
 namespace Script.Service.View.Game.Controller.PlayerController
 {
+    /// <summary>
+    /// 侧面观察模式控制器所需的数据
+    /// </summary>
     public class PlayerSideViewControllerData
     {
         public Animator Animator;
@@ -11,7 +14,7 @@ namespace Script.Service.View.Game.Controller.PlayerController
         public Collider2D Collider2D;
     }
     /// <summary>
-    /// 侧面观察模式控制器
+    /// 侧面观察模式控制器，负责管理侧视角下的玩家行为状态
     /// </summary>
     public class PlayerSideViewController:AbsControllerBase<PlayerState>
     {

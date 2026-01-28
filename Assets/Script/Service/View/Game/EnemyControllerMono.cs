@@ -1,8 +1,11 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace Script.Service.View.Game.Controller
 {
+    /// <summary>
+    /// 敌人控制器的 MonoBehaviour 实现
+    /// </summary>
     public class EnemyControllerMono:AbsControllerBaseMono<EnemyState>
     {
         public Animator Animation => _animation;

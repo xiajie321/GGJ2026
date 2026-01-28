@@ -1,9 +1,12 @@
-﻿using QFramework;
+using QFramework;
 using Script.Service.View.Game.Controller.PlayerController.PlayerTopDownControllerState;
 using UnityEngine;
 
 namespace Script.Service.View.Game.Controller.PlayerController
 {
+    /// <summary>
+    /// 俯视角控制器所需的数据
+    /// </summary>
     public class PlayerTopDownControllerData
     {
         public Animator Animator;
@@ -11,7 +14,7 @@ namespace Script.Service.View.Game.Controller.PlayerController
         public Collider2D Collider2D;
     }
     /// <summary>
-    /// 俯视角控制器
+    /// 俯视角控制器，负责管理俯视角下的玩家行为状态
     /// </summary>
     public class PlayerTopDownController:AbsControllerBase<PlayerState>
     {
