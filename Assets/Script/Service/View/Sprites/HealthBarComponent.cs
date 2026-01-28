@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class HealthBarComponent : MonoBehaviour
 {
-    private SpriteRenderer _bg;
+    private SpriteRenderer _bg; 
     private SpriteRenderer _fill;
-    public SpriteRenderer Bg => transform.Find("Bg").GetComponent<SpriteRenderer>();
-    public SpriteRenderer Fill => transform.Find("Fill").GetComponent<SpriteRenderer>();
+    public SpriteRenderer Bg => _bg ??= transform.Find("Bg").GetComponent<SpriteRenderer>();
+    public SpriteRenderer Fill => _fill ??= transform.Find("Fill").GetComponent<SpriteRenderer>();
 
     public void SetHealth(float current, float max)
     {
