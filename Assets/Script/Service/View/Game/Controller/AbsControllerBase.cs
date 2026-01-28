@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Script.Service.View.Game.Controller
 {
-    public abstract class Controller<T>
+    public abstract class AbsControllerBase<T>
     {
         protected Rigidbody2D _rigidbody2D;
         protected Animator _animation;

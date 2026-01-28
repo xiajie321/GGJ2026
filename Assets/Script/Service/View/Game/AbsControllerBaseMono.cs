@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Script.Service.View.Game
 {
-    public abstract class AbsControllerMono<T>: MonoBehaviour
+    public abstract class AbsControllerBaseMono<T>: MonoBehaviour
     {
         protected Animator _animation;//动画控制
         protected Rigidbody2D _rigidbody2D;
         protected Collider2D _collider2D;
-        protected Controller<T> _controller;
+        protected AbsControllerBase<T> AbsControllerBase;
         protected FSM<T> _fsm = new();
         protected void InitComponents()
         {
@@ -22,13 +22,13 @@ namespace Script.Service.View.Game
         /// </summary>
         /// <param name="controller"></param>
         /// <typeparam name="TController"></typeparam>
-        public void SetController<TController>(TController controller)where TController : Controller<T>, new()//TODO 设置对应的控制器
+        public void SetController<TController>(TController controller)where TController : AbsControllerBase<T>, new()//TODO 设置对应的控制器
         {
-            _controller = controller;
-            _controller.SetAnimation(_animation);
-            _controller.SetRigidbody2D(_rigidbody2D);
-            _controller.SetFsm(_fsm);
-            _controller.SetCollider2D(_collider2D);
+            AbsControllerBase = controller;
+            AbsControllerBase.SetAnimation(_animation);
+            AbsControllerBase.SetRigidbody2D(_rigidbody2D);
+            AbsControllerBase.SetFsm(_fsm);
+            AbsControllerBase.SetCollider2D(_collider2D);
         }
     }
 }
