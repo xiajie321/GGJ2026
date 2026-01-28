@@ -52,11 +52,11 @@ namespace Service.View.UI.Panel
 			return _healthBarComponent;
 		}
 
-		public UIHealthBarComponent SetHealth(float current, float max, Color color)
+		public UIHealthBarComponent SetHealth(float current, float max, Color fillColor, Color bgColor)
 		{
             _healthBarComponent = _objectPool.Get();
             _healthBarComponent.SetHealth(current, max);
-			_healthBarComponent.SetFillColor(color);
+			_healthBarComponent.SetColor(fillColor, bgColor);
             return _healthBarComponent;
         }
 

@@ -18,9 +18,12 @@ public class UIHealthBarComponent : MonoBehaviour
     }
 
     private Image _fillImage;
-    public void SetFillColor(Color color)
+    private Image _bgImage;
+    public void SetColor(Color fillColor, Color bgColor)
     {
         _fillImage = HealthBarComponent.fillRect?.GetComponent<Image>();
-        _fillImage.color = color;
+        _fillImage.color = fillColor;
+        _bgImage = HealthBarComponent.transform.Find("Bg").GetComponent<Image>();
+        _bgImage.color = bgColor;
     }
 }
