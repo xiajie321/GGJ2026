@@ -1,3 +1,4 @@
+using Alchemy.Serialization;
 using QFramework;
 using Script.Service.View.Game.Controller;
 using UnityEngine;
@@ -8,7 +9,8 @@ namespace Script.Service.View.Game
     /// 游戏对象控制器的 MonoBehaviour 基类
     /// </summary>
     /// <typeparam name="T">状态枚举类型</typeparam>
-    public abstract class AbsControllerBaseMono<T>: MonoBehaviour
+    [AlchemySerialize]
+    public abstract partial class AbsControllerBaseMono<T>: MonoBehaviour
     {
         /// <summary>
         /// 动画组件
@@ -52,6 +54,7 @@ namespace Script.Service.View.Game
         /// <typeparam name="TController">控制器类型</typeparam>
         public void SetController<TController>(TController controller)where TController : AbsControllerBase<T>, new()
         {
+            _fsm?.Clear();
             AbsControllerBase = controller;
             AbsControllerBase.SetAnimation(_animation);
             AbsControllerBase.SetRigidbody2D(_rigidbody2D);

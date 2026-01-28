@@ -26,6 +26,7 @@ namespace Script.Service.View.Game.Controller.PlayerController
                 Rigidbody2D = _rigidbody2D,
                 Collider2D = _collider2D,
             };
+            Debug.Log("你好1");
             fsm.AddState(PlayerState.Idle,new PlayerSideViewIdleState(fsm,ls));
             //TODO 后续状态往这里添加
             fsm.StartState(PlayerState.Idle);

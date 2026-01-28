@@ -29,7 +29,6 @@ namespace Script.Service.View.Game.Controller
         /// <param name="fsm"></param>
         internal void SetFsm(FSM<T> fsm)
         {
-            _fsm?.Clear();
             _fsm = fsm;
             Init(fsm);
         }

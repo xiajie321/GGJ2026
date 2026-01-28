@@ -1,6 +1,5 @@
-using System;
+using Alchemy.Inspector;
 using Script.Service.View.Game.Controller;
-using QFramework;
 using Script.Service.View.Game.Controller.PlayerController;
 using UnityEngine;
 
@@ -26,12 +25,12 @@ namespace Script.Service.View.Game
     /// </summary>
     public class PlayerControllerMono : AbsControllerBaseMono<PlayerState>
     {
-        [SerializeField]
-        private PlayerControllerMode _mode;
+        private PlayerControllerMode _mode = PlayerControllerMode.SideView;
 
         /// <summary>
         /// 当前玩家控制模式，设置时会自动切换控制器
         /// </summary>
+        [ShowInInspector]
         public PlayerControllerMode Mode
         {
             get => _mode;
