@@ -11,5 +11,8 @@ namespace Script.SODataScript.TbConfig
         
         [SerializeField] private SOEnemyConfig _tbEnemyConfig;
         public SOEnemyConfig TbEnemyConfig => _tbEnemyConfig;
+        
+        [SerializeField] private SOItemConfig _tbItemConfig;
+        public SOItemConfig TbItemConfig => _tbItemConfig;
     }
 }

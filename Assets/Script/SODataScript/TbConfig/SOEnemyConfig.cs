@@ -5,7 +5,6 @@ namespace Script.SODataScript.TbConfig
     [CreateAssetMenu(fileName = "NewEnemyConfig", menuName = "ConfigUtility/EnemyConfig")]
     public class SOEnemyConfig:AbsDicScriptableObjectBase<EnemyData>
     {
-        private EnemyData _ls;
         public override EnemyData Get(int id)
         {
             _ls = _data[id];

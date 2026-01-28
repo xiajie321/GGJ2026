@@ -9,6 +9,8 @@ namespace Script.SODataScript.TbConfig
     {
         [AlchemySerializeField]
         protected Dictionary<int,T> _data = new();
+
+        protected T _ls;
         public abstract T Get(int id);
     }
 }
