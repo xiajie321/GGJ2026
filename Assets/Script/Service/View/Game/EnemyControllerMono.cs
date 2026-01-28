@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Script.Service.View.Game.Controller
 {
-    public class EnemyControllerMono:AbsControllerMono<PlayerState>
+    public class EnemyControllerMono:AbsControllerMono<EnemyState>
     {
         public Animator Animation => _animation;
         public Rigidbody2D Rigidbody2D => _rigidbody2D;
