@@ -19,7 +19,16 @@ namespace Script.Service.View.Game
         private FSM<State> _fsm = new();
         [SerializeField]
         private PlayerControllerMode _mode;
-        
+        public PlayerControllerMode Mode
+        {
+            get => _mode;
+            set
+            {
+                if(_mode == value) return;
+                _mode = value;
+                ModeSwitch();
+            }
+        }
         private void Start()
         {
             _animation ??= GetComponent<Animator>();
@@ -61,8 +70,4 @@ namespace Script.Service.View.Game
             _controller.SetFsm(_fsm);
         }
     }
-
-
-
-
 }

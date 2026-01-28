@@ -14,7 +14,7 @@ namespace Script.Service.View.Game.Controller
         }
         internal void SetFsm(FSM<State> fsm)
         {
-            _fsm.Clear();
+            _fsm?.Clear();
             _fsm = fsm;
             Init(fsm);
         }

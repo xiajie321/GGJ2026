@@ -1,4 +1,5 @@
 ﻿using QFramework;
+using UnityEngine;
 
 namespace Script.Service.View.Game.Controller.PlayerController
 {
@@ -9,7 +10,7 @@ namespace Script.Service.View.Game.Controller.PlayerController
     {
         protected override void Init(FSM<State> fsm)
         {
-            
+
         }
     }
 }
