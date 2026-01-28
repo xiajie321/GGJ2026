@@ -12,7 +12,7 @@ namespace Script.SODataScript.TbConfig
             return new ItemData()
             {
                 Id = id,
-                Name = _data[id].Name,
+                Name = _ls.Name,
             };
         }
     }
