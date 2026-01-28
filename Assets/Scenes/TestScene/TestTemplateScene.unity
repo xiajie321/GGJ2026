@@ -945,7 +945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2cb95d9335b674fb02dd089a2f90d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mode: 1
+  __alchemySerializationData_Script_Service_View_Game_AbsControllerBaseMono1:
+    unityObjectReferences: []
 --- !u!1 &2042010103
 GameObject:
   m_ObjectHideFlags: 0
