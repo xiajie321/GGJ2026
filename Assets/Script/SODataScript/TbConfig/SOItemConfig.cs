@@ -21,5 +21,6 @@ namespace Script.SODataScript.TbConfig
     {
         public int Id;//这里可以不用填,因为在Get方法中会返回
         public string Name = "";
+        public Sprite Sprite;
     }
 }

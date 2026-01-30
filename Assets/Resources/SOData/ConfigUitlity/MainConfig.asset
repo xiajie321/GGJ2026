@@ -15,3 +15,4 @@ MonoBehaviour:
   _tbTestDataConfig: {fileID: 11400000, guid: 5b33707ac37b6af498952132b83bb0bd, type: 2}
   _tbEnemyConfig: {fileID: 11400000, guid: 6e96eba365a2ca2489eaa769a515ce77, type: 2}
   _tbItemConfig: {fileID: 11400000, guid: 6c512f0af7a6b9e47aa4a2a3af355564, type: 2}
+  _tbTrapConfig: {fileID: 11400000, guid: 32518dfe3cfe0be4e96593e842af195d, type: 2}
