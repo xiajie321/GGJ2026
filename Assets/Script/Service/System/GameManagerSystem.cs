@@ -19,7 +19,7 @@ namespace Script.Service.System
 
         private void SceneChange(SceneChangeEvent sceneChangeEvent)//场景切换
         {
-            
+            this.GetSystem<FactorySystem>().SceneTransition();
         }
         private void GameEnter(GameEnterEvent gameEnterEvent)//进入游戏关卡触发
         {

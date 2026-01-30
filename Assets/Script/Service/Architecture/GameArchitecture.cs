@@ -18,10 +18,12 @@ namespace Script.Service.Architecture
 
         private void RegisterSystem()
         {
+            RegisterSystem(new GameManagerSystem());
             RegisterSystem(new DamageFloatingTextSystem());
             RegisterSystem(new SceneSwitchSystem());
             RegisterSystem(new MessageTipSystem());
             RegisterSystem(new MouseCursorSystem());
+            RegisterSystem(new FactorySystem());
         }
 
         protected override void Init()
