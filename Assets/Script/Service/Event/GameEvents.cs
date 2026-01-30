@@ -1,4 +1,7 @@
-﻿namespace Script.Service.Event
+﻿using UnityEditor.SearchService;
+using Scene = UnityEngine.SceneManagement.Scene;
+
+namespace Script.Service.Event
 {
     /// <summary>
     /// 游戏进入事件(游戏的开始事件)进入正式游戏场景时会使用
@@ -41,6 +44,7 @@
     /// </summary>
     public struct SceneChangeEvent
     {
-        
+        public Scene CurrentScene;
+        public Scene TargetScene;
     }
 }

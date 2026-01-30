@@ -1,11 +1,14 @@
 using QFramework;
 using Script.Service.Architecture;
+using Script.Service.Event;
 using Service.View.UI.Panel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 /// <summary>
 /// 不对外提供任何接口,仅作为游戏的入口
 /// </summary>
-public class GameBoot : MonoBehaviour
+public class GameBoot : MonoBehaviour,IController
 {
     void Awake()
     {
@@ -16,5 +19,10 @@ public class GameBoot : MonoBehaviour
         GameArchitecture.InitArchitecture();
         Debug.Log("[GameBoot] 游戏入口加载完毕");
         UIKit.OpenPanel<UIHomePanel>();
+    }
+
+    public IArchitecture GetArchitecture()
+    {
+        return GameArchitecture.Interface;
     }
 }
