@@ -1,5 +1,6 @@
 using QFramework;
 using Script.Service.Architecture;
+using Script.Service.System;
 using Service.View.UI.Panel;
 using UnityEngine;
 
@@ -16,7 +17,8 @@ public class GameBoot : MonoBehaviour,IController
         Debug.Log("[GameBoot] ResKit初始化完成...");
         GameArchitecture.InitArchitecture();
         Debug.Log("[GameBoot] 游戏入口加载完毕");
-        UIKit.OpenPanel<UIHomePanel>();
+        //UIKit.OpenPanel<UIHomePanel>();
+        this.GetSystem<CameraEdgeScrollingSystem>().InitCameraSystem();
     }
 
     public IArchitecture GetArchitecture()

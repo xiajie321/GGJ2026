@@ -28,6 +28,7 @@ namespace Script.Service.Architecture
             RegisterSystem(new MessageTipSystem());
             RegisterSystem(new MouseCursorSystem());
             RegisterSystem(new FactorySystem());
+            RegisterSystem(new CameraEdgeScrollingSystem());
         }
 
         protected override void Init()
