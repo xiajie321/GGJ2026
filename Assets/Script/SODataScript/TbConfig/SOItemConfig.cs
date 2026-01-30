@@ -56,9 +56,9 @@ namespace Script.SODataScript.TbConfig
     public enum ItemLevel
     {
         S = 0,
-        A = 1,
-        B = 2,
-        F = 3,  //仅装饰用，无法挡住任何漏洞
+        A = 2,
+        B = 4,
+        F = 6,  //仅装饰用，无法挡住任何漏洞
     }
 
     /// <summary>

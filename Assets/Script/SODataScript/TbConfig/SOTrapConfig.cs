@@ -34,8 +34,8 @@ namespace Script.SODataScript.TbConfig
     [Serializable]
     public enum TrapLevel
     {
-        S = 0,
-        A = 1,
-        B = 2,
+        S = 1,
+        A = 3,
+        B = 5,
     }
 }
