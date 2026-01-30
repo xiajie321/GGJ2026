@@ -15,7 +15,6 @@ namespace Script.SODataScript.TbConfig
             {
                 Id = id,
                 Name = _ls.Name,
-                UpdateTime = _ls.UpdateTime,
                 Enemys = _ls.GetEnemys(),
             };
         }
@@ -25,14 +24,13 @@ namespace Script.SODataScript.TbConfig
     {
         public int Id;
         public string Name = "";
-        public float UpdateTime;//刷新时间
         public List<EnemyGeneratorConfigData> Enemys = new();
         public List<EnemyGeneratorConfigData> GetEnemys()//深拷贝数组
         {
             List<EnemyGeneratorConfigData> _ls = new();
             for (int i = 0; i < Enemys.Count; i++)
             {
-                _ls.Add(new EnemyGeneratorConfigData(Enemys[i]));
+                _ls.Add(new EnemyGeneratorConfigData().SetData(Enemys[i]));
             }
             return _ls;
         }
@@ -40,11 +38,31 @@ namespace Script.SODataScript.TbConfig
     [Serializable]
     public class EnemyGeneratorConfigData
     {
-        public EnemyGeneratorConfigData(EnemyGeneratorConfigData data)
+        public EnemyGeneratorConfigData SetData(EnemyGeneratorConfigData data)
         {
-            Id = data.Id;
-            Sum =  data.Sum;
+            UpdateTime = data.UpdateTime;
+            Data = data.GetData();
+            return this;
         }
+        public float UpdateTime;
+        public List<EnemyGeneratorConfigDataItem> Data = new();
+        public List<EnemyGeneratorConfigDataItem> GetData()//深拷贝数据
+        {
+            List<EnemyGeneratorConfigDataItem> _ls = new();
+            for (int i = 0; i < Data.Count; i++)
+            {
+                _ls.Add(new EnemyGeneratorConfigDataItem()
+                {
+                    Id = Data[i].Id,
+                    Sum = Data[i].Sum,
+                });
+            }
+            return _ls;
+        }
+    }
+    [Serializable]
+    public class EnemyGeneratorConfigDataItem
+    {
         public int Id;
         public int Sum;
     }
