@@ -1,5 +1,6 @@
 ﻿using QFramework;
 using Script.Service.Architecture;
+using Script.Service.Command;
 using Script.Service.Utility;
 using Script.SODataScript.TbConfig;
 using UnityEngine;
@@ -27,6 +28,10 @@ namespace Script.Service.View
             _collider2D = GetComponent<Collider2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
+        private void OnEnable()
+        {
+            this.SendCommand(new AddTrapControllerMonoCommand(this));
+        }
 
         public void InitObject(int id)
         {
@@ -36,6 +41,10 @@ namespace Script.Service.View
         public IArchitecture GetArchitecture()
         {
             return GameArchitecture.Interface;
+        }
+        private void OnDisable()
+        {
+            this.SendCommand(new RemoveTrapControllerMonoCommand(this));
         }
     }
 }

@@ -8,5 +8,6 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
         {
             
         }
+        
     }
 }

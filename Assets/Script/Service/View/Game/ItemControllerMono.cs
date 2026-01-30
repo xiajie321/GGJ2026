@@ -1,5 +1,6 @@
 ﻿using QFramework;
 using Script.Service.Architecture;
+using Script.Service.Command;
 using Script.Service.Utility;
 using Script.SODataScript.TbConfig;
 using UnityEngine;
@@ -35,6 +36,11 @@ namespace Script.Service.View.Game
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
+        private void OnEnable()
+        {
+            this.SendCommand(new AddItemControllerMonoCommand(this));
+        }
+
         public void InitObject(int id)
         {
             _itemData = this.GetUtility<ConfigUtility>().Config.TbItemConfig.Get(id);
@@ -44,6 +50,11 @@ namespace Script.Service.View.Game
         public IArchitecture GetArchitecture()
         {
             return GameArchitecture.Interface;
+        }
+
+        private void OnDisable()
+        {
+            this.SendCommand(new RemoveItemControllerMonoCommand(this));
         }
     }
 }

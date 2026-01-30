@@ -1,9 +1,7 @@
 using QFramework;
 using Script.Service.Architecture;
-using Script.Service.Event;
 using Service.View.UI.Panel;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 不对外提供任何接口,仅作为游戏的入口
