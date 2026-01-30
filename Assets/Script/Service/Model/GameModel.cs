@@ -11,6 +11,7 @@ namespace Script.Service.Model
         public List<EnemyControllerMono> EnemyControllerMonos = new();
         public List<ItemControllerMono> ItemControllers = new();
         public List<TrapControllerMono> TrapControllers = new();
+        public EnemyGeneratorMono EnemyGeneratorMono;
         protected override void OnInit()
         {
         }
