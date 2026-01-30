@@ -24,5 +24,16 @@ namespace Script.SODataScript.TbConfig
         public int Id;//这里可以不用填,因为在Get方法中会返回
         public string Name = "";
         public Sprite Sprite;
+        
+        public Height Height;//陷阱高度
+        public TrapLevel Level;//陷阱等级
+    }
+
+    [Serializable]
+    public enum TrapLevel
+    {
+        S = 0,
+        A = 1,
+        B = 2,
     }
 }
