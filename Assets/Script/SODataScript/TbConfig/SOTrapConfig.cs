@@ -14,6 +14,8 @@ namespace Script.SODataScript.TbConfig
                 Id = id,
                 Name = _ls.Name,
                 Sprite = _ls.Sprite,
+                Height = _ls.Height,
+                Level = _ls.Level,
             };
         }
     }

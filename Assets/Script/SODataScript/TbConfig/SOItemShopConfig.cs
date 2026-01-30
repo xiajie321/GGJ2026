@@ -13,6 +13,7 @@ namespace Script.SODataScript.TbConfig
             {
                 Id = id,
                 Name = _ls.Name,
+                Price = _ls.Price
             };
         }
     }
