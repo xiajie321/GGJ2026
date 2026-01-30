@@ -20,6 +20,7 @@ namespace Script.SODataScript.TbConfig
                 DeductPoints = _ls.DeductPoints,
                 StandTime = _ls.StandTime,
                 ThinkTime = _ls.ThinkTime,
+                ThinkCoolingTime = _ls.ThinkCoolingTime,
             };
         }
     }
@@ -36,6 +37,7 @@ namespace Script.SODataScript.TbConfig
         public float DeductPoints;//被发现破洞时扣除的分数
         public float StandTime;//站立什么都不做的时间（秒）
         public float ThinkTime;//对物品或陷阱进行思考的时间（秒）
+        public float ThinkCoolingTime;
     }
     
 }

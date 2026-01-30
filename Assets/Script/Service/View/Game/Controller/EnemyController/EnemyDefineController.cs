@@ -10,11 +10,13 @@ namespace Script.Service.View.Game.Controller.EnemyController
         public Animator Animator;
         public Rigidbody2D Rigidbody2D;
         public Collider2D Collider2D;
+        public EnemyTriggerMono EnemyTriggerMono;
         public EnemyData EnemyData;
     }
     public class EnemyDefineController:AbsControllerBase<EnemyState>
     {
         private EnemyData _enemyData;
+        private EnemyTriggerMono _enemyTriggerMono;
         protected override void Init(FSM<EnemyState> fsm)
         {
             var ls = new EnemyDefineControllerData()
@@ -22,6 +24,7 @@ namespace Script.Service.View.Game.Controller.EnemyController
                 Animator = _animation,
                 Rigidbody2D = _rigidbody2D,
                 Collider2D = _collider2D,
+                EnemyTriggerMono = _enemyTriggerMono,
                 EnemyData = _enemyData,
             };
             fsm.AddState(EnemyState.Idle,new EnemyDefineIdleState(fsm,ls));
@@ -33,6 +36,11 @@ namespace Script.Service.View.Game.Controller.EnemyController
         public void SetEnemyData(EnemyData data)
         {
             _enemyData = data;
+        }
+
+        public void SetEnemyTriggerMono(EnemyTriggerMono triggerMono)
+        {
+            _enemyTriggerMono =  triggerMono;
         }
     }
 }

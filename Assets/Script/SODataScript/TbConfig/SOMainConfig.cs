@@ -18,5 +18,9 @@ namespace Script.SODataScript.TbConfig
         public SOTrapConfig TbTrapConfig => _tbTrapConfig;
         [SerializeField] private SOEnemyGeneratorConfig _tbEnemyGeneratorConfig;
         public SOEnemyGeneratorConfig TbEnemyGeneratorConfig => _tbEnemyGeneratorConfig;
+        [SerializeField] private SOShopConfig _tbShopConfig;
+        public SOShopConfig TbShopConfig => _tbShopConfig;
+        [SerializeField] private SOItemShopConfig _tbItemShopConfig;
+        public SOItemShopConfig TbItemShopConfig => _tbItemShopConfig;
     }
 }

@@ -26,7 +26,7 @@ namespace Script.Service.View.Component
         private Vector3 _screenPoint;
         private Vector3 _offset;
         private bool _isDragging = false;
-        
+        public bool IsDragging => _isDragging;
         public bool CanDragX { get => canDragX; set => canDragX = value; }
         public bool CanDragY { get => canDragY; set => canDragY = value; }
 

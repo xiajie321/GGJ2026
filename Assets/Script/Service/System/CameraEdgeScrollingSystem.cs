@@ -122,7 +122,7 @@ namespace Script.Service.System
         {
             Vector3 mousePos = Input.mousePosition;
             Vector3 moveDirection = CalculateMoveDirection(mousePos);
-            Debug.Log($"[cjh test] 初始化相机系统...4--{moveDirection.magnitude}");
+            //Debug.Log($"[cjh test] 初始化相机系统...4--{moveDirection.magnitude}");
             // 如果有移动方向，则移动相机
             if (moveDirection.magnitude > 0)
             {
@@ -134,7 +134,7 @@ namespace Script.Service.System
 
                 _mainCamera.transform.position = newPosition;
 
-                Debug.Log("[cjh test] 初始化相机系统...5");
+                //Debug.Log("[cjh test] 初始化相机系统...5");
             }
         }
 

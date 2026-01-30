@@ -231,7 +231,7 @@ namespace Service.View.UI.Panel
         /// </summary>
         private void UpdateCameraPosition()
         {
-            if (_mainCamera == null || _cameraSystem == null)
+            if (_mainCamera == null || _cameraSystem == null || CameraViewRect == null)
                 return;
 
             var sceneBounds = _cameraSystem.GetSceneBounds();

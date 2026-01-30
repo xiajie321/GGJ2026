@@ -3,6 +3,7 @@ using Script.Service.Architecture;
 using Script.Service.Command;
 using Script.Service.System;
 using Script.Service.Utility;
+using Script.Service.View.Game;
 using Script.SODataScript.TbConfig;
 using UnityEngine;
 
@@ -19,14 +20,17 @@ namespace Script.Service.View
         /// </summary>
         protected SpriteRenderer _spriteRenderer;
         protected TrapData _trapData;
+        protected TrapAdsorberMono _trapAdsorberMono;
         public Collider2D Collider2D => _collider2D;
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public TrapData TrapData => _trapData;
-
+        public TrapAdsorberMono TrapAdsorberMono => _trapAdsorberMono;
+        
         private void Start()
         {
             _collider2D ??= GetComponent<Collider2D>();
             _spriteRenderer ??= GetComponent<SpriteRenderer>();
+            _trapAdsorberMono ??= GetComponent<TrapAdsorberMono>();
         }
         private void OnEnable()
         {

@@ -52,7 +52,8 @@ namespace Script.Service.View.Game
                 {
                     for (int j = 0; j < _enemyGeneratorConfig.Enemys[_index].Data[i].Sum; j++)
                     {
-                        _factory.Get(_enemyGeneratorConfig.Enemys[_index].Data[i].Id);
+                        var ls =_factory.Get(_enemyGeneratorConfig.Enemys[_index].Data[i].Id);
+                        ls.transform.position = transform.position;
                     }
                 }
             }

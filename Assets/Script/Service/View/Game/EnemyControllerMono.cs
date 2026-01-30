@@ -19,10 +19,14 @@ namespace Script.Service.View.Game.Controller
         public Collider2D Collider2D => _collider2D;
         private EnemyData _enemyData;
         public EnemyData EnemyData => _enemyData;
+        private EnemyTriggerMono _enemyTriggerMono;
+        public EnemyTriggerMono EnemyTriggerMono => _enemyTriggerMono;
 
         private void Start()
         {
             InitComponents();
+            _enemyTriggerMono = transform.GetChild(0).GetComponent<EnemyTriggerMono>();
+            InitObject(0);
         }
 
         public void InitObject(int id)
@@ -34,7 +38,9 @@ namespace Script.Service.View.Game.Controller
 
         public override void OnSetData()
         {
-            ((EnemyDefineController)AbsControllerBase).SetEnemyData(_enemyData);
+            EnemyDefineController ls =((EnemyDefineController)AbsControllerBase);
+            ls.SetEnemyData(_enemyData);
+            ls.SetEnemyTriggerMono(_enemyTriggerMono);
         }
 
         private void OnEnable()
