@@ -1,10 +1,11 @@
 ﻿using QFramework;
 using Script.Service.Model;
+using Script.Service.System;
 using Script.Service.View.Game.Controller;
 
 namespace Script.Service.Command
 {
-    public class RemoveEnemyControllerMonoCommand:AbstractCommand
+    public class RemoveEnemyControllerMonoCommand : AbstractCommand
     {
         private GameModel _model;
         EnemyControllerMono _enemyControllerMono;
@@ -13,11 +14,13 @@ namespace Script.Service.Command
         {
             _enemyControllerMono = enemyControllerMono;
         }
+
         protected override void OnExecute()
         {
             _model = this.GetModel<GameModel>();
-            if(_model.EnemyControllerMonos.Contains(_enemyControllerMono))
-                _model.EnemyControllerMonos.Remove(_enemyControllerMono);
+            if (!_model.EnemyControllerMonos.Contains(_enemyControllerMono)) return;
+            _model.EnemyControllerMonos.Remove(_enemyControllerMono);
+            
         }
     }
 }

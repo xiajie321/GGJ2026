@@ -1,6 +1,7 @@
 using System;
 using QFramework;
 using Script.Service.Command;
+using Script.Service.System;
 using Script.Service.Utility;
 using Script.Service.View.Game.Controller.EnemyController;
 using Script.SODataScript.TbConfig;
@@ -51,6 +52,7 @@ namespace Script.Service.View.Game.Controller
         private void OnDisable()
         {
             this.SendCommand(new RemoveEnemyControllerMonoCommand(this));
+            this.GetSystem<FactorySystem>().EnemyFactory.Release(gameObject);
         }
     }
 }

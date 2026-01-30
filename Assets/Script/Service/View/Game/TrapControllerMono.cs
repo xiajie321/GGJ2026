@@ -1,6 +1,7 @@
 ﻿using QFramework;
 using Script.Service.Architecture;
 using Script.Service.Command;
+using Script.Service.System;
 using Script.Service.Utility;
 using Script.SODataScript.TbConfig;
 using UnityEngine;
@@ -44,6 +45,7 @@ namespace Script.Service.View
         private void OnDisable()
         {
             this.SendCommand(new RemoveTrapControllerMonoCommand(this));
+            this.GetSystem<FactorySystem>().TrapFactory.Release(gameObject);
         }
     }
 }

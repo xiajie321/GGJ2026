@@ -26,7 +26,7 @@ namespace Script.Service.System
         {
             _enemyFactory.SceneChange();
             _itemFactory.SceneChange();
-            TrapFactory.SceneChange();
+            _trapFactory.SceneChange();
         }
     }
 }

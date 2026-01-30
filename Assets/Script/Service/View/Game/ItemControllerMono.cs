@@ -1,6 +1,7 @@
 ﻿using QFramework;
 using Script.Service.Architecture;
 using Script.Service.Command;
+using Script.Service.System;
 using Script.Service.Utility;
 using Script.SODataScript.TbConfig;
 using UnityEngine;
@@ -54,6 +55,7 @@ namespace Script.Service.View.Game
         private void OnDisable()
         {
             this.SendCommand(new RemoveItemControllerMonoCommand(this));
+            this.GetSystem<FactorySystem>().ItemFactory.Release(gameObject);
         }
     }
 }
