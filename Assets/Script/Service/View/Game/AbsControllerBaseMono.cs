@@ -46,6 +46,12 @@ namespace Script.Service.View.Game
             _animation ??= GetComponent<Animator>();
             _rigidbody2D ??= GetComponent<Rigidbody2D>();
             _collider2D ??= GetComponent<Collider2D>();
+            OnInitComponents();
+        }
+
+        public virtual void OnInitComponents()
+        {
+            
         }
 
         /// <summary>
@@ -59,8 +65,14 @@ namespace Script.Service.View.Game
             AbsControllerBase = controller;
             AbsControllerBase.SetAnimation(_animation);
             AbsControllerBase.SetRigidbody2D(_rigidbody2D);
-            AbsControllerBase.SetFsm(_fsm);
             AbsControllerBase.SetCollider2D(_collider2D);
+            OnSetData();
+            AbsControllerBase.SetFsm(_fsm);
+        }
+
+        public virtual void OnSetData()
+        {
+            
         }
 
         public IArchitecture GetArchitecture()

@@ -31,9 +31,9 @@ namespace Script.Service.View.Game
 
         private void Start()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
-            _collider2D = GetComponent<Collider2D>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _rigidbody2D ??= GetComponent<Rigidbody2D>();
+            _collider2D ??= GetComponent<Collider2D>();
+            _spriteRenderer ??= GetComponent<SpriteRenderer>();
         }
 
         private void OnEnable()

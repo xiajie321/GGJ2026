@@ -25,8 +25,8 @@ namespace Script.Service.View
 
         private void Start()
         {
-            _collider2D = GetComponent<Collider2D>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _collider2D ??= GetComponent<Collider2D>();
+            _spriteRenderer ??= GetComponent<SpriteRenderer>();
         }
         private void OnEnable()
         {

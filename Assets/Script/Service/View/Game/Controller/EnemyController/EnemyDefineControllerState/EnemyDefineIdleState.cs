@@ -15,7 +15,6 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
 
         protected override void OnUpdate()
         {
-            
         }
     }
 }

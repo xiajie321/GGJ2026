@@ -8,5 +8,14 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
         {
             
         }
+        protected override void OnEnter()
+        {
+            mOwner.Animator.Play("Interaction");
+        }
+
+        protected override void OnUpdate()
+        {
+            
+        }
     }
 }

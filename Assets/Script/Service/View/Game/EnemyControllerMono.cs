@@ -20,15 +20,21 @@ namespace Script.Service.View.Game.Controller
         private EnemyData _enemyData;
         public EnemyData EnemyData => _enemyData;
 
+        private void Start()
+        {
+            InitComponents();
+        }
+
         public void InitObject(int id)
         {
             _enemyData = this.GetUtility<ConfigUtility>().Config.TbEnemyConfig.Get(id);
             _animation.runtimeAnimatorController = _enemyData.RuntimeAnimatorController;
-        }
-        private void Start()
-        {
-            InitComponents();
             SetController(new EnemyDefineController());//TODO 默认控制器
+        }
+
+        public override void OnSetData()
+        {
+            ((EnemyDefineController)AbsControllerBase).SetEnemyData(_enemyData);
         }
 
         private void OnEnable()
