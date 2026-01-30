@@ -12,7 +12,6 @@ namespace Script.SODataScript.TbConfig
             {
                 Id = id,
                 Name = _ls.Name,
-                Hp = _ls.Hp,
             };
         }
     }
@@ -20,8 +19,7 @@ namespace Script.SODataScript.TbConfig
     public class EnemyData
     {
         public int Id;//这里可以不用填,因为在Get方法中会返回
-        public RuntimeAnimatorController RuntimeAnimatorController;//动画控制器替换
         public string Name = "";
-        public int Hp;
+        public RuntimeAnimatorController RuntimeAnimatorController;//动画控制器替换
     }
 }
