@@ -1,7 +1,9 @@
 using Alchemy.Serialization;
 using QFramework;
+using Script.Service.Architecture;
 using Script.Service.View.Game.Controller;
 using UnityEngine;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Service.View.Game
 {
@@ -10,7 +12,7 @@ namespace Script.Service.View.Game
     /// </summary>
     /// <typeparam name="T">状态枚举类型</typeparam>
     [AlchemySerialize]
-    public abstract partial class AbsControllerBaseMono<T>: MonoBehaviour
+    public abstract partial class AbsControllerBaseMono<T>: MonoBehaviour,IController
     {
         /// <summary>
         /// 动画组件
@@ -60,6 +62,11 @@ namespace Script.Service.View.Game
             AbsControllerBase.SetRigidbody2D(_rigidbody2D);
             AbsControllerBase.SetFsm(_fsm);
             AbsControllerBase.SetCollider2D(_collider2D);
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return GameArchitecture.Interface;
         }
     }
 }

@@ -1,4 +1,8 @@
 using System;
+using QFramework;
+using Script.Service.Utility;
+using Script.Service.View.Game.Controller.EnemyController;
+using Script.SODataScript.TbConfig;
 using UnityEngine;
 
 namespace Script.Service.View.Game.Controller
@@ -11,9 +15,18 @@ namespace Script.Service.View.Game.Controller
         public Animator Animation => _animation;
         public Rigidbody2D Rigidbody2D => _rigidbody2D;
         public Collider2D Collider2D => _collider2D;
+        private EnemyData _enemyData;
+        public EnemyData EnemyData => _enemyData;
+
+        public void InitObject(int id)
+        {
+            _enemyData = this.GetUtility<ConfigUtility>().Config.TbEnemyConfig.Get(id);
+            _animation.runtimeAnimatorController = _enemyData.RuntimeAnimatorController;
+        }
         private void Start()
         {
             InitComponents();
+            SetController(new EnemyDefineController());//TODO 默认控制器
         }
         private void Update()
         {
