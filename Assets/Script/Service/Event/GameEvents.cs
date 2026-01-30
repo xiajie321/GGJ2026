@@ -36,4 +36,11 @@
     public struct GameLevelTransitionEvent
     {
     }
+    /// <summary>
+    /// 场景切换事件
+    /// </summary>
+    public struct SceneChangeEvent
+    {
+        
+    }
 }
