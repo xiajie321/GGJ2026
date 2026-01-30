@@ -1,5 +1,6 @@
 using System;
 using QFramework;
+using Script.Service.Command;
 using Script.Service.Utility;
 using Script.Service.View.Game.Controller.EnemyController;
 using Script.SODataScript.TbConfig;
@@ -28,6 +29,12 @@ namespace Script.Service.View.Game.Controller
             InitComponents();
             SetController(new EnemyDefineController());//TODO 默认控制器
         }
+
+        private void OnEnable()
+        {
+            this.SendCommand(new AddEnemyControllerMonoCommand(this));
+        }
+
         private void Update()
         {
             _fsm.Update();
@@ -39,6 +46,11 @@ namespace Script.Service.View.Game.Controller
         private void OnGUI()
         {
             _fsm.OnGUI();
+        }
+
+        private void OnDisable()
+        {
+            this.SendCommand(new RemoveEnemyControllerMonoCommand(this));
         }
     }
 }
