@@ -18,7 +18,6 @@ namespace Script.SODataScript.TbConfig
                 Type = _ls.Type,
                 Height = _ls.Height,
                 Level = _ls.Level,
-                Cost = _ls.Cost,
                 IsMoveable = _ls.IsMoveable,
             };
         }
@@ -33,9 +32,7 @@ namespace Script.SODataScript.TbConfig
         public ItemType Type;//物品类型
 
         public Height Height;//物品的高度
-        public int Level;//遮挡等级
-        
-        public float Cost;//购买该物品的花费
+        public ItemLevel Level;//遮挡等级
         
         public bool IsMoveable;//物品是否可以移动
         
