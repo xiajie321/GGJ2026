@@ -12,6 +12,7 @@ namespace Script.SODataScript.TbConfig
             {
                 Id = id,
                 Name = _ls.Name,
+                RuntimeAnimatorController = _ls.RuntimeAnimatorController,
             };
         }
     }
