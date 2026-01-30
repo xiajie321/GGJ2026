@@ -4,7 +4,6 @@ using Script.Service.Command;
 using Script.Service.Utility;
 using Script.SODataScript.TbConfig;
 using UnityEngine;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Service.View.Game
 {

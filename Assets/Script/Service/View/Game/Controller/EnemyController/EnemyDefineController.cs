@@ -1,7 +1,6 @@
 ﻿using QFramework;
 using Script.Service.View.Game.Controller.EnemyController.EnemyDefineControllerState;
 using UnityEngine;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Service.View.Game.Controller.EnemyController
 {

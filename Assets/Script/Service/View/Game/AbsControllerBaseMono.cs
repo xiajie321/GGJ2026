@@ -3,7 +3,6 @@ using QFramework;
 using Script.Service.Architecture;
 using Script.Service.View.Game.Controller;
 using UnityEngine;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Service.View.Game
 {

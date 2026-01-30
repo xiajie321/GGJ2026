@@ -1,6 +1,5 @@
 ﻿using QFramework;
 using Script.Service.Model;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Service.Command
 {
