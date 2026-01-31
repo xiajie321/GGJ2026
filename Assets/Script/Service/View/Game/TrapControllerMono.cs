@@ -32,6 +32,8 @@ namespace Script.Service.View
     {
         [SerializeField]
         private TrapState _state = TrapState.NotSpawned;
+
+        [SerializeField] private int TrapId;
         
         /// <summary>
         /// 当前瑕疵状态
@@ -91,6 +93,7 @@ namespace Script.Service.View
             _trapAdsorberMono ??= GetComponent<TrapAdsorberMono>();
             _spriteRenderer ??= GetComponent<SpriteRenderer>();
             OnStateChanged();
+            InitObject(TrapId);
         }
         private void OnEnable()
         {
