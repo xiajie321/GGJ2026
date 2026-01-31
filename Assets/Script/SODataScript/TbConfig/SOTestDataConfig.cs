@@ -24,6 +24,6 @@ namespace Script.SODataScript.TbConfig
     public class TestData
     {
         public string Speed;
-        public string  Damage;
+        public string Damage;
     }
 }
