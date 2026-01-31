@@ -8,14 +8,23 @@ namespace Script.Service.View.Game
     {
         private bool _isJudgment;
         private ItemControllerMono _gameObject;
+        private TrapControllerMono _trapController;
         public bool IsJudgment => _isJudgment;//有媳妇对象
         public ItemControllerMono ItemControllerMono => _gameObject;
+        public TrapControllerMono TrapControllerMono => _trapController;
+
+        private void Start()
+        {
+            _trapController = GetComponent<TrapControllerMono>();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if(other.tag.Equals("Trigger")) return;
             if(_isJudgment) return;
             _gameObject = other.GetComponent<ItemControllerMono>();
             if (_gameObject == null) return;
+            if(_gameObject.ItemData.Height != _trapController.TrapData.Height) return;
             _isJudgment = true;
             _gameObject.Parent(transform);
         }
@@ -26,6 +35,7 @@ namespace Script.Service.View.Game
             if(!_isJudgment) return;
             if (_gameObject != null && _gameObject.gameObject == other.gameObject)
             {
+                if(_gameObject.ItemData.Height != _trapController.TrapData.Height) return;
                 _isJudgment = false;
                 if (gameObject.activeInHierarchy && _gameObject.gameObject.activeInHierarchy)
                 {
