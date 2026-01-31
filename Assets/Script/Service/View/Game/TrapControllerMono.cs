@@ -9,6 +9,10 @@ using UnityEngine;
 
 namespace Script.Service.View
 {
+    //添加一个枚举
+    // 未刷出：此处没有瑕疵生成，未来可能会刷新。
+    // 未遮挡：没被盖住的瑕疵。红边框。洞会播放动画。
+    // 已遮挡：已经被盖住的瑕疵。灰色半透明剪影。只会有固定的1帧。
     public class TrapControllerMono:MonoBehaviour,IController
     {
         /// <summary>
@@ -18,18 +22,19 @@ namespace Script.Service.View
         /// <summary>
         /// 精灵渲染器
         /// </summary>
-        protected SpriteRenderer _spriteRenderer;
+        protected Animator _animator;
         protected TrapData _trapData;
         protected TrapAdsorberMono _trapAdsorberMono;
+        [SerializeField]
         public Collider2D Collider2D => _collider2D;
-        public SpriteRenderer SpriteRenderer => _spriteRenderer;
+        public Animator Animator=> _animator;
         public TrapData TrapData => _trapData;
         public TrapAdsorberMono TrapAdsorberMono => _trapAdsorberMono;
         
         private void Start()
         {
             _collider2D ??= GetComponent<Collider2D>();
-            _spriteRenderer ??= GetComponent<SpriteRenderer>();
+            _animator ??= GetComponent<Animator>();
             _trapAdsorberMono ??= GetComponent<TrapAdsorberMono>();
         }
         private void OnEnable()
@@ -40,10 +45,10 @@ namespace Script.Service.View
         public void InitObject(int id)
         {
             _collider2D ??= GetComponent<Collider2D>();
-            _spriteRenderer ??= GetComponent<SpriteRenderer>();
+            _animator ??= GetComponent<Animator>();
             _trapAdsorberMono ??= GetComponent<TrapAdsorberMono>();
             _trapData = this.GetUtility<ConfigUtility>().Config.TbTrapConfig.Get(id);
-            _spriteRenderer.sprite = _trapData.Sprite;
+            _animator.runtimeAnimatorController = _trapData.RuntimeAnimatorController;
         }
         public IArchitecture GetArchitecture()
         {

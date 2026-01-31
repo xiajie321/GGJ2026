@@ -17,7 +17,7 @@ namespace Script.SODataScript.TbConfig
             {
                 Id = id,
                 Name = _ls.Name,
-                Sprite = _ls.Sprite,
+                RuntimeAnimatorController = _ls.RuntimeAnimatorController,
                 Height = _ls.Height,
                 Level = _ls.Level,
             };
@@ -29,7 +29,7 @@ namespace Script.SODataScript.TbConfig
     {
         public int Id;//这里可以不用填,因为在Get方法中会返回
         public string Name = "";
-        public Sprite Sprite;
+        public RuntimeAnimatorController RuntimeAnimatorController;//动画控制器替换
         
         public Height Height;//陷阱高度
         public TrapLevel Level;//陷阱等级

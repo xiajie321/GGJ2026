@@ -37,7 +37,6 @@ namespace Script.Service.View.Game
             _collider2D ??= GetComponent<Collider2D>();
             _spriteRenderer ??= GetComponent<SpriteRenderer>();
             _draggableSprite ??= GetComponent<DraggableSprite>();
-            InitObject(0);
         }
 
         private void OnEnable()
