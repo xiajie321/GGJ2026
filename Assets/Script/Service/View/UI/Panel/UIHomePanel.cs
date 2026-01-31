@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using Script.Service.System;
 using UnityEngine.EventSystems;
 
 namespace Service.View.UI.Panel
@@ -13,8 +14,13 @@ namespace Service.View.UI.Panel
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
-			
-			BtnStart.onClick.AddListener(() => Debug.Log("开始游戏"));
+
+			BtnStart.onClick.AddListener(() =>
+			{
+				CloseSelf();
+				
+				Debug.Log("[UIHomePanel] 开始游戏...");
+			});
 			BtnSettings.onClick.AddListener(() => UIKit.OpenPanel<UISettingsPanel>());
 			BtnExit.onClick.AddListener(() => 
 			{

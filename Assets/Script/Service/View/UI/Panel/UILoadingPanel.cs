@@ -34,12 +34,13 @@ namespace Service.View.UI.Panel
 
 		public void OnLoad(float progress, bool isLoad)
 		{
-			throw new System.NotImplementedException();
+			Debug.Log($"正在加载... 进度: {progress * 100}%");
 		}
 
 		public bool OnLoadCompleted(float progress, bool isLoad)
 		{
-			throw new System.NotImplementedException();
+			Debug.Log("加载完成");
+			return true;
 		}
 	}
 }
