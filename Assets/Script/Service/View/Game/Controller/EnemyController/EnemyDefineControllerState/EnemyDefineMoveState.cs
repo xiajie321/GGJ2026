@@ -18,7 +18,7 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
 
         protected override void OnFixedUpdate()
         {
-            if (Random.Range(0, 1000) == 0)
+            if (Random.Range(0, 1000) == 0 && mOwner.EnemyData.StandTime > 0)
             {
                 mFSM.ChangeState(EnemyState.Idle);
             }
