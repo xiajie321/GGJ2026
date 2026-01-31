@@ -4,34 +4,52 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	public class UIPausePanelData : UIPanelData
-	{
-	}
-	public partial class UIPausePanel : UIPanel
-	{
-		protected override void OnInit(IUIData uiData = null)
-		{
-			mData = uiData as UIPausePanelData ?? new UIPausePanelData();
-			
-			ResumeBtn.BindGlobalSelectFrame();
-			SettingBtn.BindGlobalSelectFrame();
-			QuitBtn.BindGlobalSelectFrame();
-		}
-		
-		protected override void OnOpen(IUIData uiData = null)
-		{
-		}
-		
-		protected override void OnShow()
-		{
-		}
-		
-		protected override void OnHide()
-		{
-		}
-		
-		protected override void OnClose()
-		{
-		}
-	}
+    public class UIPausePanelData : UIPanelData
+    {
+    }
+
+    public partial class UIPausePanel : UIPanel
+    {
+        protected override void OnInit(IUIData uiData = null)
+        {
+            mData = uiData as UIPausePanelData ?? new UIPausePanelData();
+            
+            ResumeBtn.onClick.AddListener(ResumeGame);
+            CloseBtn.onClick.AddListener(ResumeGame);
+            
+            SettingBtn.onClick.AddListener(() => {
+                UIKit.OpenPanel<UISettingsPanel>();
+            });
+            
+            QuitBtn.onClick.AddListener(() => {
+                UIKit.OpenPanel<UIConfirmPanel>(new UIConfirmPanelData() {
+                    OnConfirm = () => {
+                        Time.timeScale = 1f; 
+                        UIKit.CloseAllPanel();
+                        UIKit.OpenPanel<UIHomePanel>();
+                    }
+                });
+            });
+            
+            ResumeBtn.BindGlobalSelectFrame();
+            SettingBtn.BindGlobalSelectFrame();
+            QuitBtn.BindGlobalSelectFrame();
+        }
+
+        private void ResumeGame()
+        {
+            Time.timeScale = 1f;
+            CloseSelf();
+        }
+
+        protected override void OnOpen(IUIData uiData = null)
+        {
+            Time.timeScale = 0f;
+        }
+
+        protected override void OnClose()
+        {
+            Time.timeScale = 1f;
+        }
+    }
 }

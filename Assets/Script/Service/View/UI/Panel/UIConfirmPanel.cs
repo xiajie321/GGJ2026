@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
@@ -6,6 +7,7 @@ namespace Service.View.UI.Panel
 {
 	public class UIConfirmPanelData : UIPanelData
 	{
+		public Action OnConfirm;
 	}
 	public partial class UIConfirmPanel : UIPanel
 	{
@@ -15,6 +17,17 @@ namespace Service.View.UI.Panel
 			
 			ConfirmBtn.BindGlobalSelectFrame();
 			CancelBtn.BindGlobalSelectFrame();
+			
+			ConfirmBtn.onClick.AddListener(() =>
+			{
+				mData.OnConfirm?.Invoke();
+				CloseSelf();
+			});
+			
+			CancelBtn.onClick.AddListener(() =>
+			{
+				CloseSelf();
+			});
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

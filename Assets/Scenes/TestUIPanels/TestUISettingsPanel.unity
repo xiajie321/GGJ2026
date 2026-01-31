@@ -827,9 +827,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 838426378}
     m_Modifications:
+    - target: {fileID: 3208995128707640491, guid: 79f4e74acb41b824b91d1ad9525629d9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315448473016699649, guid: 79f4e74acb41b824b91d1ad9525629d9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3576742863848700278, guid: 79f4e74acb41b824b91d1ad9525629d9, type: 3}
       propertyPath: m_Name
       value: UISettingsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117070079775348661, guid: 79f4e74acb41b824b91d1ad9525629d9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6963300680889541007, guid: 79f4e74acb41b824b91d1ad9525629d9, type: 3}
       propertyPath: m_Pivot.x
@@ -911,9 +923,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8929460581256171935, guid: 79f4e74acb41b824b91d1ad9525629d9, type: 3}
-      propertyPath: TextSettings
-      value: 
+    - target: {fileID: 7060632038631219193, guid: 79f4e74acb41b824b91d1ad9525629d9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

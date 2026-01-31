@@ -16,12 +16,20 @@ namespace Service.View.UI.Panel
 			
 			BtnStart.onClick.AddListener(() => Debug.Log("开始游戏"));
 			BtnSettings.onClick.AddListener(() => UIKit.OpenPanel<UISettingsPanel>());
-			BtnExit.onClick.AddListener(() => {
+			BtnExit.onClick.AddListener(() => 
+			{
+				// 打开确认面板
+				UIKit.OpenPanel<UIConfirmPanel>(new UIConfirmPanelData() 
+				{
+					OnConfirm = () => 
+					{
 #if UNITY_EDITOR
-				UnityEditor.EditorApplication.isPlaying = false;
+						UnityEditor.EditorApplication.isPlaying = false;
 #else
                 Application.Quit();
 #endif
+					}
+				});
 			});
 			
 			BtnStart.BindGlobalSelectFrame();
