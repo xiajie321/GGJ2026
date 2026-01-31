@@ -40,5 +40,7 @@ namespace Script.SODataScript.TbConfig
         public float PerStarCost;//每颗星所需的积分
         public int MaxStar;//该场景的最高星级
         public float Ratio;//将积分转为货币的汇率，10积分=1货币则为0.1
+        
+        public AudioClip BackgroundMusic;//该关卡的背景音乐
     }
 }
