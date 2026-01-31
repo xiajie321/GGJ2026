@@ -15,5 +15,13 @@ MonoBehaviour:
   __alchemySerializationData_Script_SODataScript_TbConfig_AbsDicScriptableObjectBase1:
     _data:
       isCreated: 1
-      data: '[]'
+      data: "[\n    {\n        \"Key\": 1001,\n        \"Value\": {\n           
+        \"Id\": 1001,\n            \"Name\": \"test 1\",\n            \"Price\":
+        10\n        }\n    },\n    {\n        \"Key\": 1002,\n        \"Value\":
+        {\n            \"Id\": 1002,\n            \"Name\": \"test 2\",\n           
+        \"Price\": 20\n        }\n    },\n    {\n        \"Key\": 1003,\n       
+        \"Value\": {\n            \"Id\": 1003,\n            \"Name\": \"test 3\",\n           
+        \"Price\": 30\n        }\n    }\n]"
+    unityObjectReferences: []
+  __alchemySerializationData_Script_SODataScript_TbConfig_SOItemShopConfig:
     unityObjectReferences: []
