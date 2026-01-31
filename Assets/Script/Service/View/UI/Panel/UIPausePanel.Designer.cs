@@ -5,16 +5,31 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:dfc62f29-3f1a-457f-a76d-b5b0a478acd0
+	// Generate Id:6da690ab-d68a-4b04-987a-7064b30f0eeb
 	public partial class UIPausePanel
 	{
 		public const string Name = "UIPausePanel";
 		
+		[SerializeField]
+		public UnityEngine.UI.Button CloseBtn;
+		[SerializeField]
+		public UnityEngine.UI.Image TitleImage;
+		[SerializeField]
+		public UnityEngine.UI.Button ResumeBtn;
+		[SerializeField]
+		public UnityEngine.UI.Button SettingBtn;
+		[SerializeField]
+		public UnityEngine.UI.Button QuitBtn;
 		
 		private UIPausePanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
+			CloseBtn = null;
+			TitleImage = null;
+			ResumeBtn = null;
+			SettingBtn = null;
+			QuitBtn = null;
 			
 			mData = null;
 		}
