@@ -25,11 +25,9 @@ namespace Service.View.UI.Panel
 				
 				Debug.Log("[UIHomePanel] 开始游戏...");
 
-				this.GetSystem<CameraEdgeScrollingSystem>().InitCameraSystem();
-
 				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("Level1");
 
-				this.GetSystem<LevelSystem>().StartLevel(0); // 默认关卡
+
 			});
 			BtnSettings.onClick.AddListener(() => UIKit.OpenPanel<UISettingsPanel>());
 			BtnExit.onClick.AddListener(() => 

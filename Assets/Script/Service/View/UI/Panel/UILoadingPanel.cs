@@ -8,8 +8,12 @@ namespace Service.View.UI.Panel
 	public class UILoadingPanelData : UIPanelData
 	{
 	}
-	public partial class UILoadingPanel : UIPanel, ISceneSwitch
+	public partial class UILoadingPanel : UIPanel, ISceneSwitch,IController
 	{
+		public IArchitecture GetArchitecture()
+		{
+			return Script.Service.Architecture.GameArchitecture.Interface;
+		}
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UILoadingPanelData ?? new UILoadingPanelData();
@@ -18,6 +22,7 @@ namespace Service.View.UI.Panel
 		
 		protected override void OnOpen(IUIData uiData = null)
 		{
+
 		}
 		
 		protected override void OnShow()
@@ -30,6 +35,7 @@ namespace Service.View.UI.Panel
 		
 		protected override void OnClose()
 		{
+
 		}
 
 		public void OnLoad(float progress, bool isLoad)
@@ -40,6 +46,8 @@ namespace Service.View.UI.Panel
 		public bool OnLoadCompleted(float progress, bool isLoad)
 		{
 			Debug.Log("加载完成");
+			this.GetSystem<LevelSystem>().StartLevel(0); // 默认关卡
+			CloseSelf();
 			return true;
 		}
 	}
