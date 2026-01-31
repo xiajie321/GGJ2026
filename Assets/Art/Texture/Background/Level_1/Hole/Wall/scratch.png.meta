@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69f3ccf3732eb491ab1d72a531d755a7
+guid: 8026c87c4406b46a7bd9280004023809
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hole_4_L1_0
+      name: scratch_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 10
-        height: 8
+        x: 0
+        y: 0
+        width: 22
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44c1636f31501474c8a623221e64b87a
-      internalID: 672862378
+      spriteID: a95b23f60118e4194844f951eb2ccd47
+      internalID: 992333176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_4_L1_1
+      name: scratch_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 2
-        width: 13
-        height: 10
+        x: 22
+        y: 0
+        width: 22
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c3375caf72b04667a8c469c34a815a9
-      internalID: -817756976
+      spriteID: 1ad3bae3769bd4d8dbbffe26d54740b0
+      internalID: -433818066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_4_L1_2
+      name: scratch_2
       rect:
         serializedVersion: 2
-        x: 41
-        y: 2
-        width: 19
-        height: 18
+        x: 44
+        y: 0
+        width: 22
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a77be47d9875a43a99e4be0e86244e95
-      internalID: 1029853766
+      spriteID: e918f1643916943bab6beca8834ebac2
+      internalID: 1130030359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scratch_3
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1e76239840f43839fe8707d5aadc3c
+      internalID: -921471484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scratch_4
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba364cf01543430eb16ca83fbedeb0a
+      internalID: -125772295
       vertices: []
       indices: 
       edges: []
@@ -183,9 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hole_4_L1_0: 672862378
-      Hole_4_L1_1: -817756976
-      Hole_4_L1_2: 1029853766
+      scratch_0: 992333176
+      scratch_1: -433818066
+      scratch_2: 1130030359
+      scratch_3: -921471484
+      scratch_4: -125772295
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
