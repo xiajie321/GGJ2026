@@ -1,6 +1,5 @@
 ﻿using QFramework;
 using Script.Service.View.Game.Factory;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Service.System
 {

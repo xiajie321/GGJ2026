@@ -26,6 +26,8 @@ namespace Script.Service.View.Game
         protected SpriteRenderer _spriteRenderer;
         protected ItemData  _itemData;
         protected DraggableSprite  _draggableSprite;
+        [SerializeField] 
+        private int ItemId;
         public Rigidbody2D Rigidbody2D => _rigidbody2D;
         public Collider2D Collider2D => _collider2D;
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
@@ -37,6 +39,7 @@ namespace Script.Service.View.Game
             _collider2D ??= GetComponent<Collider2D>();
             _spriteRenderer ??= GetComponent<SpriteRenderer>();
             _draggableSprite ??= GetComponent<DraggableSprite>();
+            InitObject(ItemId);
         }
 
         private void OnEnable()
