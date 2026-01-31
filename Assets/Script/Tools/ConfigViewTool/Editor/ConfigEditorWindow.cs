@@ -36,7 +36,6 @@ namespace Script.Tools.ConfigViewTool.Editor
         private IDictionary _currentDictionary;
         private FieldInfo _dataField;
         
-        // Cache Main Config reference
         private ScriptableObject _mainConfig;
 
         protected override void CreateGUI()
@@ -44,10 +43,7 @@ namespace Script.Tools.ConfigViewTool.Editor
             base.CreateGUI();
             
             var root = rootVisualElement;
-            if (root.childCount > 0)
-            {
-                root[0].RemoveFromHierarchy();
-            }
+            if (root.childCount > 0) root[0].RemoveFromHierarchy();
 
             var mainContainer = new VisualElement();
             mainContainer.style.flexDirection = FlexDirection.Row;
@@ -66,28 +62,24 @@ namespace Script.Tools.ConfigViewTool.Editor
             sidebar.style.paddingRight = 5;
             mainContainer.Add(sidebar);
 
-            // 1. Main Config Button
-            var mainConfigBtn = new Button(SelectMainConfig) { text = "Main Config" };
+            var mainConfigBtn = new Button(SelectMainConfig) { text = "主配置" };
             mainConfigBtn.style.height = 30;
             mainConfigBtn.style.marginBottom = 10;
             mainConfigBtn.style.unityFontStyleAndWeight = FontStyle.Bold;
             sidebar.Add(mainConfigBtn);
             
-            // Separator
             var sep = new VisualElement();
             sep.style.height = 1;
             sep.style.backgroundColor = Color.gray;
             sep.style.marginBottom = 10;
             sidebar.Add(sep);
 
-            // 2. Config Files Header
-            var header = new Label("Config Files");
+            var header = new Label("配置文件列表");
             header.style.fontSize = 14;
             header.style.unityFontStyleAndWeight = FontStyle.Bold;
             header.style.marginBottom = 5;
             sidebar.Add(header);
 
-            // 3. Create & Refresh Buttons
             var btnRow = new VisualElement();
             btnRow.style.flexDirection = FlexDirection.Row;
             btnRow.style.marginBottom = 5;
@@ -96,13 +88,11 @@ namespace Script.Tools.ConfigViewTool.Editor
             createBtn.style.width = 30;
             btnRow.Add(createBtn);
 
-            var refreshBtn = new Button(RefreshUI) { text = "Refresh List" };
+            var refreshBtn = new Button(RefreshUI) { text = "刷新列表" };
             refreshBtn.style.flexGrow = 1;
             btnRow.Add(refreshBtn);
-            
             sidebar.Add(btnRow);
 
-            // 4. List View
             RefreshConfigList();
             var listView = new ListView();
             listView.itemsSource = _cachedConfigs;
@@ -116,10 +106,7 @@ namespace Script.Tools.ConfigViewTool.Editor
             listView.bindItem = (element, index) => 
             {
                 var label = (Label)element;
-                if (index >= 0 && index < _cachedConfigs.Count)
-                {
-                    label.text = _cachedConfigs[index].name;
-                }
+                if (index >= 0 && index < _cachedConfigs.Count) label.text = _cachedConfigs[index].name;
             };
             listView.selectionType = SelectionType.Single;
             listView.fixedItemHeight = 25;
@@ -131,7 +118,6 @@ namespace Script.Tools.ConfigViewTool.Editor
                 int index = _cachedConfigs.IndexOf(CurrentConfig);
                 if (index >= 0) listView.SetSelection(index);
             }
-
             sidebar.Add(listView);
 
             // Content
@@ -143,19 +129,12 @@ namespace Script.Tools.ConfigViewTool.Editor
             _contentContainer.style.paddingBottom = 10;
             mainContainer.Add(_contentContainer);
 
-            if (CurrentConfig != null)
-            {
-                RebuildContent();
-            }
-            else
-            {
-                _contentContainer.Add(new Label("Select a config file to edit."));
-            }
+            if (CurrentConfig != null) RebuildContent();
+            else _contentContainer.Add(new Label("请选择一个配置文件进行编辑。"));
         }
 
         private void SelectMainConfig()
         {
-            // Find MainConfig
             if (_mainConfig == null)
             {
                 string[] guids = AssetDatabase.FindAssets("t:SOMainConfig");
@@ -169,30 +148,21 @@ namespace Script.Tools.ConfigViewTool.Editor
             if (_mainConfig != null)
             {
                 CurrentConfig = _mainConfig;
-                // Deselect list
                 var listView = rootVisualElement.Q<ListView>();
                 if (listView != null) listView.ClearSelection();
-                
                 RebuildContent();
             }
-            else
-            {
-                Debug.LogWarning("MainConfig not found!");
-            }
+            else Debug.LogWarning("MainConfig not found!");
         }
 
         private void ShowCreateMenu()
         {
             var menu = new GenericMenu();
             var types = TypeCache.GetTypesDerivedFrom(typeof(ScriptableObject));
-            
             foreach (var type in types)
             {
                 if (type.IsAbstract) continue;
-                if (IsAbsDicScriptableObject(type))
-                {
-                    menu.AddItem(new GUIContent(type.Name), false, () => CreateConfig(type));
-                }
+                if (IsAbsDicScriptableObject(type)) menu.AddItem(new GUIContent(type.Name), false, () => CreateConfig(type));
             }
             menu.ShowAsContext();
         }
@@ -208,15 +178,11 @@ namespace Script.Tools.ConfigViewTool.Editor
 
             string filename = "New" + type.Name.Replace("SO", "") + ".asset";
             string fullPath = AssetDatabase.GenerateUniqueAssetPath(path + "/" + filename);
-            
             var asset = ScriptableObject.CreateInstance(type);
             AssetDatabase.CreateAsset(asset, fullPath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            
             RefreshUI();
-            
-            // Select new asset
             CurrentConfig = asset;
             var listView = rootVisualElement.Q<ListView>();
             int index = _cachedConfigs.IndexOf(asset);
@@ -237,7 +203,6 @@ namespace Script.Tools.ConfigViewTool.Editor
         private void OnSelectionChanged(IEnumerable<object> selected)
         {
             var item = selected.FirstOrDefault() as ScriptableObject;
-            // Only update if selection is valid (might be null when deselecting)
             if (item != null && item != CurrentConfig)
             {
                 CurrentConfig = item;
@@ -249,35 +214,24 @@ namespace Script.Tools.ConfigViewTool.Editor
         {
             _cachedConfigs.Clear();
             string path = "Assets/Resources/SOData/ConfigUitlity";
-            
             if (!AssetDatabase.IsValidFolder(path)) return;
-
             string[] guids = AssetDatabase.FindAssets("t:ScriptableObject", new[] { path });
             foreach(var guid in guids)
             {
                 var pathAsset = AssetDatabase.GUIDToAssetPath(guid);
                 var so = AssetDatabase.LoadAssetAtPath<ScriptableObject>(pathAsset);
-                if(so != null && IsAbsDicScriptableObject(so))
-                {
-                    _cachedConfigs.Add(so);
-                }
+                if(so != null && IsAbsDicScriptableObject(so)) _cachedConfigs.Add(so);
             }
             _cachedConfigs.Sort((a,b) => string.Compare(a.name, b.name));
         }
 
-        private bool IsAbsDicScriptableObject(ScriptableObject so)
-        {
-            return IsAbsDicScriptableObject(so.GetType());
-        }
+        private bool IsAbsDicScriptableObject(ScriptableObject so) => IsAbsDicScriptableObject(so.GetType());
 
         private bool IsAbsDicScriptableObject(Type type)
         {
             while (type != null)
             {
-                if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(AbsDicScriptableObjectBase<>))
-                {
-                    return true;
-                }
+                if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(AbsDicScriptableObjectBase<>)) return true;
                 type = type.BaseType;
             }
             return false;
@@ -286,34 +240,29 @@ namespace Script.Tools.ConfigViewTool.Editor
         private void RebuildContent()
         {
             _contentContainer.Clear();
-
             if (CurrentConfig == null) return;
 
             var toolbar = new VisualElement();
             toolbar.style.flexDirection = FlexDirection.Row;
             toolbar.style.marginBottom = 10;
-            
             var title = new Label(CurrentConfig.name);
             title.style.fontSize = 18;
             title.style.unityFontStyleAndWeight = FontStyle.Bold;
             title.style.marginRight = 20;
             toolbar.Add(title);
 
-            // Check config type to decide view
             if (IsAbsDicScriptableObject(CurrentConfig))
             {
-                toolbar.Add(new Button(SaveCurrentConfig) { text = "Save Config" });
-                toolbar.Add(new Button(AddNewItem) { text = "Add Item" });
-                toolbar.Add(new Button(RemoveSelectedItem) { text = "Remove Selected" });
+                toolbar.Add(new Button(SaveCurrentConfig) { text = "保存配置" });
+                toolbar.Add(new Button(AddNewItem) { text = "添加条目" });
+                toolbar.Add(new Button(RemoveSelectedItem) { text = "移除选中" });
                 _contentContainer.Add(toolbar);
                 BuildTableView();
             }
             else
             {
-                toolbar.Add(new Button(SaveCurrentConfig) { text = "Save Config" });
+                toolbar.Add(new Button(SaveCurrentConfig) { text = "保存配置" });
                 _contentContainer.Add(toolbar);
-                
-                // For MainConfig or others, show default Inspector
                 var inspector = new UnityEditor.UIElements.InspectorElement(CurrentConfig);
                 _contentContainer.Add(inspector);
             }
@@ -323,7 +272,7 @@ namespace Script.Tools.ConfigViewTool.Editor
         {
             if (!ExtractData(CurrentConfig, out _currentDictionary, out _currentDataType, out _currentDataList))
             {
-                _contentContainer.Add(new Label("Could not extract data from this config."));
+                _contentContainer.Add(new Label("无法从该配置中提取数据。"));
                 return;
             }
 
@@ -331,20 +280,44 @@ namespace Script.Tools.ConfigViewTool.Editor
             _tableView.itemsSource = _currentDataList;
             _tableView.style.flexGrow = 1;
 
-            // ID Column
             var idColumn = new Column();
             idColumn.name = "Key (ID)";
-            idColumn.title = "Key (ID)";
+            idColumn.title = "键 (ID)";
             idColumn.width = 80;
-            idColumn.makeCell = () => new Label();
+            idColumn.makeCell = () => new IntegerField();
             idColumn.bindCell = (e, i) => 
             {
                 if (i >= 0 && i < _currentDataList.Count)
                 {
                     var obj = _currentDataList[i];
                     var idField = _currentDataType.GetField("Id");
-                    if (idField != null) ((Label)e).text = idField.GetValue(obj).ToString();
-                    else ((Label)e).text = "?";
+                    if (idField != null)
+                    {
+                        var intField = (IntegerField)e;
+                        int currentId = (int)idField.GetValue(obj);
+                        intField.SetValueWithoutNotify(currentId);
+                        
+                        bool isKeyValid = _currentDictionary.Contains(currentId) && _currentDictionary[currentId] == obj;
+                        intField.style.backgroundColor = isKeyValid ? StyleKeyword.Null : new Color(1, 0, 0, 0.3f);
+
+                        intField.RegisterValueChangedCallback(evt => 
+                        {
+                            int newKey = evt.newValue;
+                            if (_currentDictionary.Contains(newKey))
+                            {
+                                intField.SetValueWithoutNotify(evt.previousValue);
+                                Debug.LogError($"Key {newKey} already exists!");
+                                return;
+                            }
+
+                            int oldKey = evt.previousValue;
+                            if (_currentDictionary.Contains(oldKey)) _currentDictionary.Remove(oldKey);
+                            _currentDictionary[newKey] = obj;
+                            
+                            idField.SetValue(obj, newKey);
+                            MarkDirty();
+                        });
+                    }
                 }
             };
             _tableView.columns.Add(idColumn);
@@ -352,6 +325,8 @@ namespace Script.Tools.ConfigViewTool.Editor
             var fields = _currentDataType.GetFields(BindingFlags.Public | BindingFlags.Instance);
             foreach (var field in fields)
             {
+                if (field.Name == "Id") continue;
+
                 var column = new Column();
                 column.name = field.Name;
                 column.title = ObjectNames.NicifyVariableName(field.Name);
@@ -360,7 +335,6 @@ namespace Script.Tools.ConfigViewTool.Editor
                 column.bindCell = (e, i) => BindCellElement(e, i, field);
                 _tableView.columns.Add(column);
             }
-
             _contentContainer.Add(_tableView);
         }
 
@@ -372,8 +346,7 @@ namespace Script.Tools.ConfigViewTool.Editor
             if (type == typeof(bool)) return new Toggle();
             if (type.IsEnum) return new EnumField(Activator.CreateInstance(type) as Enum);
             if (typeof(UnityEngine.Object).IsAssignableFrom(type)) { var f = new ObjectField(); f.objectType = type; return f; }
-            
-            return new Button() { text = "Edit" };
+            return new Button() { text = "编辑" };
         }
 
         private void BindCellElement(VisualElement element, int index, FieldInfo fieldInfo)
@@ -385,11 +358,7 @@ namespace Script.Tools.ConfigViewTool.Editor
             if (element is IntegerField intField)
             {
                 intField.SetValueWithoutNotify((int)val);
-                intField.RegisterValueChangedCallback(evt => {
-                    fieldInfo.SetValue(dataObj, evt.newValue);
-                    MarkDirty();
-                    if (fieldInfo.Name == "Id") SyncDictionaryKey(dataObj, evt.previousValue, evt.newValue);
-                });
+                intField.RegisterValueChangedCallback(evt => { fieldInfo.SetValue(dataObj, evt.newValue); MarkDirty(); });
             }
             else if (element is FloatField floatField)
             {
@@ -418,46 +387,11 @@ namespace Script.Tools.ConfigViewTool.Editor
             }
             else if (element is Button btn)
             {
-                btn.clicked += () => OpenNestedEditor(dataObj, fieldInfo);
+                btn.clicked += () => NestedEditorWindow.Open(dataObj, fieldInfo.Name, () => {
+                    MarkDirty();
+                    _tableView?.RefreshItems();
+                });
             }
-            else if (element is Label label)
-            {
-                label.text = val?.ToString() ?? "null";
-            }
-        }
-
-        private void OpenNestedEditor(object parentObj, FieldInfo fieldInfo)
-        {
-            var value = fieldInfo.GetValue(parentObj);
-            if (value == null)
-            {
-                if (typeof(IList).IsAssignableFrom(fieldInfo.FieldType))
-                {
-                    value = Activator.CreateInstance(fieldInfo.FieldType);
-                }
-                else
-                {
-                    value = Activator.CreateInstance(fieldInfo.FieldType);
-                }
-                fieldInfo.SetValue(parentObj, value);
-                MarkDirty();
-            }
-
-            var win = NestedEditorWindow.Open(value, fieldInfo.Name, () => {
-                MarkDirty();
-                _tableView?.RefreshItems();
-            });
-        }
-
-        private void SyncDictionaryKey(object dataObj, int oldKey, int newKey)
-        {
-            if (_currentDictionary.Contains(oldKey))
-            {
-                _currentDictionary.Remove(oldKey);
-                if (_currentDictionary.Contains(newKey)) Debug.LogError($"Key collision: {newKey}");
-                _currentDictionary[newKey] = dataObj;
-            }
-            _tableView.RefreshItems();
         }
 
         private bool ExtractData(ScriptableObject config, out IDictionary dictionary, out Type dataType, out IList list)
@@ -465,7 +399,6 @@ namespace Script.Tools.ConfigViewTool.Editor
             dictionary = null;
             dataType = null;
             list = null;
-
             Type type = config.GetType();
             while (type != null)
             {
@@ -502,10 +435,7 @@ namespace Script.Tools.ConfigViewTool.Editor
             }
         }
 
-        private void MarkDirty()
-        {
-             if (CurrentConfig != null) EditorUtility.SetDirty(CurrentConfig);
-        }
+        private void MarkDirty() { if (CurrentConfig != null) EditorUtility.SetDirty(CurrentConfig); }
 
         private void AddNewItem()
         {
@@ -517,11 +447,9 @@ namespace Script.Tools.ConfigViewTool.Editor
                 foreach(var key in _currentDictionary.Keys) if (key is int k && k > maxId) maxId = k;
                 newId = maxId + 1;
             }
-
             var newItem = Activator.CreateInstance(_currentDataType);
             var idField = _currentDataType.GetField("Id");
             if (idField != null) idField.SetValue(newItem, newId);
-
             _currentDictionary.Add(newId, newItem);
             _currentDataList.Add(newItem);
             _tableView.RefreshItems();
@@ -546,106 +474,130 @@ namespace Script.Tools.ConfigViewTool.Editor
 
     public class NestedEditorWindow : EditorWindow
     {
-        private object _target;
+        private class NavState { public object target; public string title; }
+        private Stack<NavState> _navStack = new Stack<NavState>();
         private Action _onChange;
         private Vector2 _scroll;
+        private Vector2 _listScroll;
+        private Vector2 _detailScroll;
+        private int _selectedListIndex = -1;
 
         public static NestedEditorWindow Open(object target, string title, Action onChange)
         {
+            if (HasOpenInstances<NestedEditorWindow>())
+            {
+                var w = GetWindow<NestedEditorWindow>();
+                w.titleContent = new GUIContent(title);
+                w._navStack.Clear();
+                w._navStack.Push(new NavState{ target = target, title = title });
+                w._onChange = onChange;
+                w.Show();
+                return w;
+            }
             var win = CreateInstance<NestedEditorWindow>();
             win.titleContent = new GUIContent(title);
-            win._target = target;
+            win._navStack.Push(new NavState{ target = target, title = title });
             win._onChange = onChange;
             win.ShowUtility();
             return win;
         }
 
-        private void OnGUI()
+        private void Push(object target, string title)
         {
-            if (_target == null)
-            {
-                Close();
-                return;
-            }
-
-            _scroll = EditorGUILayout.BeginScrollView(_scroll);
-            
-            EditorGUI.BeginChangeCheck();
-            DrawObject(_target);
-            if (EditorGUI.EndChangeCheck())
-            {
-                _onChange?.Invoke();
-            }
-
-            EditorGUILayout.EndScrollView();
+            _navStack.Push(new NavState{ target = target, title = title });
+            _selectedListIndex = -1;
         }
 
-        private void DrawObject(object obj)
+        private void Pop()
         {
-            if (obj == null) return;
+            if (_navStack.Count > 1) _navStack.Pop();
+            _selectedListIndex = -1;
+        }
 
-            if (obj is IList list)
+        private void OnGUI()
+        {
+            if (_navStack.Count == 0) { Close(); return; }
+            var current = _navStack.Peek();
+
+            EditorGUILayout.BeginHorizontal("Toolbar");
+            if (GUILayout.Button("返回", EditorStyles.toolbarButton, GUILayout.Width(50)) && _navStack.Count > 1) Pop();
+            GUILayout.Label(string.Join(" > ", _navStack.Select(x => x.title).Reverse()), EditorStyles.toolbarButton);
+            EditorGUILayout.EndHorizontal();
+
+            if (current.target is IList list)
             {
-                DrawList(list);
+                EditorGUI.BeginChangeCheck();
+                DrawSplitViewList(list);
+                if (EditorGUI.EndChangeCheck()) _onChange?.Invoke();
             }
             else
             {
-                DrawFields(obj);
+                _scroll = EditorGUILayout.BeginScrollView(_scroll);
+                EditorGUI.BeginChangeCheck();
+                DrawFields(current.target);
+                if (EditorGUI.EndChangeCheck()) _onChange?.Invoke();
+                EditorGUILayout.EndScrollView();
             }
         }
 
-        private void DrawList(IList list)
+        private void DrawSplitViewList(IList list)
         {
-            EditorGUILayout.BeginVertical("box");
-            EditorGUILayout.LabelField($"List ({list.Count})", EditorStyles.boldLabel);
-
-            if (GUILayout.Button("Add Element"))
+            EditorGUILayout.BeginHorizontal();
+            
+            EditorGUILayout.BeginVertical("box", GUILayout.Width(200));
+            if (GUILayout.Button("添加条目"))
             {
                 Type itemType = list.GetType().IsGenericType ? list.GetType().GetGenericArguments()[0] : typeof(object);
-                object newItem = null;
-                if (itemType == typeof(string)) newItem = "";
-                else if (itemType.IsValueType) newItem = Activator.CreateInstance(itemType);
-                else if (itemType.GetConstructor(Type.EmptyTypes) != null) newItem = Activator.CreateInstance(itemType);
-                
+                object newItem = itemType == typeof(string) ? "" : Activator.CreateInstance(itemType);
                 list.Add(newItem);
+                _selectedListIndex = list.Count - 1;
                 _onChange?.Invoke();
             }
 
+            _listScroll = EditorGUILayout.BeginScrollView(_listScroll, GUILayout.ExpandHeight(true));
             for (int i = 0; i < list.Count; i++)
             {
-                EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField($"Element {i}", GUILayout.Width(80));
+                var rect = EditorGUILayout.GetControlRect(false, 20);
+                if (i == _selectedListIndex) EditorGUI.DrawRect(rect, new Color(0.24f, 0.37f, 0.58f));
                 
-                var item = list[i];
-                if (item == null)
+                if (GUI.Button(new Rect(rect.x, rect.y, rect.width - 55, rect.height), $"Element {i}", EditorStyles.label))
                 {
-                    EditorGUILayout.LabelField("null");
+                    _selectedListIndex = i;
+                    GUI.FocusControl(null);
                 }
-                else if (IsSimpleType(item.GetType()))
-                {
-                    var newVal = DrawSimpleField(item, item.GetType());
-                    if (!object.Equals(newVal, item))
-                    {
-                        list[i] = newVal;
-                    }
-                }
-                else
-                {
-                    if (GUILayout.Button("Edit"))
-                    {
-                        Open(item, $"Element {i}", _onChange);
-                    }
-                }
-
-                if (GUILayout.Button("X", GUILayout.Width(20)))
+                
+                if (GUI.Button(new Rect(rect.x + rect.width - 50, rect.y, 50, rect.height), "删除"))
                 {
                     list.RemoveAt(i);
                     _onChange?.Invoke();
-                    break; 
+                    if (_selectedListIndex >= list.Count) _selectedListIndex = list.Count - 1;
+                    break;
                 }
-                EditorGUILayout.EndHorizontal();
             }
+            EditorGUILayout.EndScrollView();
             EditorGUILayout.EndVertical();
+
+            EditorGUILayout.BeginVertical("box", GUILayout.ExpandWidth(true));
+            _detailScroll = EditorGUILayout.BeginScrollView(_detailScroll);
+            if (_selectedListIndex >= 0 && _selectedListIndex < list.Count)
+            {
+                var item = list[_selectedListIndex];
+                if (item == null) EditorGUILayout.LabelField("null");
+                else if (IsSimpleType(item.GetType()))
+                {
+                    var newVal = DrawSimpleField(item, item.GetType(), "值");
+                    if (!object.Equals(newVal, item)) list[_selectedListIndex] = newVal;
+                }
+                else DrawFields(item);
+            }
+            else
+            {
+                EditorGUILayout.HelpBox("请选择一个条目", MessageType.Info);
+            }
+            EditorGUILayout.EndScrollView();
+            EditorGUILayout.EndVertical();
+            
+            EditorGUILayout.EndHorizontal();
         }
 
         private void DrawFields(object obj)
@@ -654,47 +606,44 @@ namespace Script.Tools.ConfigViewTool.Editor
             foreach (var field in fields)
             {
                 var val = field.GetValue(obj);
-                
                 if (IsSimpleType(field.FieldType))
                 {
                     var newVal = DrawSimpleField(val, field.FieldType, field.Name);
-                    if (!object.Equals(newVal, val))
-                    {
-                        field.SetValue(obj, newVal);
-                    }
+                    if (!object.Equals(newVal, val)) field.SetValue(obj, newVal);
                 }
                 else
                 {
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.PrefixLabel(field.Name);
-                    if (GUILayout.Button("Edit " + field.Name))
+                    if (val == null)
                     {
-                        // Instantiate if null
-                        if (val == null)
+                        if (GUILayout.Button("创建"))
                         {
                             val = Activator.CreateInstance(field.FieldType);
                             field.SetValue(obj, val);
+                            _onChange?.Invoke();
                         }
-                        Open(val, field.Name, _onChange);
+                    }
+                    else
+                    {
+                        string btnText = val is IList l ? $"列表 ({l.Count})" : "打开";
+                        if (GUILayout.Button(btnText)) Push(val, field.Name);
                     }
                     EditorGUILayout.EndHorizontal();
                 }
             }
         }
 
-        private bool IsSimpleType(Type t)
-        {
-            return t.IsPrimitive || t == typeof(string) || t.IsEnum || typeof(UnityEngine.Object).IsAssignableFrom(t);
-        }
+        private bool IsSimpleType(Type t) => t.IsPrimitive || t == typeof(string) || t.IsEnum || typeof(UnityEngine.Object).IsAssignableFrom(t);
 
-        private object DrawSimpleField(object val, Type t, string label = null)
+        private object DrawSimpleField(object val, Type t, string label)
         {
-            if (t == typeof(int)) return label == null ? EditorGUILayout.IntField((int)val) : EditorGUILayout.IntField(label, (int)val);
-            if (t == typeof(float)) return label == null ? EditorGUILayout.FloatField((float)val) : EditorGUILayout.FloatField(label, (float)val);
-            if (t == typeof(string)) return label == null ? EditorGUILayout.TextField((string)val) : EditorGUILayout.TextField(label, (string)val);
-            if (t == typeof(bool)) return label == null ? EditorGUILayout.Toggle((bool)val) : EditorGUILayout.Toggle(label, (bool)val);
-            if (t.IsEnum) return label == null ? EditorGUILayout.EnumPopup((Enum)val) : EditorGUILayout.EnumPopup(label, (Enum)val);
-            if (typeof(UnityEngine.Object).IsAssignableFrom(t)) return label == null ? EditorGUILayout.ObjectField((UnityEngine.Object)val, t, false) : EditorGUILayout.ObjectField(label, (UnityEngine.Object)val, t, false);
+            if (t == typeof(int)) return EditorGUILayout.IntField(label, (int)val);
+            if (t == typeof(float)) return EditorGUILayout.FloatField(label, (float)val);
+            if (t == typeof(string)) return EditorGUILayout.TextField(label, (string)val);
+            if (t == typeof(bool)) return EditorGUILayout.Toggle(label, (bool)val);
+            if (t.IsEnum) return EditorGUILayout.EnumPopup(label, (Enum)val);
+            if (typeof(UnityEngine.Object).IsAssignableFrom(t)) return EditorGUILayout.ObjectField(label, (UnityEngine.Object)val, t, false);
             return val;
         }
     }
