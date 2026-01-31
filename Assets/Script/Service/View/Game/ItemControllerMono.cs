@@ -56,6 +56,7 @@ namespace Script.Service.View.Game
             _itemData = this.GetUtility<ConfigUtility>().Config.TbItemConfig.Get(id);
             _spriteRenderer.sprite = _itemData.Sprite;
             _draggableSprite.enabled = _itemData.IsMoveable;
+            _rigidbody2D.gravityScale = _itemData.Gravity;
         }
 
         public IArchitecture GetArchitecture()
