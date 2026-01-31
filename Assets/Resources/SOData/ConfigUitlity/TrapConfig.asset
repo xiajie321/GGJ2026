@@ -26,13 +26,13 @@ MonoBehaviour:
         0,\n            \"Height\": 1,\n            \"Level\": 3\n        }\n   
         },\n    {\n        \"Key\": 3,\n        \"Value\": {\n            \"Id\":
         3,\n            \"Name\": \"\u6EF4\u6C34\u82D4\u85D3\",\n            \"RuntimeAnimatorController\":
-        0,\n            \"Height\": 0,\n            \"Level\": 0\n        }\n   
+        0,\n            \"Height\": 0,\n            \"Level\": 5\n        }\n   
         },\n    {\n        \"Key\": 4,\n        \"Value\": {\n            \"Id\":
         4,\n            \"Name\": \"\u732B\u54AA\u6293\u75D5\",\n            \"RuntimeAnimatorController\":
-        0,\n            \"Height\": 0,\n            \"Level\": 0\n        }\n   
+        0,\n            \"Height\": 0,\n            \"Level\": 5\n        }\n   
         },\n    {\n        \"Key\": 5,\n        \"Value\": {\n            \"Id\":
         5,\n            \"Name\": \"\u6D17\u6FA1\u7834\u6D1E\",\n            \"RuntimeAnimatorController\":
-        0,\n            \"Height\": 0,\n            \"Level\": 0\n        }\n   
+        0,\n            \"Height\": 0,\n            \"Level\": 3\n        }\n   
         }\n]"
     unityObjectReferences:
     - {fileID: 9100000, guid: 9a65750d1d7cb4fdcafa54a4b9cf45f2, type: 2}
