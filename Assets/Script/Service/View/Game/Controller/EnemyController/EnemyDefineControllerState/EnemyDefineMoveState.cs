@@ -26,7 +26,15 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
 
         protected override void OnUpdate()
         {
-            mOwner.Rigidbody2D.velocity = new Vector2(mOwner.EnemyData.MoveSpeed,0);
+            float speed = mOwner.EnemyData.MoveSpeed;
+            if (mOwner.IsAngry)
+            {
+                speed *= 2;
+            }
+            mOwner.Rigidbody2D.velocity = new Vector2(speed, 0);
+            
+            if (mOwner.IsAngry) return;
+            
             if (_time < mOwner.EnemyData.ThinkCoolingTime)
             {
                 _time += Time.deltaTime;

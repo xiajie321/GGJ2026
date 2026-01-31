@@ -13,6 +13,7 @@ namespace Script.Service.Architecture
         private void RegisterModel()
         {
             RegisterModel(new GameModel());
+            RegisterModel(new LevelModel());
         }
 
         private void RegisterUtility()

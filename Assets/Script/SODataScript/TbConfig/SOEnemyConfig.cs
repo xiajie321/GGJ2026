@@ -31,6 +31,9 @@ namespace Script.SODataScript.TbConfig
                 StandTime = _ls.StandTime,
                 ThinkTime = _ls.ThinkTime,
                 ThinkCoolingTime = _ls.ThinkCoolingTime,
+                
+                InteractPBTY = _ls.InteractPBTY,
+                InteractTime = _ls.InteractTime,
             };
         }
     }
@@ -55,6 +58,9 @@ namespace Script.SODataScript.TbConfig
         public float StandTime;//站立什么都不做的时间（秒）
         public float ThinkTime;//对物品或陷阱进行思考的时间（秒）
         public float ThinkCoolingTime;
+        
+        public int InteractPBTY; // 交互概率, 1-100
+        public float InteractTime; // 交互时间
     }
     
 }

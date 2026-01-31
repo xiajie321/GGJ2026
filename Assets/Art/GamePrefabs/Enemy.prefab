@@ -187,6 +187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   __alchemySerializationData_Script_Service_View_Game_AbsControllerBaseMono1:
     unityObjectReferences: []
+  HappySprite: {fileID: -534000177, guid: d3577f17939703944a06c6912ebd6147, type: 3}
+  ThinkingSprite: {fileID: 1751804333, guid: d3577f17939703944a06c6912ebd6147, type: 3}
+  AngrySprite: {fileID: 1401722215, guid: d3577f17939703944a06c6912ebd6147, type: 3}
 --- !u!1 &2405688542917738227
 GameObject:
   m_ObjectHideFlags: 0
