@@ -1,4 +1,4 @@
-﻿using QFramework;
+using QFramework;
 using Script.Service.View.Game.Controller;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -37,6 +37,7 @@ namespace Script.Service.View.Game.Factory
          public ItemControllerMono Get(int id)
          {
              ItemControllerMono ls = _pool.Get().GetComponent<ItemControllerMono>();
+             ls.transform.SetParent(null);
              ls.InitObject(id);
              return ls;
          }

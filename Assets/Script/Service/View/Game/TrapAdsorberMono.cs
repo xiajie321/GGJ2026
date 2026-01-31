@@ -15,6 +15,7 @@ namespace Script.Service.View.Game
             if(other.tag.Equals("Trigger")) return;
             if(_isJudgment) return;
             _gameObject = other.GetComponent<ItemControllerMono>();
+            if (_gameObject == null) return;
             _isJudgment = true;
             _gameObject.Parent(transform);
         }
@@ -23,18 +24,31 @@ namespace Script.Service.View.Game
         {
             if(other.tag.Equals("Trigger")) return;
             if(!_isJudgment) return;
-            if (_gameObject.gameObject == other.gameObject)
+            if (_gameObject != null && _gameObject.gameObject == other.gameObject)
             {
                 _isJudgment = false;
-                _gameObject.transform.parent = null;
+                if (gameObject.activeInHierarchy && _gameObject.gameObject.activeInHierarchy)
+                {
+                    _gameObject.transform.SetParent(null);
+                }
+                _gameObject =  null;
             }
         }
 
         private void Update()
         {
-            if(!_isJudgment) return;
-            if(ItemControllerMono.DraggableSprite.IsDragging) return;
-            _gameObject.transform.position = transform.position;//TODO 可以设置
+            if(!_isJudgment || _gameObject == null) return;
+            
+            // 如果物品的父物体不再是当前陷阱，说明它被其他陷阱吸附或被移除了
+            if (_gameObject.transform.parent != transform)
+            {
+                _isJudgment = false;
+                _gameObject = null;
+                return;
+            }
+
+            if(_gameObject.DraggableSprite != null && _gameObject.DraggableSprite.IsDragging) return;
+            _gameObject.transform.localPosition = new Vector3(0, 0, -0.1f);
         }
     }
 }
