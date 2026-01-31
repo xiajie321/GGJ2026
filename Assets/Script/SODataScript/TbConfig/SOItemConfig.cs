@@ -21,6 +21,7 @@ namespace Script.SODataScript.TbConfig
                 Type = _ls.Type,
                 Height = _ls.Height,
                 Level = _ls.Level,
+                Gravity = _ls.Gravity,
                 IsMoveable = _ls.IsMoveable,
             };
         }
@@ -36,6 +37,7 @@ namespace Script.SODataScript.TbConfig
 
         public Height Height;//物品的高度
         public ItemLevel Level;//遮挡等级
+        public float Gravity;//物体的重力，对应Rigidbody的GravityScale
         
         public bool IsMoveable;//物品是否可以移动
         
