@@ -15,5 +15,19 @@ MonoBehaviour:
   __alchemySerializationData_Script_SODataScript_TbConfig_AbsDicScriptableObjectBase1:
     _data:
       isCreated: 1
-      data: '[]'
+      data: "[\n    {\n        \"Key\": 9,\n        \"Value\": {\n            \"Id\":
+        9,\n            \"Name\": \"\u5C0F\u76C6\u683D\",\n            \"Price\":
+        100\n        }\n    },\n    {\n        \"Key\": 15,\n        \"Value\": {\n           
+        \"Id\": 15,\n            \"Name\": \"\u5927\u9ED1\u677F\",\n            \"Price\":
+        299\n        }\n    },\n    {\n        \"Key\": 23,\n        \"Value\": {\n           
+        \"Id\": 23,\n            \"Name\": \"\u5C0F\u67DC\u5B50\",\n            \"Price\":
+        140\n        }\n    },\n    {\n        \"Key\": 25,\n        \"Value\": {\n           
+        \"Id\": 25,\n            \"Name\": \"\u4E2D\u67DC\u5B50\",\n            \"Price\":
+        140\n        }\n    },\n    {\n        \"Key\": 26,\n        \"Value\": {\n           
+        \"Id\": 26,\n            \"Name\": \"\u5E8A\",\n            \"Price\": 159\n       
+        }\n    },\n    {\n        \"Key\": 12,\n        \"Value\": {\n           
+        \"Id\": 12,\n            \"Name\": \"\u4E2D\u7A97\u6237\",\n            \"Price\":
+        150\n        }\n    }\n]"
+    unityObjectReferences: []
+  __alchemySerializationData_Script_SODataScript_TbConfig_SOItemShopConfig:
     unityObjectReferences: []
