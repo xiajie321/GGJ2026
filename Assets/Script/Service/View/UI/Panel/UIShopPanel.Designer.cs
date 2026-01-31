@@ -5,7 +5,7 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:c2e775be-3db7-4dca-8536-798d7a42721f
+	// Generate Id:8e154805-3259-4715-b887-9f4324d461a7
 	public partial class UIShopPanel
 	{
 		public const string Name = "UIShopPanel";
@@ -24,6 +24,8 @@ namespace Service.View.UI.Panel
 		public UnityEngine.UI.Image Shop_5;
 		[SerializeField]
 		public UnityEngine.UI.Image Shop_6;
+		[SerializeField]
+		public UnityEngine.UI.Button IllustratedGuideBtn;
 		
 		private UIShopPanelData mPrivateData = null;
 		
@@ -36,6 +38,7 @@ namespace Service.View.UI.Panel
 			Shop_4 = null;
 			Shop_5 = null;
 			Shop_6 = null;
+			IllustratedGuideBtn = null;
 			
 			mData = null;
 		}

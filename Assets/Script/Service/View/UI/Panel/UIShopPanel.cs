@@ -53,6 +53,12 @@ namespace Service.View.UI.Panel
 
             // 监听购买成功事件
             this.RegisterEvent<ShopItemBoughtEvent>(OnShopItemBought);
+            
+            IllustratedGuideBtn.onClick.AddListener(() =>
+            {
+                //切换 LevelModel 状态为 Playing
+                this.GetModel<LevelModel>().EnterPlayingState();
+            });
         }
 
         protected override void OnOpen(IUIData uiData = null)
@@ -62,6 +68,9 @@ namespace Service.View.UI.Panel
             {
                 SetShopItem(i);
             }
+
+            //切换LevelSystem状态为Playing
+            
         }
 
         protected override void OnShow()
