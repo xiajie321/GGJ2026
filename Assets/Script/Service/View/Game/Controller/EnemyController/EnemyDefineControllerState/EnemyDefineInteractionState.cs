@@ -2,7 +2,6 @@
 using Script.Service.Architecture;
 using Script.Service.System;
 using UnityEngine;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControllerState
 {
@@ -14,6 +13,16 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
         }
         protected override void OnEnter()
         {
+            // 概率判定
+            int randomVal = Random.Range(0, 100);
+            if (randomVal >= mOwner.EnemyData.InteractPBTY)
+            {
+                Debug.Log($"[敌人交互] 跳过交互。随机值: {randomVal}, 概率: {mOwner.EnemyData.InteractPBTY}");
+                mFSM.ChangeState(EnemyState.Move);
+                return;
+            }
+            Debug.Log($"[敌人交互] 进入交互。随机值: {randomVal}, 概率: {mOwner.EnemyData.InteractPBTY}");
+            
             mOwner.Animator.Play("Interact");
             _time = 0;
             _thinking = false;
@@ -36,8 +45,16 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                 _time += UnityEngine.Time.deltaTime;
             }
 
-            if (_time >= mOwner.EnemyData.ThinkTime)
+            if (_time >= mOwner.EnemyData.InteractTime)
             {
+                if (_ls == null || _ls.TrapAdsorberMono == null)
+                {
+                    Debug.LogWarning("[敌人交互] 陷阱为空或缺少组件。中止交互。");
+                    _thinking = false;
+                    mFSM.ChangeState(EnemyState.Move);
+                    return;
+                }
+
                 if (_ls.TrapAdsorberMono.IsJudgment)
                 {
                     Debug.Log(_ls.TrapAdsorberMono.ItemControllerMono.ItemData);
@@ -50,6 +67,19 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                 }
                 else
                 {
+                    // 心情损耗
+                    mOwner.CurrentMood = Mathf.Max(0, mOwner.CurrentMood - mOwner.EnemyData.LostOfMood);
+                    mOwner.TotalLostMood += mOwner.EnemyData.LostOfMood;
+                    Debug.Log($"[敌人交互] 心情下降。当前心情: {mOwner.CurrentMood}, 累计损失: {mOwner.TotalLostMood}");
+                    EnemyDefineController.UpdateEmoji(mOwner);
+                    
+                    // 破防逻辑
+                    if (mOwner.CurrentMood <= 0)
+                    {
+                        mOwner.IsAngry = true;
+                        Debug.Log($"[敌人交互] 敌人破防了！(生气状态)");
+                    }
+                    
                     //TODO 这里扣分
                     // Debug.Log($"{-mOwner.EnemyData.Reward}");
                     // this.GetSystem<DamageFloatingTextSystem>().SetText($"{-mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);

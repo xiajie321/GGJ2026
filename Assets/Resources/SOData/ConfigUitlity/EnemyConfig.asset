@@ -18,9 +18,11 @@ MonoBehaviour:
       data: "[\n    {\n        \"Key\": 0,\n        \"Value\": {\n            \"Id\":
         0,\n            \"Name\": \"\",\n            \"RuntimeAnimatorController\":
         0,\n            \"MoveSpeed\": 1,\n            \"LoveType\": 0,\n           
-        \"TicketCost\": 2,\n            \"Reward\": 2,\n            \"DeductPoints\":
-        2,\n            \"StandTime\": 2,\n            \"ThinkTime\": 2,\n           
-        \"ThinkCoolingTime\": 4\n        }\n    }\n]"
+        \"TicketCost\": 2,\n            \"MoodBoot\": 0,\n            \"MaxMood\":
+        0,\n            \"LostOfMood\": 0,\n            \"MoodHp1\": 0,\n           
+        \"MoodHp2\": 0,\n            \"ThinkProbability\": 0,\n            \"StandTime\":
+        2,\n            \"ThinkTime\": 2,\n            \"ThinkCoolingTime\": 4,\n           
+        \"InteractPBTY\": 100,\n            \"InteractTime\": 3\n        }\n    }\n]"
     unityObjectReferences:
     - {fileID: 9100000, guid: 9a65750d1d7cb4fdcafa54a4b9cf45f2, type: 2}
   __alchemySerializationData_Script_SODataScript_TbConfig_SOEnemyConfig:
