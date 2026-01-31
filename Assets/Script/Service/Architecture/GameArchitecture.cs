@@ -14,6 +14,7 @@ namespace Script.Service.Architecture
         {
             RegisterModel(new GameModel());
             RegisterModel(new LevelModel());
+            RegisterModel(new ShopModel());
         }
 
         private void RegisterUtility()
@@ -30,6 +31,9 @@ namespace Script.Service.Architecture
             RegisterSystem(new MouseCursorSystem());
             RegisterSystem(new FactorySystem());
             RegisterSystem(new CameraEdgeScrollingSystem());
+            RegisterSystem(new ShopSystem());
+            RegisterSystem(new LevelSystem());
+
         }
 
         protected override void Init()

@@ -15,12 +15,13 @@ namespace Script.Service.Model
         private List<int> _shopContainer = new List<int>();
         //商店槽位和商品ID
         private List<int> _shopContainerItemID = new List<int>();
+        //商店槽位当前商品在商品列表中的索引
+        private List<int> _shopContainerItemIndex = new List<int>();
         //商店允许出售的所有物品
         private List<ShopConfigData> _shopItems = new List<ShopConfigData>();
 
         private float _upPriceRadio = 0.2f;
         private int _slotCount = 6;
-        private int _tick = 0;
 
         #endregion
 
@@ -36,14 +37,20 @@ namespace Script.Service.Model
         /// </summary>
         public void InitShopContainer()
         {
+            Debug.Log($"[cjh test] ShopModel.InitShopContainer() 开始执行");
+            
             _shopContainer.Clear();
             _shopContainerItemID.Clear();
+            _shopContainerItemIndex.Clear();
             //暂定为6个槽位
             for (int i = 0; i < _slotCount; i++)
             {
                 _shopContainer.Add(0);  // 购买次数初始化为0
                 _shopContainerItemID.Add(-1);  // 商品ID初始化为-1（表示空）
+                _shopContainerItemIndex.Add(i);  // 商品索引初始化为槽位索引
             }
+            
+            Debug.Log($"[cjh test] ShopModel.InitShopContainer() 完成 - 槽位数: {_slotCount}");
         }
 
         /// <summary>
@@ -52,12 +59,18 @@ namespace Script.Service.Model
         /// <param name="shopID">关卡ID（对应商店ID）</param>
         public void ResetShopContainer(int shopID)
         {
+            Debug.Log($"[cjh test] ShopModel.ResetShopContainer() 开始执行 - ShopID: {shopID}");
+            
             SetShopItems(shopID);
-            _tick = 0;
+            Debug.Log($"[cjh test] ShopModel.ResetShopContainer() - 已加载商品列表");
+            
+            // 初始化：每个槽位根据自己的索引获取对应的商品
             for (int i = 0; i < _slotCount; i++)
             {
-                SetShopItem(i);
+                SetShopItemBySlotIndex(i);
             }
+            
+            Debug.Log($"[cjh test] ShopModel.ResetShopContainer() 完成 - 已设置 {_slotCount} 个槽位");
         }
 
         #endregion
@@ -70,35 +83,74 @@ namespace Script.Service.Model
         /// <param name="shopID">关卡ID（对应商店ID）</param>
         public void SetShopItems(int shopID)
         {
-            _shopItems = this.GetUtility<ConfigUtility>().Config.TbShopConfig.Get(shopID).Shops;
+            Debug.Log($"[cjh test] ShopModel.SetShopItems() - 尝试加载 ShopID: {shopID}");
+            
+            var shopConfig = this.GetUtility<ConfigUtility>().Config.TbShopConfig.Get(shopID);
+            
+            if (shopConfig == null)
+            {
+                Debug.LogError($"[cjh test] ShopModel.SetShopItems() - 错误：找不到商店配置！ShopID: {shopID}");
+                _shopItems = new List<ShopConfigData>();
+                return;
+            }
+            
+            _shopItems = shopConfig.Shops;
+            Debug.Log($"[cjh test] ShopModel.SetShopItems() 完成 - 商品数量: {_shopItems?.Count ?? 0}");
         }
 
         /// <summary>
-        /// 为指定槽位设置商品（顺序刷新，不清零购买次数）
+        /// 根据槽位自己的商品索引设置商品（初始化时使用）
+        /// </summary>
+        /// <param name="containerID">槽位索引</param>
+        private void SetShopItemBySlotIndex(int containerID)
+        {
+            if (_shopItems == null || _shopItems.Count == 0)
+            {
+                Debug.LogWarning($"[cjh test] ShopModel.SetShopItemBySlotIndex() - 警告：商品列表为空，无法设置槽位 {containerID}");
+                return;
+            }
+
+            if (containerID < 0 || containerID >= _shopContainerItemID.Count)
+            {
+                Debug.LogWarning($"[cjh test] ShopModel.SetShopItemBySlotIndex() - 警告：槽位索引 {containerID} 越界");
+                return;
+            }
+
+            // 获取该槽位当前的商品索引（循环）
+            int itemIndex = _shopContainerItemIndex[containerID] % _shopItems.Count;
+            int itemID = _shopItems[itemIndex].Id;
+            _shopContainerItemID[containerID] = itemID;
+            
+            Debug.Log($"[cjh test] ShopModel.SetShopItemBySlotIndex() - 槽位 {containerID} 设置商品ID: {itemID} (商品索引: {itemIndex})");
+        }
+
+        /// <summary>
+        /// 刷新槽位商品（购买后调用，槽位商品索引 +1）
         /// </summary>
         /// <param name="containerID">槽位索引</param>
         public void SetShopItem(int containerID)
         {
             if (_shopItems == null || _shopItems.Count == 0)
             {
-                Debug.LogWarning("商品列表为空，无法设置商品");
+                Debug.LogWarning($"[cjh test] ShopModel.SetShopItem() - 警告：商品列表为空，无法刷新槽位 {containerID}");
                 return;
             }
 
             if (containerID < 0 || containerID >= _shopContainerItemID.Count)
             {
-                Debug.LogWarning($"槽位索引 {containerID} 越界");
+                Debug.LogWarning($"[cjh test] ShopModel.SetShopItem() - 警告：槽位索引 {containerID} 越界");
                 return;
             }
 
-            if (_tick >= _shopItems.Count)
-            {
-                _tick = 0;
-            }
-
-            // 只设置商品ID，保留购买次数
-            _shopContainerItemID[containerID] = _shopItems[_tick].Id;
-            _tick++;
+            // 该槽位的商品索引 +1（购买后获取下一个商品）
+            _shopContainerItemIndex[containerID]++;
+            
+            // 循环获取商品
+            int itemIndex = _shopContainerItemIndex[containerID] % _shopItems.Count;
+            int itemID = _shopItems[itemIndex].Id;
+            _shopContainerItemID[containerID] = itemID;
+            
+            Debug.Log($"[cjh test] ShopModel.SetShopItem() - 槽位 {containerID} 刷新商品ID: {itemID} (商品索引: {_shopContainerItemIndex[containerID]} -> {itemIndex})");
         }
 
         /// <summary>
@@ -158,6 +210,16 @@ namespace Script.Service.Model
         }
 
         /// <summary>
+        /// 获取商品的物品配置
+        /// </summary>
+        /// <param name="itemID">商品ID</param>
+        /// <returns>物品配置</returns>
+        public ItemData GetItemConfig(int itemID)
+        {
+            return this.GetUtility<ConfigUtility>().Config.TbItemConfig.Get(itemID);
+        }
+
+        /// <summary>
         /// 获取商品的商店配置信息（包含价格）
         /// </summary>
         /// <param name="itemID">商品ID</param>
@@ -196,7 +258,7 @@ namespace Script.Service.Model
         /// <param name="containerID">槽位索引</param>
         /// <param name="basePrice">基础价格</param>
         /// <returns>实际价格</returns>
-        public int GetItemPrice(int containerID, int basePrice)
+        public int GetItemPrice(int containerID, float basePrice)
         {
             int buyCount = GetShopContainerBuyCount(containerID);
             // 公式：基础价格 * (1 + 购买次数 * 涨价比例)

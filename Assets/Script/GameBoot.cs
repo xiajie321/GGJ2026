@@ -19,6 +19,7 @@ public class GameBoot : MonoBehaviour,IController
         Debug.Log("[GameBoot] 游戏入口加载完毕");
         //UIKit.OpenPanel<UIHomePanel>();
         this.GetSystem<CameraEdgeScrollingSystem>().InitCameraSystem();
+        this.GetSystem<LevelSystem>().StartLevel(0);
     }
 
     public IArchitecture GetArchitecture()

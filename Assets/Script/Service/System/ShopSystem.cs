@@ -4,6 +4,7 @@ using QFramework;
 using Script.Service.Model;
 using Script.Service.Event;
 using UnityEngine;
+using Service.View.UI.Panel;
 
 namespace Script.Service.System
 {
@@ -23,8 +24,18 @@ namespace Script.Service.System
         /// </summary>
         public void InitShop()
         {
+            Debug.Log($"[cjh test] ShopSystem.InitShop() 开始执行 - LevelID: {_levelModel.LevelID}");
+            
             _shopModel.InitShopContainer();
+            Debug.Log($"[cjh test] ShopSystem.InitShop() - 已调用 InitShopContainer()");
+            
             _shopModel.ResetShopContainer(_levelModel.LevelID);
+            Debug.Log($"[cjh test] ShopSystem.InitShop() - 已调用 ResetShopContainer({_levelModel.LevelID})");
+            
+            Debug.Log($"[cjh test] ShopSystem.InitShop() 执行完成");
+
+            //打开商店面板
+            UIKit.OpenPanel<UIShopPanel>();
         }
 
         /// <summary>
