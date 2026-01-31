@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+CRC: 947850620
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9cba55ebfe0ff54779c029e926055a5e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0ae759306472a8c0146371e1ddf0841f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 9cba55ebfe0ff54779c029e926055a5e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: e585ccdbe3c64a21a852c34541bff124, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d92135679db84614a918786cfe712850, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/GamePrefabs/Item.prefab
+Dependencies:
+- D:/Unity/UnityProject/GGJ2026/AssetBundles/Windows/background

@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 152891615
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2ae0c46e5cfc6c11a6db2f358be6217f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f57f04abe93fbba04979697bf2d87a50
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 2ae0c46e5cfc6c11a6db2f358be6217f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 00184f0bd296d474599b69741f8d6f76, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/UIPrefabs/UIDamageFloatingTextPanel.prefab
+Dependencies: []
