@@ -12,7 +12,10 @@ namespace Service.View.UI.Panel
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIPausePanelData ?? new UIPausePanelData();
-			// please add init code here
+			
+			ResumeBtn.BindGlobalSelectFrame();
+			SettingBtn.BindGlobalSelectFrame();
+			QuitBtn.BindGlobalSelectFrame();
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
