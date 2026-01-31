@@ -59,6 +59,8 @@ namespace Script.Service.System
             Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已发送 GameEnterEvent");
             
             Debug.Log($"[cjh test] LevelSystem.StartLevel() 执行完成 - 关卡 {levelID} 开始，第一波准备阶段（无限时间）");
+            //初始化小地图
+             this.GetSystem<CameraEdgeScrollingSystem>().InitCameraSystem();
         }
 
         /// <summary>
