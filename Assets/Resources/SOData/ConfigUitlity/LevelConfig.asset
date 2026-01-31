@@ -18,8 +18,9 @@ MonoBehaviour:
       data: "[\n    {\n        \"Key\": 0,\n        \"Value\": {\n            \"Id\":
         0,\n            \"Name\": \"Level1\",\n            \"InitialMoney\": 100,\n           
         \"TrapCount\": 8,\n            \"QualifiedLine\": 1600,\n            \"PerStarCost\":
-        400,\n            \"MaxStar\": 3,\n            \"Ratio\": 0.1\n        }\n   
-        }\n]"
-    unityObjectReferences: []
+        400,\n            \"MaxStar\": 3,\n            \"Ratio\": 0.1,\n           
+        \"BackgroundMusic\": 0\n        }\n    }\n]"
+    unityObjectReferences:
+    - {fileID: 8300000, guid: 0dae724cb893d234693f768c9f4c20b9, type: 3}
   __alchemySerializationData_Script_SODataScript_TbConfig_SOLevelConfig:
     unityObjectReferences: []
