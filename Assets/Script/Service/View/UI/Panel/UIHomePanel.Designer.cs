@@ -16,8 +16,6 @@ namespace Service.View.UI.Panel
 		public UnityEngine.UI.Button BtnSettings;
 		[SerializeField]
 		public UnityEngine.UI.Button BtnExit;
-		[SerializeField]
-		public TMPro.TextMeshProUGUI TextTitle;
 		
 		private UIHomePanelData mPrivateData = null;
 		
@@ -26,7 +24,6 @@ namespace Service.View.UI.Panel
 			BtnStart = null;
 			BtnSettings = null;
 			BtnExit = null;
-			TextTitle = null;
 			
 			mData = null;
 		}
