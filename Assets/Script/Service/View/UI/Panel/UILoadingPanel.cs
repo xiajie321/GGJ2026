@@ -21,9 +21,10 @@ namespace Service.View.UI.Panel
             // please add init code here
         }
 
+        private float _time;//用于判断什么时候关闭窗口
         protected override void OnOpen(IUIData uiData = null)
         {
-
+            _time = 0;
         }
 
         protected override void OnShow()
@@ -46,8 +47,9 @@ namespace Service.View.UI.Panel
         
         public bool OnLoadCompleted(float progress, bool isLoad)
         {
+            _time += Time.deltaTime;
+            if (_time < 1f) return false;
             Debug.Log("加载完成");
-            CloseSelf();
             return true;
         }
     }

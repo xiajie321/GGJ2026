@@ -16,11 +16,13 @@ namespace Service.View.UI.Panel
 		{
 			return Script.Service.Architecture.GameArchitecture.Interface;
 		}
-		private async UniTask Run()
+		private async UniTask Run(UIPanel panel)
 		{
 			await UniTask.Delay(500);
 			UIKit.OpenPanel<UIHUDPanel>();
 			this.GetSystem<LevelSystem>().StartLevel(0); // 默认关卡
+			await UniTask.Yield();
+			UIKit.ClosePanel(panel);
 			
 		}
 		protected override void OnInit(IUIData uiData = null)
@@ -35,9 +37,9 @@ namespace Service.View.UI.Panel
 				
 				Debug.Log("[UIHomePanel] 开始游戏...");
 
-				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("Level1", () =>
+				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("Level1", v =>
 				{
-					Run().Forget();
+					Run(v).Forget();
 				});
 
 

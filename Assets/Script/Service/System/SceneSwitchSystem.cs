@@ -39,7 +39,7 @@ namespace Script.Service.System
         /// <param name="sceneName">场景名称</param>
         /// <param name="loadSceneMode">加载模式</param>
         /// <typeparam name="TUIPanel">实现了 ISceneSwitch 接口的 UIPanel</typeparam>
-        public void LoadSceneAsync<TUIPanel>(string sceneName,Action end, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public void LoadSceneAsync<TUIPanel>(string sceneName,Action<UIPanel> end, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
             where TUIPanel : UIPanel, ISceneSwitch
         {
             UniTaskLoadSceneAsync<TUIPanel>(sceneName,end ,loadSceneMode).Forget();
@@ -58,7 +58,7 @@ namespace Script.Service.System
         /// <summary>
         /// 异步加载场景的具体实现
         /// </summary>
-        private async UniTask UniTaskLoadSceneAsync<TUIPanel>(string sceneName,Action end, LoadSceneMode loadSceneMode)
+        private async UniTask UniTaskLoadSceneAsync<TUIPanel>(string sceneName,Action<UIPanel> end, LoadSceneMode loadSceneMode)
             where TUIPanel : UIPanel, ISceneSwitch
         {
             Type tUIPanel = typeof(TUIPanel);
@@ -69,12 +69,12 @@ namespace Script.Service.System
                     UIKit.ClosePanel(_panel);
                 }
 
-                _panel = UIKit.OpenPanel<TUIPanel>();
+                _panel = UIKit.OpenPanel<TUIPanel>(UILevel.PopUI);
                 _sceneSwitch = (ISceneSwitch)_panel;
             }
             else
             {
-                UIKit.OpenPanel<TUIPanel>();
+                UIKit.OpenPanel<TUIPanel>(UILevel.PopUI);
             }
 
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, loadSceneMode);
@@ -88,7 +88,7 @@ namespace Script.Service.System
                     if (_sceneSwitch.OnLoadCompleted(operation.progress,true))
                     {
                         operation.allowSceneActivation = true;
-                        end?.Invoke();
+                        end?.Invoke(_panel);
                     }
                 }
 
