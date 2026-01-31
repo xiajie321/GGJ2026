@@ -17,6 +17,7 @@ public class TestTemplateScript : MonoBehaviour,IController
     void Start()
     {
         UIKit.OpenPanel<UIDamageFloatingTextPanel>();
+        UIKit.OpenPanel<UICommonEffectPanel>();
         Run().Forget();
         Debug.Log(this.GetUtility<ConfigUtility>().Config.TbTestDataConfig.TestData);//通过工具拿到对应的数据
     }
