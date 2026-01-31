@@ -13,12 +13,6 @@ namespace Service.View.UI.Panel
 		[SerializeField]
 		public TMPro.TextMeshProUGUI TextSettings;
 		[SerializeField]
-		public UnityEngine.UI.Image Dropdown1;
-		[SerializeField]
-		public UnityEngine.UI.Image Dropdown2;
-		[SerializeField]
-		public UnityEngine.UI.Image Dropdown3;
-		[SerializeField]
 		public UnityEngine.UI.Button BtnClose;
 		
 		private UISettingsPanelData mPrivateData = null;
@@ -26,9 +20,6 @@ namespace Service.View.UI.Panel
 		protected override void ClearUIComponents()
 		{
 			TextSettings = null;
-			Dropdown1 = null;
-			Dropdown2 = null;
-			Dropdown3 = null;
 			BtnClose = null;
 			
 			mData = null;
