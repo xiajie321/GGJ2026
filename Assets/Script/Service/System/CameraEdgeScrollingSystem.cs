@@ -43,27 +43,37 @@ namespace Script.Service.System
             // 启动更新循环
             _cts = new CancellationTokenSource();
             UpdateLoop(_cts.Token).Forget();
-            Debug.Log("[cjh test] 初始化相机系统...2");
+            Debug.Log($"[cjh test] 初始化相机系统...2--{cameraViewRatio}");
         }
 
         public void SetBg()
         {
             //场景中寻找 Bg 背景图
-            var bg = GameObject.Find("Bg");
+            var bg = GameObject.Find("SceneBg");
             if (bg == null)
             {
                 Debug.LogError("Bg 背景图未找到");
                 return;
             }
+
             _bg = bg.transform;
-            // 计算场景左右边界
-            float cameraWidth = _mainCamera.orthographicSize * _mainCamera.aspect;
+            
+            // 获取 SpriteRenderer 组件来获取真实尺寸
+            var spriteRenderer = _bg.GetComponent<SpriteRenderer>();
+            if (spriteRenderer == null)
+            {
+                Debug.LogError("Bg 对象没有 SpriteRenderer 组件");
+                return;
+            }
+            
+            // 使用 bounds 获取真实的世界空间尺寸
+            Bounds bounds = spriteRenderer.bounds;
             _edgeBorder = new Vector2(
-                _bg.position.x - _bg.localScale.x / 2f,  // 最左边界
-                _bg.position.x + _bg.localScale.x / 2f   // 最右边界
+                bounds.min.x,  // 最左边界（真实世界坐标）
+                bounds.max.x   // 最右边界（真实世界坐标）
             );
 
-            Debug.Log($"[cjh test] 初始化相机系统...6--{_edgeBorder}");
+            Debug.Log($"[CameraEdgeScrollingSystem] 场景边界: {_edgeBorder}, 场景宽度: {bounds.size.x}");
         }
 
         /// <summary>
