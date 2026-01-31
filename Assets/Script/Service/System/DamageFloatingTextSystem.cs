@@ -55,7 +55,7 @@ namespace Script.Service.System
         /// </summary>
         /// <param name="text">显示的文字内容</param>
         /// <param name="position">显示的目标位置</param>
-        public void SetText(string text, Vector2 position)
+        public void SetText(string text, Vector3 position)
         {
             var component = _panel.SetText(text);
             component.transform.position = _mainCamera.WorldToScreenPoint(position);

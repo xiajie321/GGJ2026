@@ -1,9 +1,12 @@
 ﻿using QFramework;
+using Script.Service.Architecture;
+using Script.Service.System;
 using UnityEngine;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControllerState
 {
-    public class EnemyDefineInteractionState:AbstractState<EnemyState,EnemyDefineControllerData>
+    public class EnemyDefineInteractionState:AbstractState<EnemyState,EnemyDefineControllerData>,IController
     {
         public EnemyDefineInteractionState(FSM<EnemyState> fsm, EnemyDefineControllerData owner) : base(fsm, owner)
         {
@@ -42,12 +45,14 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                     {
                         //TODO 这里加分
                         Debug.Log(mOwner.EnemyData.Reward);
+                        this.GetSystem<DamageFloatingTextSystem>().SetText($"{mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);
                     }
                 }
                 else
                 {
                     //TODO 这里扣分
-                    Debug.Log(-mOwner.EnemyData.Reward);
+                    Debug.Log($"{-mOwner.EnemyData.Reward}");
+                    this.GetSystem<DamageFloatingTextSystem>().SetText($"{-mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);
                 }
                 _thinking = false;
                 mFSM.ChangeState(EnemyState.Move);
@@ -56,6 +61,11 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
             if(_thinking) return;
             _ls = mOwner.EnemyTriggerMono.TrapControllerMonos[^1];
             _thinking =  true;
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return GameArchitecture.Interface;
         }
     }
 }

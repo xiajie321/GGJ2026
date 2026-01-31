@@ -47,6 +47,10 @@ namespace Script.Service.View.Game
         
         public void InitObject(int id)
         {
+            _rigidbody2D ??= GetComponent<Rigidbody2D>();
+            _collider2D ??= GetComponent<Collider2D>();
+            _spriteRenderer ??= GetComponent<SpriteRenderer>();
+            _draggableSprite ??= GetComponent<DraggableSprite>();
             _itemData = this.GetUtility<ConfigUtility>().Config.TbItemConfig.Get(id);
             _spriteRenderer.sprite = _itemData.Sprite;
             _draggableSprite.enabled = _itemData.IsMoveable;

@@ -25,12 +25,13 @@ namespace Script.Service.View.Game.Controller
         private void Start()
         {
             InitComponents();
-            _enemyTriggerMono = transform.GetChild(0).GetComponent<EnemyTriggerMono>();
-            InitObject(0);
+            _enemyTriggerMono ??= transform.GetChild(0).GetComponent<EnemyTriggerMono>();
         }
 
         public void InitObject(int id)
         {
+            InitComponents();
+            _enemyTriggerMono ??= transform.GetChild(0).GetComponent<EnemyTriggerMono>();
             _enemyData = this.GetUtility<ConfigUtility>().Config.TbEnemyConfig.Get(id);
             _animation.runtimeAnimatorController = _enemyData.RuntimeAnimatorController;
             SetController(new EnemyDefineController());//TODO 默认控制器

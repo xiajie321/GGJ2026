@@ -41,12 +41,11 @@ namespace Script.Service.View.Game
         private void Update()
         {
             _time += Time.deltaTime;
-            if (_enemyGeneratorConfig.Enemys.Count == 0)
+            if (_enemyGeneratorConfig.Enemys.Count == 0 || _index >= _enemyGeneratorConfig.Enemys.Count)
             {
                 return;
             }
-
-            if (_enemyGeneratorConfig.Enemys[_index].UpdateTime >= _time)
+            if (_enemyGeneratorConfig.Enemys[_index].UpdateTime <= _time)
             {
                 for (int i = 0; i < _enemyGeneratorConfig.Enemys[_index].Data.Count; i++)
                 {
@@ -56,6 +55,7 @@ namespace Script.Service.View.Game
                         ls.transform.position = transform.position;
                     }
                 }
+                _index++;
             }
         }
 

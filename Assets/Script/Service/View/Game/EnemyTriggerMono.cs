@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using QFramework;
 using Script.Service.View.Game.Controller;
 using UnityEngine;
 
@@ -14,18 +15,36 @@ namespace Script.Service.View.Game
         private void OnTriggerEnter2D(Collider2D other)
         {
             var ls = other.GetComponent<TrapControllerMono>();
-            _trapControllerMonos.Add(ls);
-            if(ls.TrapAdsorberMono.IsJudgment)
-                _itemControllers.Add(other.transform.GetChild(0).GetComponent<ItemControllerMono>());
+            if (ls != null)
+            {
+                _trapControllerMonos.Add(ls);
+                if (ls.TrapAdsorberMono != null && ls.TrapAdsorberMono.IsJudgment)
+                {
+                    if (other.transform.childCount > 0)
+                    {
+                        var item = other.transform.GetChild(0).GetComponent<ItemControllerMono>();
+                        if (item != null) _itemControllers.Add(item);
+                    }
+                }
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
             var ls = other.GetComponent<TrapControllerMono>();
-            _trapControllerMonos.Remove(ls);
-            var ls2 = other.transform?.GetChild(0)?.GetComponent<ItemControllerMono>();
-            if(_itemControllers.Contains(ls2))
-                _itemControllers.Remove(ls2);
+            if (ls != null)
+            {
+                _trapControllerMonos.Remove(ls);
+            }
+
+            if (other.transform.childCount > 0)
+            {
+                var ls2 = other.transform.GetChild(0).GetComponent<ItemControllerMono>();
+                if (ls2 != null && _itemControllers.Contains(ls2))
+                {
+                    _itemControllers.Remove(ls2);
+                }
+            }
         }
     }
 }

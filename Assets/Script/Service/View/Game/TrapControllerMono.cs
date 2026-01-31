@@ -39,6 +39,9 @@ namespace Script.Service.View
 
         public void InitObject(int id)
         {
+            _collider2D ??= GetComponent<Collider2D>();
+            _spriteRenderer ??= GetComponent<SpriteRenderer>();
+            _trapAdsorberMono ??= GetComponent<TrapAdsorberMono>();
             _trapData = this.GetUtility<ConfigUtility>().Config.TbTrapConfig.Get(id);
             _spriteRenderer.sprite = _trapData.Sprite;
         }
