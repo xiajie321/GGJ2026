@@ -22,5 +22,7 @@ namespace Script.SODataScript.TbConfig
         public SOShopConfig TbShopConfig => _tbShopConfig;
         [SerializeField] private SOItemShopConfig _tbItemShopConfig;
         public SOItemShopConfig TbItemShopConfig => _tbItemShopConfig;
+        [SerializeField] private SOLevelConfig _tbLevelConfig;
+        public SOLevelConfig TbLevelConfig => _tbLevelConfig;
     }
 }

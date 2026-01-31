@@ -17,3 +17,5 @@ MonoBehaviour:
       isCreated: 1
       data: '[]'
     unityObjectReferences: []
+  __alchemySerializationData_Script_SODataScript_TbConfig_SOLevelConfig:
+    unityObjectReferences: []
