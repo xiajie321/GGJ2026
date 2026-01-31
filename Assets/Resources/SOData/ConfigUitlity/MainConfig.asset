@@ -19,3 +19,4 @@ MonoBehaviour:
   _tbEnemyGeneratorConfig: {fileID: 11400000, guid: f73cbefe89e36104797dba1e2c416aba, type: 2}
   _tbShopConfig: {fileID: 11400000, guid: 78b1116c88961e64da39be190db970ef, type: 2}
   _tbItemShopConfig: {fileID: 11400000, guid: 12923b67b3b0d254aad06d652ce8bc66, type: 2}
+  _tbLevelConfig: {fileID: 11400000, guid: f600c0479c7dee14c8af47fc6ed92885, type: 2}
