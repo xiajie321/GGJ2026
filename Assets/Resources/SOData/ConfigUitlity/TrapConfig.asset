@@ -20,21 +20,26 @@ MonoBehaviour:
         0,\n            \"Height\": 1,\n            \"Level\": 5\n        }\n   
         },\n    {\n        \"Key\": 1,\n        \"Value\": {\n            \"Id\":
         1,\n            \"Name\": \"\u6F0F\u7535\u7EBF\",\n            \"RuntimeAnimatorController\":
-        0,\n            \"Height\": 1,\n            \"Level\": 3\n        }\n   
+        1,\n            \"Height\": 1,\n            \"Level\": 3\n        }\n   
         },\n    {\n        \"Key\": 2,\n        \"Value\": {\n            \"Id\":
         2,\n            \"Name\": \"\u4FDD\u9669\u7BB1\",\n            \"RuntimeAnimatorController\":
-        0,\n            \"Height\": 1,\n            \"Level\": 1\n        }\n   
+        2,\n            \"Height\": 1,\n            \"Level\": 1\n        }\n   
         },\n    {\n        \"Key\": 3,\n        \"Value\": {\n            \"Id\":
         3,\n            \"Name\": \"\u6EF4\u6C34\u82D4\u85D3\",\n            \"RuntimeAnimatorController\":
-        0,\n            \"Height\": 0,\n            \"Level\": 5\n        }\n   
+        3,\n            \"Height\": 0,\n            \"Level\": 5\n        }\n   
         },\n    {\n        \"Key\": 4,\n        \"Value\": {\n            \"Id\":
         4,\n            \"Name\": \"\u732B\u54AA\u6293\u75D5\",\n            \"RuntimeAnimatorController\":
-        0,\n            \"Height\": 0,\n            \"Level\": 3\n        }\n   
+        4,\n            \"Height\": 0,\n            \"Level\": 3\n        }\n   
         },\n    {\n        \"Key\": 5,\n        \"Value\": {\n            \"Id\":
         5,\n            \"Name\": \"\u6D17\u6FA1\u7834\u6D1E\",\n            \"RuntimeAnimatorController\":
-        0,\n            \"Height\": 0,\n            \"Level\": 1\n        }\n   
+        5,\n            \"Height\": 0,\n            \"Level\": 1\n        }\n   
         }\n]"
     unityObjectReferences:
-    - {fileID: 9100000, guid: 9a65750d1d7cb4fdcafa54a4b9cf45f2, type: 2}
+    - {fileID: 9100000, guid: 9252e1a102ff744829668be6c3af9385, type: 2}
+    - {fileID: 9100000, guid: 9b4b7a9f2e7c040889b9b779c37ba582, type: 2}
+    - {fileID: 9100000, guid: 0347fbd5d11e541b6af2b0819a238f13, type: 2}
+    - {fileID: 9100000, guid: d6761a338ee2a40738ecd3d26119ae59, type: 2}
+    - {fileID: 9100000, guid: 57ef9f07cffa8462791f2c3732dbe691, type: 2}
+    - {fileID: 9100000, guid: 5e97ac5a5257a47d7b21bbc71e422397, type: 2}
   __alchemySerializationData_Script_SODataScript_TbConfig_SOTrapConfig:
     unityObjectReferences: []
