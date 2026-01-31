@@ -39,10 +39,10 @@ namespace Script.Service.System
         /// <param name="sceneName">场景名称</param>
         /// <param name="loadSceneMode">加载模式</param>
         /// <typeparam name="TUIPanel">实现了 ISceneSwitch 接口的 UIPanel</typeparam>
-        public void LoadSceneAsync<TUIPanel>(string sceneName, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public void LoadSceneAsync<TUIPanel>(string sceneName,Action end, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
             where TUIPanel : UIPanel, ISceneSwitch
         {
-            UniTaskLoadSceneAsync<TUIPanel>(sceneName, loadSceneMode).Forget();
+            UniTaskLoadSceneAsync<TUIPanel>(sceneName,end ,loadSceneMode).Forget();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Script.Service.System
         /// <summary>
         /// 异步加载场景的具体实现
         /// </summary>
-        private async UniTask UniTaskLoadSceneAsync<TUIPanel>(string sceneName, LoadSceneMode loadSceneMode)
+        private async UniTask UniTaskLoadSceneAsync<TUIPanel>(string sceneName,Action end, LoadSceneMode loadSceneMode)
             where TUIPanel : UIPanel, ISceneSwitch
         {
             Type tUIPanel = typeof(TUIPanel);
@@ -88,6 +88,7 @@ namespace Script.Service.System
                     if (_sceneSwitch.OnLoadCompleted(operation.progress,true))
                     {
                         operation.allowSceneActivation = true;
+                        end?.Invoke();
                     }
                 }
 

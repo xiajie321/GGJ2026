@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
@@ -15,6 +16,13 @@ namespace Service.View.UI.Panel
 		{
 			return Script.Service.Architecture.GameArchitecture.Interface;
 		}
+		private async UniTask Run()
+		{
+			await UniTask.Delay(500);
+			UIKit.OpenPanel<UIHUDPanel>();
+			this.GetSystem<LevelSystem>().StartLevel(0); // 默认关卡
+			
+		}
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
@@ -27,7 +35,10 @@ namespace Service.View.UI.Panel
 				
 				Debug.Log("[UIHomePanel] 开始游戏...");
 
-				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("Level1");
+				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("Level1", () =>
+				{
+					Run().Forget();
+				});
 
 
 			});

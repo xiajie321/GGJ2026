@@ -60,7 +60,7 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                     Debug.Log(_ls.TrapAdsorberMono.ItemControllerMono.ItemData);
                     if (_ls.TrapAdsorberMono.ItemControllerMono.ItemData.Type == mOwner.EnemyData.LoveType)
                     {
-                        this.GetSystem<DamageFloatingTextSystem>().SetText($"{0}",mOwner.Rigidbody2D.transform.position);//心情增加
+                        //this.GetSystem<DamageFloatingTextSystem>().SetText($"{0}",mOwner.Rigidbody2D.transform.position);//心情增加
                     }
                 }
                 else
@@ -68,7 +68,7 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                     // 心情损耗
                     mOwner.CurrentMood = Mathf.Max(0, mOwner.CurrentMood - mOwner.EnemyData.LostOfMood);
                     mOwner.TotalLostMood += mOwner.EnemyData.LostOfMood;
-                    this.GetSystem<DamageFloatingTextSystem>().SetText($"-{mOwner.EnemyData.LostOfMood}",mOwner.Rigidbody2D.transform.position);//心情损耗
+                    this.GetSystem<DamageFloatingTextSystem>().SetText($"-{mOwner.EnemyData.LostOfMood}",Color.red,mOwner.Rigidbody2D.transform.position);//心情损耗
                     Debug.Log($"[敌人交互] 心情下降。当前心情: {mOwner.CurrentMood}, 累计损失: {mOwner.TotalLostMood}");
                     EnemyDefineController.UpdateEmoji(mOwner);
                     

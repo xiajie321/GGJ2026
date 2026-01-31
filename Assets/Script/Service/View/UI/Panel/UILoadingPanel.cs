@@ -43,20 +43,12 @@ namespace Service.View.UI.Panel
         {
             Debug.Log($"正在加载... 进度: {progress * 100}%");
         }
-
+        
         public bool OnLoadCompleted(float progress, bool isLoad)
         {
             Debug.Log("加载完成");
-			StartInitCamera().Forget();
             CloseSelf();
             return true;
-        }
-
-        private async UniTask StartInitCamera()
-        {
-			await UniTask.Yield();
-            this.GetSystem<LevelSystem>().StartLevel(0); // 默认关卡
-            UIKit.OpenPanel<UIHUDPanel>();
         }
     }
 }

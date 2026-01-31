@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using Script.Service.Architecture;
+using Script.Service.System;
 
 namespace Service.View.UI.Panel
 {
@@ -8,7 +10,7 @@ namespace Service.View.UI.Panel
     {
     }
 
-    public partial class UIPausePanel : UIPanel
+    public partial class UIPausePanel : UIPanel,IController
     {
         protected override void OnInit(IUIData uiData = null)
         {
@@ -24,9 +26,13 @@ namespace Service.View.UI.Panel
             QuitBtn.onClick.AddListener(() => {
                 UIKit.OpenPanel<UIConfirmPanel>(new UIConfirmPanelData() {
                     OnConfirm = () => {
-                        Time.timeScale = 1f; 
-                        UIKit.CloseAllPanel();
-                        UIKit.OpenPanel<UIHomePanel>();
+                        Time.timeScale = 1f;
+                        this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("GameBoot", () =>
+                        {
+                            UIKit.CloseAllPanel();
+                            UIKit.OpenPanel<UIHomePanel>();
+                        });
+                        
                     }
                 });
             });
@@ -50,6 +56,11 @@ namespace Service.View.UI.Panel
         protected override void OnClose()
         {
             Time.timeScale = 1f;
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return GameArchitecture.Interface;
         }
     }
 }
