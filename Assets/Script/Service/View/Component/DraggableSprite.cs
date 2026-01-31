@@ -21,11 +21,14 @@ namespace Script.Service.View.Component
         
         [Header("拖拽设置")]
         [SerializeField] private float dragZ = 0f;  // 拖拽时的 Z 坐标
+        [SerializeField] private bool handleRigidbody = true; // 是否自动处理 Rigidbody
         
         private Camera _mainCamera;
         private Vector3 _screenPoint;
         private Vector3 _offset;
         private bool _isDragging = false;
+        private Rigidbody2D _rb;
+        
         public bool IsDragging => _isDragging;
         public bool CanDragX { get => canDragX; set => canDragX = value; }
         public bool CanDragY { get => canDragY; set => canDragY = value; }
@@ -33,6 +36,7 @@ namespace Script.Service.View.Component
         private void Awake()
         {
             _mainCamera = Camera.main;
+            _rb = GetComponent<Rigidbody2D>();
             
             // 确保有 Collider
             if (GetComponent<Collider2D>() == null)
@@ -48,6 +52,13 @@ namespace Script.Service.View.Component
                 return;
 
             _isDragging = true;
+            
+            // 处理 Rigidbody
+            if (handleRigidbody && _rb != null)
+            {
+                _rb.isKinematic = true;
+                _rb.velocity = Vector2.zero;
+            }
             
             // 记录鼠标点击时的屏幕坐标和偏移
             _screenPoint = _mainCamera.WorldToScreenPoint(transform.position);
@@ -93,6 +104,13 @@ namespace Script.Service.View.Component
                 return;
 
             _isDragging = false;
+            
+            // 处理 Rigidbody
+            if (handleRigidbody && _rb != null)
+            {
+                _rb.isKinematic = false;
+            }
+            
             OnDragEnd(Input.mousePosition);
             
             Debug.Log($"[DraggableSprite] 结束拖拽 {gameObject.name}");

@@ -20,6 +20,11 @@ namespace Service.View.UI.Panel
 			{
 				Gold.text = e.NewMoney.ToString("F0");
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+			PauseBtn.onClick.AddListener(() =>
+			{
+				UIKit.OpenPanel<UIPausePanel>();
+			});
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

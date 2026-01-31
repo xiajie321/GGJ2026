@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2412240677
+CRC: 1855318062
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5f841ba155cf036d2393c743b20bf72a
+    Hash: 699edee2cf223a3872d7b78de8f09775
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2d8df09e698f722ada1caa03d3413830
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 5f841ba155cf036d2393c743b20bf72a
+    Hash: 699edee2cf223a3872d7b78de8f09775
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -18,5 +18,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Art/Character/Character_2.png
+- Assets/Art/Texture/Character/Character_2.png
 Dependencies: []

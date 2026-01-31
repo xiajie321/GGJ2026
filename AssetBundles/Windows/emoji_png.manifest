@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3776568385
+CRC: 1319548647
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 924f127c7da24ae922b660b62dfea66a
+    Hash: 6ddee0c37a49711002667bad4c64968a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2d8df09e698f722ada1caa03d3413830
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 924f127c7da24ae922b660b62dfea66a
+    Hash: 6ddee0c37a49711002667bad4c64968a
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -18,5 +18,5 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Art/Background/Level_1/ArtResource.png
+- Assets/Font/Emoji/emoji.png
 Dependencies: []

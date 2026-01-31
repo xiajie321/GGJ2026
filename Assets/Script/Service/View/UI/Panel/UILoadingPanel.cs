@@ -56,6 +56,7 @@ namespace Service.View.UI.Panel
         {
 			await UniTask.Yield();
             this.GetSystem<LevelSystem>().StartLevel(0); // 默认关卡
+            UIKit.OpenPanel<UIHUDPanel>();
         }
     }
 }

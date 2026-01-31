@@ -11,14 +11,31 @@
 namespace QAssetBundle
 {
     
-    public class Artresource_png
-    {
-        public const string BundleName = "artresource_png";
-        public const string ARTRESOURCE = "ArtResource";
-    }
     public class Background
     {
         public const string BundleName = "background";
+        public const string LEVEL1_DOORFRAME = "Level1_Doorframe";
+        public const string LEVEL1_GREENWALL = "Level1_GreenWall";
+        public const string LEVEL1_ORANGEWALL = "Level1_OrangeWall";
+        public const string FURNITURE_L1 = "Furniture_L1";
+        public const string L1HOLE_L_L1 = "L1Hole_L_L1";
+        public const string L1HOLE_S_L1 = "L1Hole_S_L1";
+        public const string WIREHOLE = "WireHole";
+        public const string GIANTHOLE = "GiantHole";
+        public const string MOSS_ = "moss_";
+        public const string SCRATCH = "scratch";
+        public const string BACK_L2 = "Back_L2";
+        public const string BACKGROUND_LEVEL2 = "Background_Level2";
+        public const string T_13 = "T_13";
+        public const string T_14 = "T_14";
+        public const string T_15 = "T_15";
+        public const string T_16 = "T_16";
+        public const string T_17 = "T_17";
+        public const string T_18 = "T_18";
+        public const string T_20 = "T_20";
+        public const string T_21 = "T_21";
+        public const string T_22 = "T_22";
+        public const string L2_FURNITURE = "L2_Furniture";
     }
     public class Background_level1_png
     {
@@ -55,6 +72,11 @@ namespace QAssetBundle
         public const string BundleName = "character_6_png";
         public const string CHARACTER_6 = "Character_6";
     }
+    public class Emoji_png
+    {
+        public const string BundleName = "emoji_png";
+        public const string EMOJI = "emoji";
+    }
     public class Enemy_prefab
     {
         public const string BundleName = "enemy_prefab";
@@ -80,6 +102,16 @@ namespace QAssetBundle
         public const string BundleName = "trap_prefab";
         public const string TRAP = "Trap";
     }
+    public class Uicommoneffectpanel_prefab
+    {
+        public const string BundleName = "uicommoneffectpanel_prefab";
+        public const string UICOMMONEFFECTPANEL = "UICommonEffectPanel";
+    }
+    public class Uiconfirmpanel_prefab
+    {
+        public const string BundleName = "uiconfirmpanel_prefab";
+        public const string UICONFIRMPANEL = "UIConfirmPanel";
+    }
     public class Uidamagefloatingtextpanel_prefab
     {
         public const string BundleName = "uidamagefloatingtextpanel_prefab";
@@ -94,6 +126,16 @@ namespace QAssetBundle
     {
         public const string BundleName = "uihomepanel_prefab";
         public const string UIHOMEPANEL = "UIHomePanel";
+    }
+    public class Uihudpanel_prefab
+    {
+        public const string BundleName = "uihudpanel_prefab";
+        public const string UIHUDPANEL = "UIHUDPanel";
+    }
+    public class Uilevelselectionpanel_prefab
+    {
+        public const string BundleName = "uilevelselectionpanel_prefab";
+        public const string UILEVELSELECTIONPANEL = "UILevelSelectionPanel";
     }
     public class Uiloadingpanel_prefab
     {
@@ -115,9 +157,24 @@ namespace QAssetBundle
         public const string BundleName = "uimousecursorpanel_prefab";
         public const string UIMOUSECURSORPANEL = "UIMouseCursorPanel";
     }
+    public class Uipausepanel_prefab
+    {
+        public const string BundleName = "uipausepanel_prefab";
+        public const string UIPAUSEPANEL = "UIPausePanel";
+    }
+    public class Uiresultpanel_prefab
+    {
+        public const string BundleName = "uiresultpanel_prefab";
+        public const string UIRESULTPANEL = "UIResultPanel";
+    }
     public class Uisettingspanel_prefab
     {
         public const string BundleName = "uisettingspanel_prefab";
         public const string UISETTINGSPANEL = "UISettingsPanel";
+    }
+    public class Uishoppanel_prefab
+    {
+        public const string BundleName = "uishoppanel_prefab";
+        public const string UISHOPPANEL = "UIShopPanel";
     }
 }

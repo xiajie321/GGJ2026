@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3575836473
+CRC: 3328240166
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -22,7 +22,8 @@ AssetBundleManifest:
       Dependencies: {}
     Info_6:
       Name: enemy_prefab
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: emoji_png
     Info_7:
       Name: item_prefab
       Dependencies: {}
@@ -31,15 +32,16 @@ AssetBundleManifest:
       Dependencies: {}
     Info_9:
       Name: uiloadingpanel_prefab
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: character_5_png
     Info_10:
       Name: uiminimap_prefab
       Dependencies: {}
     Info_11:
-      Name: enemygenerator_prefab
+      Name: background
       Dependencies: {}
     Info_12:
-      Name: artresource_png
+      Name: enemygenerator_prefab
       Dependencies: {}
     Info_13:
       Name: background_level1_png
@@ -65,3 +67,28 @@ AssetBundleManifest:
     Info_20:
       Name: enemyexit_prefab
       Dependencies: {}
+    Info_21:
+      Name: uipausepanel_prefab
+      Dependencies: {}
+    Info_22:
+      Name: emoji_png
+      Dependencies: {}
+    Info_23:
+      Name: uihudpanel_prefab
+      Dependencies: {}
+    Info_24:
+      Name: uiresultpanel_prefab
+      Dependencies: {}
+    Info_25:
+      Name: uicommoneffectpanel_prefab
+      Dependencies: {}
+    Info_26:
+      Name: uiconfirmpanel_prefab
+      Dependencies: {}
+    Info_27:
+      Name: uilevelselectionpanel_prefab
+      Dependencies: {}
+    Info_28:
+      Name: uishoppanel_prefab
+      Dependencies:
+        Dependency_0: background
