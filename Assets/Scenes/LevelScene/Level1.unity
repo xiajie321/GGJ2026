@@ -6320,7 +6320,7 @@ GameObject:
   - component: {fileID: 1535958010}
   - component: {fileID: 1535958009}
   m_Layer: 0
-  m_Name: Bg
+  m_Name: SceneBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
