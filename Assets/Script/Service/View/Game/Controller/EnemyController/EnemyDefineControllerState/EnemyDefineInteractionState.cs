@@ -44,15 +44,15 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                     if (_ls.TrapAdsorberMono.ItemControllerMono.ItemData.Type == mOwner.EnemyData.LoveType)
                     {
                         //TODO 这里加分
-                        Debug.Log(mOwner.EnemyData.Reward);
-                        this.GetSystem<DamageFloatingTextSystem>().SetText($"{mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);
+                        // Debug.Log(mOwner.EnemyData.Reward);
+                        // this.GetSystem<DamageFloatingTextSystem>().SetText($"{mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);
                     }
                 }
                 else
                 {
                     //TODO 这里扣分
-                    Debug.Log($"{-mOwner.EnemyData.Reward}");
-                    this.GetSystem<DamageFloatingTextSystem>().SetText($"{-mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);
+                    // Debug.Log($"{-mOwner.EnemyData.Reward}");
+                    // this.GetSystem<DamageFloatingTextSystem>().SetText($"{-mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);
                 }
                 _thinking = false;
                 mFSM.ChangeState(EnemyState.Move);
