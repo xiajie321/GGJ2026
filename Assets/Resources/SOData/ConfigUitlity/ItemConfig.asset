@@ -15,45 +15,32 @@ MonoBehaviour:
   __alchemySerializationData_Script_SODataScript_TbConfig_AbsDicScriptableObjectBase1:
     _data:
       isCreated: 1
-      data: "[\n    {\n        \"Key\": 1001,\n        \"Value\": {\n           
-        \"Id\": 1001,\n            \"Name\": \"Furniture_01\",\n            \"Sprite\":
-        0,\n            \"Type\": 0,\n            \"Height\": 0,\n            \"Level\":
-        0,\n            \"Gravity\": 0,\n            \"IsMoveable\": false\n       
-        }\n    },\n    {\n        \"Key\": 1002,\n        \"Value\": {\n           
-        \"Id\": 1002,\n            \"Name\": \"Furniture_2\",\n            \"Sprite\":
-        1,\n            \"Type\": 0,\n            \"Height\": 0,\n            \"Level\":
-        0,\n            \"Gravity\": 0,\n            \"IsMoveable\": false\n       
-        }\n    },\n    {\n        \"Key\": 1003,\n        \"Value\": {\n           
-        \"Id\": 1003,\n            \"Name\": \"Furniture_3\",\n            \"Sprite\":
-        2,\n            \"Type\": 0,\n            \"Height\": 0,\n            \"Level\":
-        0,\n            \"Gravity\": 0,\n            \"IsMoveable\": false\n       
-        }\n    },\n    {\n        \"Key\": 9,\n        \"Value\": {\n           
-        \"Id\": 9,\n            \"Name\": \"9\",\n            \"Sprite\": 0,\n           
-        \"Type\": 0,\n            \"Height\": 0,\n            \"Level\": 0,\n           
-        \"Gravity\": 0,\n            \"IsMoveable\": false\n        }\n    },\n   
+      data: "[\n    {\n        \"Key\": 9,\n        \"Value\": {\n            \"Id\":
+        9,\n            \"Name\": \"9\",\n            \"Sprite\": 0,\n           
+        \"Type\": 0,\n            \"Height\": 1,\n            \"Level\": 2,\n           
+        \"Gravity\": 1,\n            \"IsMoveable\": true\n        }\n    },\n   
         {\n        \"Key\": 15,\n        \"Value\": {\n            \"Id\": 15,\n           
         \"Name\": \"15\",\n            \"Sprite\": 1,\n            \"Type\": 0,\n           
-        \"Height\": 0,\n            \"Level\": 0,\n            \"Gravity\": 0,\n           
-        \"IsMoveable\": false\n        }\n    },\n    {\n        \"Key\": 23,\n       
+        \"Height\": 1,\n            \"Level\": 4,\n            \"Gravity\": 1,\n           
+        \"IsMoveable\": true\n        }\n    },\n    {\n        \"Key\": 23,\n       
         \"Value\": {\n            \"Id\": 23,\n            \"Name\": \"23\",\n           
-        \"Sprite\": 3,\n            \"Type\": 0,\n            \"Height\": 0,\n           
-        \"Level\": 0,\n            \"Gravity\": 0,\n            \"IsMoveable\": false\n       
+        \"Sprite\": 2,\n            \"Type\": 0,\n            \"Height\": 1,\n           
+        \"Level\": 0,\n            \"Gravity\": 1,\n            \"IsMoveable\": true\n       
         }\n    },\n    {\n        \"Key\": 25,\n        \"Value\": {\n           
-        \"Id\": 25,\n            \"Name\": \"25\",\n            \"Sprite\": 4,\n           
-        \"Type\": 0,\n            \"Height\": 0,\n            \"Level\": 0,\n           
-        \"Gravity\": 0,\n            \"IsMoveable\": false\n        }\n    },\n   
+        \"Id\": 25,\n            \"Name\": \"25\",\n            \"Sprite\": 3,\n           
+        \"Type\": 0,\n            \"Height\": 0,\n            \"Level\": 2,\n           
+        \"Gravity\": 0,\n            \"IsMoveable\": true\n        }\n    },\n   
         {\n        \"Key\": 26,\n        \"Value\": {\n            \"Id\": 26,\n           
-        \"Name\": \"26\",\n            \"Sprite\": 5,\n            \"Type\": 0,\n           
-        \"Height\": 0,\n            \"Level\": 0,\n            \"Gravity\": 0,\n           
-        \"IsMoveable\": false\n        }\n    },\n    {\n        \"Key\": 12,\n       
+        \"Name\": \"26\",\n            \"Sprite\": 4,\n            \"Type\": 0,\n           
+        \"Height\": 0,\n            \"Level\": 4,\n            \"Gravity\": 0,\n           
+        \"IsMoveable\": true\n        }\n    },\n    {\n        \"Key\": 12,\n       
         \"Value\": {\n            \"Id\": 12,\n            \"Name\": \"12\",\n           
-        \"Sprite\": 6,\n            \"Type\": 0,\n            \"Height\": 0,\n           
-        \"Level\": 0,\n            \"Gravity\": 0,\n            \"IsMoveable\": false\n       
+        \"Sprite\": 5,\n            \"Type\": 0,\n            \"Height\": 0,\n           
+        \"Level\": 0,\n            \"Gravity\": 0,\n            \"IsMoveable\": true\n       
         }\n    }\n]"
     unityObjectReferences:
     - {fileID: 1382162110, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
     - {fileID: 1163433964, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
-    - {fileID: -1626692362, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
     - {fileID: -1049114094, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
     - {fileID: 576433086, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
     - {fileID: -258512042, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
