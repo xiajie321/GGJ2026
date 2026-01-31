@@ -17,9 +17,7 @@ public class GameBoot : MonoBehaviour,IController
         Debug.Log("[GameBoot] ResKit初始化完成...");
         GameArchitecture.InitArchitecture();
         Debug.Log("[GameBoot] 游戏入口加载完毕");
-        //UIKit.OpenPanel<UIHomePanel>();
-        this.GetSystem<CameraEdgeScrollingSystem>().InitCameraSystem();
-        this.GetSystem<LevelSystem>().StartLevel(0);
+        UIKit.OpenPanel<UIHomePanel>();
     }
 
     public IArchitecture GetArchitecture()
