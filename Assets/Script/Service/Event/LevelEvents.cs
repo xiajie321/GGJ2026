@@ -2,48 +2,42 @@
 
 namespace Script.Service.Event
 {
+    #region 关卡相关事件
+
     /// <summary>
-    /// 游戏进入事件(游戏的开始事件)进入正式游戏场景时会使用
+    /// 波次开始事件
     /// </summary>
-    public struct GameEnterEvent
+    public struct OnWaveStartedEvent
     {
+        public int WaveNumber;
+        public int TotalWaves;
     }
+
     /// <summary>
-    /// 游戏退出事件(退出游戏内的事件)退出游戏玩法场景时会使用
+    /// 波次完成事件
     /// </summary>
-    public struct GameExitEvent
+    public struct OnWaveCompletedEvent
     {
+        public int WaveNumber;
+        public int TotalWaves;
     }
+
     /// <summary>
-    /// 游戏运行事件(用于游戏由暂停切换回运行时)
+    /// 波次失败事件
     /// </summary>
-    public struct GamePlayEvent
+    public struct OnWaveFailedEvent
     {
+        public int WaveNumber;
     }
+
     /// <summary>
-    /// 游戏暂停事件(暂停游戏)
+    /// 准备阶段开始事件
     /// </summary>
-    public struct GamePauseEvent
+    public struct OnPreparationStartedEvent
     {
+        public int NextWave;
+        public float PreparationTime;
     }
-    /// <summary>
-    /// 游戏重置事件(重置当前关卡的事件)
-    /// </summary>
-    public struct GameResumeEvent
-    {
-    }
-    /// <summary>
-    /// 游戏内关卡切换事件(在游戏内切换关卡的事件)
-    /// </summary>
-    public struct GameLevelTransitionEvent
-    {
-    }
-    /// <summary>
-    /// 场景切换事件
-    /// </summary>
-    public struct SceneChangeEvent
-    {
-        public Scene CurrentScene;
-        public Scene TargetScene;
-    }
+
+    #endregion
 }
