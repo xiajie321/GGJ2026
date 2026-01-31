@@ -60,6 +60,11 @@ namespace QAssetBundle
         public const string BundleName = "enemy_prefab";
         public const string ENEMY = "Enemy";
     }
+    public class Enemyexit_prefab
+    {
+        public const string BundleName = "enemyexit_prefab";
+        public const string ENEMYEXIT = "EnemyExit";
+    }
     public class Enemygenerator_prefab
     {
         public const string BundleName = "enemygenerator_prefab";

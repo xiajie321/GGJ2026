@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 938703901
+CRC: 1177080156
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -61,4 +61,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_19:
       Name: character_1_png
+      Dependencies: {}
+    Info_20:
+      Name: enemyexit_prefab
       Dependencies: {}
