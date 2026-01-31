@@ -23,6 +23,8 @@ namespace Script.Service.System
         /// </summary>
         public void ShowTip(string message)
         {
+            if(!_messageTipPanel) return;
+            if(!_messageTipPanel.gameObject.activeInHierarchy) UIKit.OpenPanel<UIMessageTipPanel>(UILevel.PopUI);
             _messageTipPanel.ShowTip(message);
         }
         /// <summary>
@@ -30,6 +32,7 @@ namespace Script.Service.System
         /// </summary>
         public void ShowMessage(string title,string message)
         {
+            if(!_messageTipPanel.gameObject.activeInHierarchy) UIKit.OpenPanel<UIMessageTipPanel>(UILevel.PopUI);
             _messageTipPanel.ShowMessage(title, message);
         }
         /// <summary>
@@ -44,6 +47,7 @@ namespace Script.Service.System
         /// </summary>
         public void ShowMessage(string title,string message,Vector2 position)
         {
+            if(!_messageTipPanel.gameObject.activeInHierarchy) UIKit.OpenPanel<UIMessageTipPanel>(UILevel.PopUI);
             _messageTipPanel.ShowMessage(title, message, position);
         }
 
