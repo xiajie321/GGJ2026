@@ -15,35 +15,36 @@ MonoBehaviour:
   __alchemySerializationData_Script_SODataScript_TbConfig_AbsDicScriptableObjectBase1:
     _data:
       isCreated: 1
-      data: "[\n    {\n        \"Key\": 9,\n        \"Value\": {\n            \"Id\":
-        9,\n            \"Name\": \"9\",\n            \"Sprite\": 0,\n           
-        \"Type\": 0,\n            \"Height\": 1,\n            \"Level\": 2,\n           
-        \"Gravity\": 1,\n            \"IsMoveable\": true\n        }\n    },\n   
-        {\n        \"Key\": 15,\n        \"Value\": {\n            \"Id\": 15,\n           
-        \"Name\": \"15\",\n            \"Sprite\": 1,\n            \"Type\": 0,\n           
-        \"Height\": 1,\n            \"Level\": 4,\n            \"Gravity\": 1,\n           
-        \"IsMoveable\": true\n        }\n    },\n    {\n        \"Key\": 23,\n       
-        \"Value\": {\n            \"Id\": 23,\n            \"Name\": \"23\",\n           
-        \"Sprite\": 2,\n            \"Type\": 0,\n            \"Height\": 1,\n           
-        \"Level\": 0,\n            \"Gravity\": 1,\n            \"IsMoveable\": true\n       
-        }\n    },\n    {\n        \"Key\": 25,\n        \"Value\": {\n           
-        \"Id\": 25,\n            \"Name\": \"25\",\n            \"Sprite\": 3,\n           
-        \"Type\": 0,\n            \"Height\": 0,\n            \"Level\": 2,\n           
+      data: "[\n    {\n        \"Key\": 0,\n        \"Value\": {\n            \"Id\":
+        0,\n            \"Name\": \"\u65F6\u949F\",\n            \"Sprite\": 0,\n           
+        \"Type\": 0,\n            \"Height\": 0,\n            \"Level\": 4,\n           
         \"Gravity\": 0,\n            \"IsMoveable\": true\n        }\n    },\n   
-        {\n        \"Key\": 26,\n        \"Value\": {\n            \"Id\": 26,\n           
-        \"Name\": \"26\",\n            \"Sprite\": 4,\n            \"Type\": 0,\n           
-        \"Height\": 0,\n            \"Level\": 4,\n            \"Gravity\": 0,\n           
-        \"IsMoveable\": true\n        }\n    },\n    {\n        \"Key\": 12,\n       
-        \"Value\": {\n            \"Id\": 12,\n            \"Name\": \"12\",\n           
-        \"Sprite\": 5,\n            \"Type\": 0,\n            \"Height\": 0,\n           
+        {\n        \"Key\": 1,\n        \"Value\": {\n            \"Id\": 1,\n           
+        \"Name\": \"\u5F69\u753B\",\n            \"Sprite\": 1,\n            \"Type\":
+        0,\n            \"Height\": 0,\n            \"Level\": 2,\n            \"Gravity\":
+        0,\n            \"IsMoveable\": true\n        }\n    },\n    {\n        \"Key\":
+        2,\n        \"Value\": {\n            \"Id\": 2,\n            \"Name\": \"\u5927\u76F8\u6846\",\n           
+        \"Sprite\": 2,\n            \"Type\": 0,\n            \"Height\": 0,\n           
         \"Level\": 0,\n            \"Gravity\": 0,\n            \"IsMoveable\": true\n       
+        }\n    },\n    {\n        \"Key\": 3,\n        \"Value\": {\n           
+        \"Id\": 3,\n            \"Name\": \"\u82B1\u76C6\",\n            \"Sprite\":
+        3,\n            \"Type\": 0,\n            \"Height\": 1,\n            \"Level\":
+        4,\n            \"Gravity\": 1,\n            \"IsMoveable\": true\n       
+        }\n    },\n    {\n        \"Key\": 4,\n        \"Value\": {\n           
+        \"Id\": 4,\n            \"Name\": \"\u4E2D\u67DC\u5B50\",\n            \"Sprite\":
+        4,\n            \"Type\": 0,\n            \"Height\": 1,\n            \"Level\":
+        2,\n            \"Gravity\": 1,\n            \"IsMoveable\": true\n       
+        }\n    },\n    {\n        \"Key\": 5,\n        \"Value\": {\n           
+        \"Id\": 5,\n            \"Name\": \"\u5927\u767D\u67DC\u5B50\",\n           
+        \"Sprite\": 5,\n            \"Type\": 0,\n            \"Height\": 1,\n           
+        \"Level\": 0,\n            \"Gravity\": 1,\n            \"IsMoveable\": true\n       
         }\n    }\n]"
     unityObjectReferences:
-    - {fileID: 1382162110, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
-    - {fileID: 1163433964, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
-    - {fileID: -1049114094, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
-    - {fileID: 576433086, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
-    - {fileID: -258512042, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
-    - {fileID: 77043817, guid: 0c503042a46b3488891d7fe8b139e156, type: 3}
+    - {fileID: 909593683, guid: 6d6d0b61e22264421bc45d78da5089c6, type: 3}
+    - {fileID: -1297541057, guid: 6d6d0b61e22264421bc45d78da5089c6, type: 3}
+    - {fileID: -1034898716, guid: 6d6d0b61e22264421bc45d78da5089c6, type: 3}
+    - {fileID: 1393178694, guid: 6d6d0b61e22264421bc45d78da5089c6, type: 3}
+    - {fileID: -1360661116, guid: 6d6d0b61e22264421bc45d78da5089c6, type: 3}
+    - {fileID: 579100455, guid: 6d6d0b61e22264421bc45d78da5089c6, type: 3}
   __alchemySerializationData_Script_SODataScript_TbConfig_SOItemConfig:
     unityObjectReferences: []
