@@ -15,15 +15,13 @@ MonoBehaviour:
   __alchemySerializationData_Script_SODataScript_TbConfig_AbsDicScriptableObjectBase1:
     _data:
       isCreated: 1
-      data: "[\n    {\n        \"Key\": 1,\n        \"Value\": {\n            \"Id\":
-        1,\n            \"Name\": \"1\u7684\u5173\u5361\",\n            \"Shops\":
-        [\n                {\n                    \"Id\": 1001\n                },\n               
-        {\n                    \"Id\": 1002\n                }\n            ]\n       
-        }\n    },\n    {\n        \"Key\": 2,\n        \"Value\": {\n           
-        \"Id\": 2,\n            \"Name\": \"2\u7684\u5173\u5361\",\n            \"Shops\":
-        [\n                {\n                    \"Id\": 1001\n                },\n               
-        {\n                    \"Id\": 1002\n                },\n               
-        {\n                    \"Id\": 1003\n                }\n            ]\n       
+      data: "[\n    {\n        \"Key\": 0,\n        \"Value\": {\n            \"Id\":
+        0,\n            \"Name\": \"Level1Shop\",\n            \"Shops\": [\n               
+        {\n                    \"Id\": 9\n                },\n                {\n                   
+        \"Id\": 15\n                },\n                {\n                    \"Id\":
+        23\n                },\n                {\n                    \"Id\": 25\n               
+        },\n                {\n                    \"Id\": 26\n                },\n               
+        {\n                    \"Id\": 13\n                }\n            ]\n       
         }\n    }\n]"
     unityObjectReferences: []
   __alchemySerializationData_Script_SODataScript_TbConfig_SOShopConfig:

@@ -10,14 +10,9 @@ namespace Service.View.UI.Panel
 	}
 	public partial class UIHomePanel : UIPanel
 	{
-		private Transform mSelectFrame;
-		
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
-			
-			mSelectFrame = transform.Find("ButtonBox/SelectFrame");
-			mSelectFrame.gameObject.SetActive(false);
 			
 			BtnStart.onClick.AddListener(() => Debug.Log("开始游戏"));
 			BtnSettings.onClick.AddListener(() => UIKit.OpenPanel<UISettingsPanel>());
@@ -29,9 +24,9 @@ namespace Service.View.UI.Panel
 #endif
 			});
 			
-			RegisterHoverEvent(BtnStart.gameObject);
-			RegisterHoverEvent(BtnSettings.gameObject);
-			RegisterHoverEvent(BtnExit.gameObject);
+			BtnStart.BindGlobalSelectFrame();
+			BtnSettings.BindGlobalSelectFrame();
+			BtnExit.BindGlobalSelectFrame();
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
@@ -48,27 +43,6 @@ namespace Service.View.UI.Panel
 		
 		protected override void OnClose()
 		{
-		}
-
-		/// <summary>
-		/// 注册鼠标进入和退出事件
-		/// </summary>
-		private void RegisterHoverEvent(GameObject obj)
-		{
-			var trigger = obj.GetComponent<EventTrigger>() ?? obj.AddComponent<EventTrigger>();
-			
-			EventTrigger.Entry enter = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
-			enter.callback.AddListener((data) => {
-				mSelectFrame.gameObject.SetActive(true);
-				mSelectFrame.position = obj.transform.position;
-			});
-			trigger.triggers.Add(enter);
-			
-			EventTrigger.Entry exit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
-			exit.callback.AddListener((data) => {
-				mSelectFrame.gameObject.SetActive(false);
-			});
-			trigger.triggers.Add(exit);
 		}
 	}
 }
