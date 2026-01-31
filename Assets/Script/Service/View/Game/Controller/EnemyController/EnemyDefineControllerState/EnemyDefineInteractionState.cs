@@ -60,9 +60,7 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                     Debug.Log(_ls.TrapAdsorberMono.ItemControllerMono.ItemData);
                     if (_ls.TrapAdsorberMono.ItemControllerMono.ItemData.Type == mOwner.EnemyData.LoveType)
                     {
-                        //TODO 这里加分
-                        // Debug.Log(mOwner.EnemyData.Reward);
-                        // this.GetSystem<DamageFloatingTextSystem>().SetText($"{mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);
+                        this.GetSystem<DamageFloatingTextSystem>().SetText($"{0}",mOwner.Rigidbody2D.transform.position);//心情增加
                     }
                 }
                 else
@@ -70,6 +68,7 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                     // 心情损耗
                     mOwner.CurrentMood = Mathf.Max(0, mOwner.CurrentMood - mOwner.EnemyData.LostOfMood);
                     mOwner.TotalLostMood += mOwner.EnemyData.LostOfMood;
+                    this.GetSystem<DamageFloatingTextSystem>().SetText($"-{mOwner.EnemyData.LostOfMood}",mOwner.Rigidbody2D.transform.position);//心情损耗
                     Debug.Log($"[敌人交互] 心情下降。当前心情: {mOwner.CurrentMood}, 累计损失: {mOwner.TotalLostMood}");
                     EnemyDefineController.UpdateEmoji(mOwner);
                     
@@ -79,10 +78,6 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                         mOwner.IsAngry = true;
                         Debug.Log($"[敌人交互] 敌人破防了！(生气状态)");
                     }
-                    
-                    //TODO 这里扣分
-                    // Debug.Log($"{-mOwner.EnemyData.Reward}");
-                    // this.GetSystem<DamageFloatingTextSystem>().SetText($"{-mOwner.EnemyData.Reward}",mOwner.Rigidbody2D.transform.position);
                 }
                 _thinking = false;
                 mFSM.ChangeState(EnemyState.Move);

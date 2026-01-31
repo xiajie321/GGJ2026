@@ -314,10 +314,11 @@ namespace Service.View.UI.Panel
         /// </summary>
         private void OnShopItemBought(ShopItemBoughtEvent evt)
         {
+            Camera mainCamera = Camera.main;
             Debug.Log($"[UIShopPanel] 商品购买成功！槽位: {evt.SlotIndex}, 物品ID: {evt.ItemID}, 花费: {evt.Price}");
             
             // 显示购买成功提示
-            this.GetSystem<MessageTipSystem>().ShowTip($"购买成功！花费 {evt.Price}");
+            this.GetSystem<MessageTipSystem>().ShowTip($"购买成功！花费 {evt.Price}", mainCamera.WorldToScreenPoint(_lastDropWorldPosition));
             
             // 在世界坐标生成物品
             SpawnItemInWorld(evt.ItemID, _lastDropWorldPosition);

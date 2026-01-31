@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using QFramework;
 using Script.Service.Utility;
+using Script.Service.Event;
 using Script.SODataScript.TbConfig;
 using UnityEngine;
 
@@ -171,6 +172,7 @@ namespace Script.Service.Model
             // 注意：_starMoney 不会被重置，因为它会在关卡间保留
             
             Debug.Log($"[cjh test] LevelModel.InitMoney() 完成 - 初始金钱: {_levelInitMoney}, 总金钱: {Money}");
+            this.SendEvent(new OnMoneyChangedEvent { NewMoney = Money });
         }
 
         #endregion
@@ -190,6 +192,7 @@ namespace Script.Service.Model
                     _starMoney += money;
                     break;
             }
+            this.SendEvent(new OnMoneyChangedEvent { NewMoney = Money });
         }
 
         /// <summary>
@@ -236,6 +239,7 @@ namespace Script.Service.Model
             }
 
             Debug.Log($"[LevelModel] 扣款成功，剩余金钱：{Money} (初始:{_levelInitMoney}, 怪物:{_levelNpcMoney}, 星星:{_starMoney})");
+            this.SendEvent(new OnMoneyChangedEvent { NewMoney = Money });
             return true;
         }
 

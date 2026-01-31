@@ -57,7 +57,6 @@ namespace Service.View.UI.Panel
 
 		protected override void OnClose()
 		{
-			throw new System.NotImplementedException();
 		}
 
 		private void ApplyResolution()

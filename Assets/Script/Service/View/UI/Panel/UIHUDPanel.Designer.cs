@@ -5,19 +5,25 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:d9c99887-6118-48ef-976c-b966060e17e9
+	// Generate Id:a6657482-a50c-4d13-8eca-7a48c9b4ad4f
 	public partial class UIHUDPanel
 	{
 		public const string Name = "UIHUDPanel";
 		
 		[SerializeField]
 		public UnityEngine.UI.Button PauseBtn;
+		/// <summary>
+		/// 用于显示积分
+		/// </summary>
+		[SerializeField]
+		public TMPro.TextMeshProUGUI Gold;
 		
 		private UIHUDPanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
 			PauseBtn = null;
+			Gold = null;
 			
 			mData = null;
 		}

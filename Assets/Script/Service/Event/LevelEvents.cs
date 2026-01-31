@@ -39,5 +39,13 @@ namespace Script.Service.Event
         public float PreparationTime;
     }
 
+    /// <summary>
+    /// 积分/金钱变化事件
+    /// </summary>
+    public struct OnMoneyChangedEvent
+    {
+        public float NewMoney;
+    }
+
     #endregion
 }

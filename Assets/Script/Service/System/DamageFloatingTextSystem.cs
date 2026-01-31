@@ -57,6 +57,9 @@ namespace Script.Service.System
         /// <param name="position">显示的目标位置</param>
         public void SetText(string text, Vector3 position)
         {
+            if (_mainCamera == null) _mainCamera = Camera.main;
+            if (_mainCamera == null) return;
+
             var component = _panel.SetText(text);
             component.transform.position = _mainCamera.WorldToScreenPoint(position);
             Animation(component);
@@ -69,6 +72,9 @@ namespace Script.Service.System
         /// <param name="color">文字颜色</param>
         public void SetText(string text, Color color)
         {
+            if (_mainCamera == null) _mainCamera = Camera.main;
+            if (_mainCamera == null) return;
+
             SetText(text, color,_mainCamera.WorldToScreenPoint(Vector2.zero));
         }
 
@@ -80,6 +86,9 @@ namespace Script.Service.System
         /// <param name="position">显示的目标位置</param>
         public void SetText(string text, Color color, Vector2 position)
         {
+            if (_mainCamera == null) _mainCamera = Camera.main;
+            if (_mainCamera == null) return;
+
             var component = _panel.SetText(text, color);
             component.transform.position = _mainCamera.WorldToScreenPoint(position);
             Animation(component);

@@ -58,7 +58,7 @@ namespace Service.View.UI.Panel
 		private Ease _animEase = Ease.Linear;
 		public void ShowTip(string message)
 		{
-			ShowTip(message, Vector2.zero);
+			ShowTip(message,new Vector2(Screen.width/2,Screen.height/2));
 		}
 		private Sequence _sequence;
 		public void ShowTip(string message, Vector2 position)
