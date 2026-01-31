@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Alchemy.Serialization;
+using UnityEngine;
 
 namespace Script.SODataScript.TbConfig
 {
+    [AlchemySerialize]
+    [ShowAlchemySerializationData]
     [CreateAssetMenu(fileName = "NewEnemyConfig", menuName = "ConfigUtility/EnemyConfig")]
-    public class SOEnemyConfig:AbsDicScriptableObjectBase<EnemyData>
+    public partial class SOEnemyConfig:AbsDicScriptableObjectBase<EnemyData>
     {
         public override EnemyData Get(int id)
         {
@@ -25,6 +29,7 @@ namespace Script.SODataScript.TbConfig
         }
     }
 
+    [System.Serializable]
     public class EnemyData
     {
         public int Id;//这里可以不用填,因为在Get方法中会返回

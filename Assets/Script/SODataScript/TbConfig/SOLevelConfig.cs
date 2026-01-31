@@ -1,11 +1,15 @@
 using System;
+using System.Collections.Generic;
+using Alchemy.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.SODataScript.TbConfig
 {
+    [AlchemySerialize]
+    [ShowAlchemySerializationData]
     [CreateAssetMenu(fileName = "NewLevelConfig", menuName = "ConfigUtility/LevelConfig")]
-    public class SOLevelConfig:AbsDicScriptableObjectBase<LevelData>
+    public partial class SOLevelConfig:AbsDicScriptableObjectBase<LevelData>
     {
         public override LevelData Get(int id)
         {

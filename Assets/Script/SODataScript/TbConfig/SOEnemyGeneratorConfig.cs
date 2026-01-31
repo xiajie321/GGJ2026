@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using Alchemy.Serialization;
 using NUnit.Framework;
 using UnityEngine;
 
 namespace Script.SODataScript.TbConfig
 {
+    [AlchemySerialize]
+    [ShowAlchemySerializationData]
     [CreateAssetMenu(fileName = "NewEnemyGeneratorConfig", menuName = "ConfigUtility/EnemyGeneratorConfig")]
-    public class SOEnemyGeneratorConfig:AbsDicScriptableObjectBase<EnemyGeneratorConfig>
+    public partial class SOEnemyGeneratorConfig:AbsDicScriptableObjectBase<EnemyGeneratorConfig>
     {
         public override EnemyGeneratorConfig Get(int id)
         {

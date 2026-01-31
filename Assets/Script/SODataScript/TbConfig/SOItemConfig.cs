@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Alchemy.Serialization;
 using UnityEngine;
 
 namespace Script.SODataScript.TbConfig
 {
+    [AlchemySerialize]
+    [ShowAlchemySerializationData]
     [CreateAssetMenu(fileName = "NewItemConfig", menuName = "ConfigUtility/ItemConfig")]
-    public class SOItemConfig:AbsDicScriptableObjectBase<ItemData>
+    public partial class SOItemConfig:AbsDicScriptableObjectBase<ItemData>
     {
         public override ItemData Get(int id)
         {

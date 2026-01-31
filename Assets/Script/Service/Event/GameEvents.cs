@@ -1,5 +1,4 @@
-﻿using UnityEditor.SearchService;
-using Scene = UnityEngine.SceneManagement.Scene;
+﻿using Scene = UnityEngine.SceneManagement.Scene;
 
 namespace Script.Service.Event
 {

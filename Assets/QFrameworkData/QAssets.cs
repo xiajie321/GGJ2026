@@ -11,6 +11,70 @@
 namespace QAssetBundle
 {
     
+    public class Artresource_png
+    {
+        public const string BundleName = "artresource_png";
+        public const string ARTRESOURCE = "ArtResource";
+    }
+    public class Background
+    {
+        public const string BundleName = "background";
+    }
+    public class Background_level1_png
+    {
+        public const string BundleName = "background_level1_png";
+        public const string BACKGROUND_LEVEL1 = "Background_Level1";
+    }
+    public class Character_1_png
+    {
+        public const string BundleName = "character_1_png";
+        public const string CHARACTER_1 = "Character_1";
+    }
+    public class Character_2_png
+    {
+        public const string BundleName = "character_2_png";
+        public const string CHARACTER_2 = "Character_2";
+    }
+    public class Character_3_png
+    {
+        public const string BundleName = "character_3_png";
+        public const string CHARACTER_3 = "Character_3";
+    }
+    public class Character_4_png
+    {
+        public const string BundleName = "character_4_png";
+        public const string CHARACTER_4 = "Character_4";
+    }
+    public class Character_5_png
+    {
+        public const string BundleName = "character_5_png";
+        public const string CHARACTER_5 = "Character_5";
+    }
+    public class Character_6_png
+    {
+        public const string BundleName = "character_6_png";
+        public const string CHARACTER_6 = "Character_6";
+    }
+    public class Enemy_prefab
+    {
+        public const string BundleName = "enemy_prefab";
+        public const string ENEMY = "Enemy";
+    }
+    public class Enemygenerator_prefab
+    {
+        public const string BundleName = "enemygenerator_prefab";
+        public const string ENEMYGENERATOR = "EnemyGenerator";
+    }
+    public class Item_prefab
+    {
+        public const string BundleName = "item_prefab";
+        public const string ITEM = "Item";
+    }
+    public class Trap_prefab
+    {
+        public const string BundleName = "trap_prefab";
+        public const string TRAP = "Trap";
+    }
     public class Uidamagefloatingtextpanel_prefab
     {
         public const string BundleName = "uidamagefloatingtextpanel_prefab";
@@ -26,10 +90,20 @@ namespace QAssetBundle
         public const string BundleName = "uihomepanel_prefab";
         public const string UIHOMEPANEL = "UIHomePanel";
     }
+    public class Uiloadingpanel_prefab
+    {
+        public const string BundleName = "uiloadingpanel_prefab";
+        public const string UILOADINGPANEL = "UILoadingPanel";
+    }
     public class Uimessagetippanel_prefab
     {
         public const string BundleName = "uimessagetippanel_prefab";
         public const string UIMESSAGETIPPANEL = "UIMessageTipPanel";
+    }
+    public class Uiminimap_prefab
+    {
+        public const string BundleName = "uiminimap_prefab";
+        public const string UIMINIMAP = "UIMiniMap";
     }
     public class Uimousecursorpanel_prefab
     {

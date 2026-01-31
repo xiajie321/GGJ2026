@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 113662861
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2079568faaa49e595ba419f76e70bdd4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 2079568faaa49e595ba419f76e70bdd4
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/Background/Level_1/Background_Level1.png
+Dependencies: []

@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using Alchemy.Serialization;
 using UnityEngine;
 
 namespace Script.SODataScript.TbConfig
 {
+    [AlchemySerialize]
+    [ShowAlchemySerializationData]
     [CreateAssetMenu(fileName = "NewShopConfig", menuName = "ConfigUtility/ShopConfig")]
-    public class SOShopConfig:AbsDicScriptableObjectBase<ShopConfig>
+    public partial class SOShopConfig:AbsDicScriptableObjectBase<ShopConfig>
     {
         public override ShopConfig Get(int id)
         {

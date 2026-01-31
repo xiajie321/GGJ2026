@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1065473632
+CRC: 4270026665
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -19,4 +19,46 @@ AssetBundleManifest:
       Dependencies: {}
     Info_5:
       Name: uidamagetextcomponent_prefab
+      Dependencies: {}
+    Info_6:
+      Name: enemy_prefab
+      Dependencies: {}
+    Info_7:
+      Name: item_prefab
+      Dependencies: {}
+    Info_8:
+      Name: trap_prefab
+      Dependencies: {}
+    Info_9:
+      Name: uiloadingpanel_prefab
+      Dependencies: {}
+    Info_10:
+      Name: uiminimap_prefab
+      Dependencies: {}
+    Info_11:
+      Name: enemygenerator_prefab
+      Dependencies: {}
+    Info_12:
+      Name: artresource_png
+      Dependencies: {}
+    Info_13:
+      Name: background_level1_png
+      Dependencies: {}
+    Info_14:
+      Name: character_6_png
+      Dependencies: {}
+    Info_15:
+      Name: character_5_png
+      Dependencies: {}
+    Info_16:
+      Name: character_4_png
+      Dependencies: {}
+    Info_17:
+      Name: character_3_png
+      Dependencies: {}
+    Info_18:
+      Name: character_2_png
+      Dependencies: {}
+    Info_19:
+      Name: character_1_png
       Dependencies: {}

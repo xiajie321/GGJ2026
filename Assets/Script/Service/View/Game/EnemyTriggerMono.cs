@@ -23,7 +23,7 @@ namespace Script.Service.View.Game
         {
             var ls = other.GetComponent<TrapControllerMono>();
             _trapControllerMonos.Remove(ls);
-            var ls2 = other.transform.GetChild(0)?.GetComponent<ItemControllerMono>();
+            var ls2 = other.transform?.GetChild(0)?.GetComponent<ItemControllerMono>();
             if(_itemControllers.Contains(ls2))
                 _itemControllers.Remove(ls2);
         }

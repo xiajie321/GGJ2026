@@ -1,10 +1,14 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using Alchemy.Serialization;
 using UnityEngine;
 
 namespace Script.SODataScript.TbConfig
 {
+    [AlchemySerialize]
+    [ShowAlchemySerializationData]
     [CreateAssetMenu(fileName = "NewTrapConfig", menuName = "ConfigUtility/TrapConfig")]
-    public class SOTrapConfig:AbsDicScriptableObjectBase<TrapData>
+    public partial class SOTrapConfig:AbsDicScriptableObjectBase<TrapData>
     {
         public override TrapData Get(int id)
         {
