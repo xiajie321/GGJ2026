@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using QFramework;
 using Script.Service.Model;
+using Script.Service.Event;
 using UnityEngine;
 
 namespace Script.Service.System
@@ -47,7 +48,7 @@ namespace Script.Service.System
         /// 购买商品
         /// </summary>
         /// <param name="shopContainer">槽位索引</param>
-        public void BuyShopItem(int shopContainer)
+        public bool BuyShopItem(int shopContainer)
         {
             // 获取槽位商品ID
             int itemID = _shopModel.GetShopContainerItemID(shopContainer);
@@ -56,7 +57,7 @@ namespace Script.Service.System
             if (itemID < 0)
             {
                 this.GetSystem<MessageTipSystem>().ShowTip("该槽位没有商品");
-                return;
+                return false;
             }
 
             // 获取商品基础价格
@@ -69,22 +70,34 @@ namespace Script.Service.System
             if (!CheckCanBuy(shopContainer, actualPrice))
             {
                 this.GetSystem<MessageTipSystem>().ShowTip("金钱不足");
-                return;
+                return false;
             }
 
             // 扣除金钱
-            // TODO: 调用金钱系统扣钱
-            // this.GetSystem<MoneySystem>().DeductMoney(actualPrice);
+            if (!_levelModel.SubMoney(actualPrice))
+            {
+                this.GetSystem<MessageTipSystem>().ShowTip("扣款失败");
+                return false;
+            }
 
             // 增加购买次数
             _shopModel.IncrementBuyCount(shopContainer);
 
-            // 给玩家商品
-            // TODO: 调用背包系统或直接生成物品
-            // this.GetSystem<InventorySystem>().AddItem(itemID);
-
             // 刷新该槽位（顺序刷新）
             _shopModel.SetShopItem(shopContainer);
+
+            // 发送购买成功事件
+            this.SendEvent(new ShopItemBoughtEvent
+            {
+                ItemID = itemID,
+                SlotIndex = shopContainer,
+                Price = actualPrice,
+                RemainingMoney = _levelModel.Money
+            });
+
+            Debug.Log($"[ShopSystem] 购买成功！商品ID: {itemID}, 花费: {actualPrice}, 剩余金钱: {_levelModel.Money}");
+            
+            return true;
         }
 
         /// <summary>
@@ -95,9 +108,7 @@ namespace Script.Service.System
         /// <returns>是否可以购买</returns>
         private bool CheckCanBuy(int shopContainer, int actualPrice)
         {
-            // TODO: 检查玩家金钱
-            // return this.GetModel<PlayerModel>().Money >= actualPrice;
-            return true;
+            return _levelModel.CanAfford(actualPrice);
         }
     }
 }

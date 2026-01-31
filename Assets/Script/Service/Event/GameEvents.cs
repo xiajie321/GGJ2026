@@ -46,4 +46,30 @@ namespace Script.Service.Event
         public Scene CurrentScene;
         public Scene TargetScene;
     }
+    
+    /// <summary>
+    /// 商品购买成功事件
+    /// </summary>
+    public struct ShopItemBoughtEvent
+    {
+        /// <summary>
+        /// 购买的商品ID
+        /// </summary>
+        public int ItemID;
+        
+        /// <summary>
+        /// 购买时所在的槽位索引
+        /// </summary>
+        public int SlotIndex;
+        
+        /// <summary>
+        /// 花费的金钱
+        /// </summary>
+        public int Price;
+        
+        /// <summary>
+        /// 购买后剩余的金钱
+        /// </summary>
+        public float RemainingMoney;
+    }
 }

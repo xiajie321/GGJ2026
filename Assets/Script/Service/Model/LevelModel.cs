@@ -33,6 +33,12 @@ namespace Script.Service.Model
         Settlement = 4,
     }
 
+    public enum MoneySource
+    {
+        LevelInit,
+        LevelNpc,
+        Star,
+    }
     public class LevelModel : AbstractModel
     {
         #region 字段和属性
@@ -71,6 +77,21 @@ namespace Script.Service.Model
         /// </summary>
         public int TotalWaves => _totalWaves;
 
+
+        /// <summary>   
+        /// 货币 用来源做区分
+        /// </summary>
+        private float _levelInitMoney = 0;
+        private float _levelNpcMoney = 0; //  怪物给的货币
+        private float _starMoney = 0;//星星 或者积分转换货币  过关不会清空
+
+        public float Money
+        {
+            get
+            {
+                return _levelInitMoney + _levelNpcMoney + _starMoney;
+            }
+        }
         #endregion
 
         #region 初始化
@@ -116,6 +137,89 @@ namespace Script.Service.Model
             _totalWaves = levelData.TrapCount;  // 假设使用 TrapCount 作为波次数，可根据实际调整
         }
 
+        /// <summary>
+        /// 初始化货币
+        /// </summary>
+        public void InitMoney()
+        {
+            _levelInitMoney = GetLevelData().InitialMoney;
+        }
+
+        #endregion
+
+        #region  货币管理
+        public void AddMoney(float money, MoneySource moneySource)
+        {
+            switch (moneySource)
+            {
+                case MoneySource.LevelInit:
+                    _levelInitMoney += money;
+                    break;
+                case MoneySource.LevelNpc:
+                    _levelNpcMoney += money;
+                    break;
+                case MoneySource.Star:
+                    _starMoney += money;
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 扣减金钱（按优先级：初始 -> 怪物 -> 星星）
+        /// </summary>
+        /// <param name="money">要扣除的金额</param>
+        /// <returns>是否扣除成功</returns>
+        public bool SubMoney(float money)
+        {
+            // 检查总金额是否足够
+            if (Money < money)
+            {
+                Debug.LogWarning($"[LevelModel] 金钱不足，需要 {money}，当前 {Money}");
+                return false;
+            }
+
+            float remaining = money;
+
+            // 1. 优先扣除初始金钱
+            if (_levelInitMoney > 0)
+            {
+                float deduct = Mathf.Min(_levelInitMoney, remaining);
+                _levelInitMoney -= deduct;
+                remaining -= deduct;
+                Debug.Log($"[LevelModel] 从初始金钱扣除 {deduct}，剩余需扣 {remaining}");
+            }
+
+            // 2. 如果还不够，扣除怪物金钱
+            if (remaining > 0 && _levelNpcMoney > 0)
+            {
+                float deduct = Mathf.Min(_levelNpcMoney, remaining);
+                _levelNpcMoney -= deduct;
+                remaining -= deduct;
+                Debug.Log($"[LevelModel] 从怪物金钱扣除 {deduct}，剩余需扣 {remaining}");
+            }
+
+            // 3. 如果还不够，扣除星星金钱
+            if (remaining > 0 && _starMoney > 0)
+            {
+                float deduct = Mathf.Min(_starMoney, remaining);
+                _starMoney -= deduct;
+                remaining -= deduct;
+                Debug.Log($"[LevelModel] 从星星金钱扣除 {deduct}，剩余需扣 {remaining}");
+            }
+
+            Debug.Log($"[LevelModel] 扣款成功，剩余金钱：{Money} (初始:{_levelInitMoney}, 怪物:{_levelNpcMoney}, 星星:{_starMoney})");
+            return true;
+        }
+
+        /// <summary>
+        /// 检查是否有足够的金钱
+        /// </summary>
+        /// <param name="money">需要的金额</param>
+        /// <returns>是否足够</returns>
+        public bool CanAfford(float money)
+        {
+            return Money >= money;
+        }
         #endregion
 
         #region 状态管理

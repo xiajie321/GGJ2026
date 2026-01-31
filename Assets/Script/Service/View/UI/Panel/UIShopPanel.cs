@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using QFramework;
+using Script.Service.System;
+using Script.Service.Event;
+using Script.Service.Architecture;
 
 namespace Service.View.UI.Panel
 {
@@ -9,16 +12,21 @@ namespace Service.View.UI.Panel
     {
     }
 
-    public partial class UIShopPanel : UIPanel
+    public partial class UIShopPanel : UIPanel,IController
     {
         // 拖拽预览对象
         private GameObject _dragPreviewObject;
         private Canvas _rootCanvas;
+        
+        // 最后拖拽释放的世界坐标
+        private Vector3 _lastDropWorldPosition;
+
+        private ShopSystem _shopSystem;
 
         protected override void OnInit(IUIData uiData = null)
         {
             mData = uiData as UIShopPanelData ?? new UIShopPanelData();
-
+            _shopSystem = this.GetSystem<ShopSystem>();
             // 获取根 Canvas（用于放置拖拽预览）
             _rootCanvas = GetComponentInParent<Canvas>().rootCanvas;
 
@@ -29,6 +37,9 @@ namespace Service.View.UI.Panel
             AddDragHandler(Shop_4, 4);
             AddDragHandler(Shop_5, 5);
             AddDragHandler(Shop_6, 6);
+            
+            // 监听购买成功事件
+            this.RegisterEvent<ShopItemBoughtEvent>(OnShopItemBought);
         }
 
         protected override void OnOpen(IUIData uiData = null)
@@ -45,6 +56,8 @@ namespace Service.View.UI.Panel
 
         protected override void OnClose()
         {
+            // 注销购买事件监听
+            this.UnRegisterEvent<ShopItemBoughtEvent>(OnShopItemBought);
         }
 
         /// <summary>
@@ -175,10 +188,93 @@ namespace Service.View.UI.Panel
                 Destroy(_dragPreviewObject);
                 _dragPreviewObject = null;
 
-                // TODO: 下一步 - 记录世界坐标并生成物品
-                // Vector3 worldPos = GetWorldPosition(eventData.position);
-                // Debug.Log($"世界坐标: {worldPos}");
+                // 转换屏幕坐标为世界坐标
+                Vector3? worldPos = GetWorldPosition(eventData.position);
+                
+                if (worldPos.HasValue)
+                {
+                    Debug.Log($"[UIShopPanel] 世界坐标: {worldPos.Value}");
+                    
+                    // 保存世界坐标，供购买成功事件使用
+                    _lastDropWorldPosition = worldPos.Value;
+                    
+                    // 调用购买逻辑（ShopSystem会自动发送事件）
+                    _shopSystem.BuyShopItem(shopIndex - 1);
+                }
+                else
+                {
+                    Debug.LogWarning("[UIShopPanel] 无法获取世界坐标，取消购买");
+                }
             }
+        }
+        
+        /// <summary>
+        /// 将屏幕坐标转换为世界坐标（适用于2D正交摄像机）
+        /// </summary>
+        private Vector3? GetWorldPosition(Vector2 screenPosition)
+        {
+            Camera mainCamera = Camera.main;
+            if (mainCamera == null)
+            {
+                Debug.LogError("[UIShopPanel] 找不到主摄像机");
+                return null;
+            }
+
+            // 对于2D正交摄像机，设置正确的深度
+            Vector3 screenPos = new Vector3(screenPosition.x, screenPosition.y, -mainCamera.transform.position.z);
+            
+            // 转换为世界坐标
+            Vector3 worldPos = mainCamera.ScreenToWorldPoint(screenPos);
+            worldPos.z = 0f;  // 2D 游戏物体通常在 Z=0 平面
+            
+            return worldPos;
+        }
+        
+        /// <summary>
+        /// 响应购买成功事件
+        /// </summary>
+        private void OnShopItemBought(ShopItemBoughtEvent evt)
+        {
+            Debug.Log($"[UIShopPanel] 商品购买成功！槽位: {evt.SlotIndex}, 物品ID: {evt.ItemID}, 花费: {evt.Price}");
+            
+            // 显示购买成功提示
+            this.GetSystem<MessageTipSystem>().ShowTip($"购买成功！花费 {evt.Price}");
+            
+            // 在世界坐标生成物品
+            SpawnItemInWorld(evt.ItemID, _lastDropWorldPosition);
+            
+            // TODO: 其他UI更新
+            // - 刷新对应槽位的显示
+            // - 播放购买音效
+            // - 显示购买特效
+            // - 更新金钱显示
+        }
+        
+        /// <summary>
+        /// 在世界坐标生成物品
+        /// </summary>
+        private void SpawnItemInWorld(int itemID, Vector3 worldPosition)
+        {
+            Debug.Log($"[UIShopPanel] 在世界坐标 {worldPosition} 生成物品ID: {itemID}");
+            
+            // 通过 FactorySystem 获取 ItemFactory 生成物品
+            var itemController = this.GetSystem<FactorySystem>().ItemFactory.Get(itemID);
+            
+            if (itemController != null)
+            {
+                // 设置物品位置
+                itemController.transform.position = worldPosition;
+                Debug.Log($"[UIShopPanel] 物品生成成功，位置: {worldPosition}");
+            }
+            else
+            {
+                Debug.LogError($"[UIShopPanel] 物品生成失败，ItemID: {itemID}");
+            }
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+              return GameArchitecture.Interface;
         }
 
         #endregion
