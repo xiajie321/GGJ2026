@@ -21,11 +21,14 @@ namespace Script.Service.View.Game.Controller
         public EnemyData EnemyData => _enemyData;
         private EnemyTriggerMono _enemyTriggerMono;
         public EnemyTriggerMono EnemyTriggerMono => _enemyTriggerMono;
+        private SpriteRenderer _spriteRenderer;
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
 
         private void Start()
         {
             InitComponents();
             _enemyTriggerMono ??= transform.GetChild(0).GetComponent<EnemyTriggerMono>();
+            _spriteRenderer ??= transform.Find("Emoji").GetComponent<SpriteRenderer>();
         }
 
         public void InitObject(int id)
