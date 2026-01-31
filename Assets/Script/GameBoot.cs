@@ -18,6 +18,7 @@ public class GameBoot : MonoBehaviour,IController
         GameArchitecture.InitArchitecture();
         Debug.Log("[GameBoot] 游戏入口加载完毕");
         UIKit.OpenPanel<UIHomePanel>();
+        UIKit.OpenPanel<UICommonEffectPanel>();
         // this.GetSystem<LevelSystem>().StartLevel(0);
         // this.GetSystem<ShopSystem>().InitShop();
         // this.GetSystem<CameraEdgeScrollingSystem>().InitCameraSystem();
