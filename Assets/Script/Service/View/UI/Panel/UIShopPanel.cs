@@ -5,6 +5,8 @@ using QFramework;
 using Script.Service.System;
 using Script.Service.Event;
 using Script.Service.Architecture;
+using Script.Service.Model;
+using TMPro;
 
 namespace Service.View.UI.Panel
 {
@@ -22,11 +24,14 @@ namespace Service.View.UI.Panel
         private Vector3 _lastDropWorldPosition;
 
         private ShopSystem _shopSystem;
+        private ShopModel _shopModel;
 
+        private GameObject[] _shopContainerGo = new GameObject[6];
         protected override void OnInit(IUIData uiData = null)
         {
             mData = uiData as UIShopPanelData ?? new UIShopPanelData();
             _shopSystem = this.GetSystem<ShopSystem>();
+            _shopModel = this.GetModel<ShopModel>();
             // 获取根 Canvas（用于放置拖拽预览）
             _rootCanvas = GetComponentInParent<Canvas>().rootCanvas;
 
@@ -38,12 +43,25 @@ namespace Service.View.UI.Panel
             AddDragHandler(Shop_5, 5);
             AddDragHandler(Shop_6, 6);
             
+            //0~5 缓存Shop_X  方便后续查找
+            _shopContainerGo[0] = Shop_1.gameObject;
+            _shopContainerGo[1] = Shop_2.gameObject;
+            _shopContainerGo[2] = Shop_3.gameObject;
+            _shopContainerGo[3] = Shop_4.gameObject;
+            _shopContainerGo[4] = Shop_5.gameObject;
+            _shopContainerGo[5] = Shop_6.gameObject;
+
             // 监听购买成功事件
             this.RegisterEvent<ShopItemBoughtEvent>(OnShopItemBought);
         }
 
         protected override void OnOpen(IUIData uiData = null)
         {
+            // 初始化所有商店槽位的显示
+            for (int i = 0; i < 6; i++)
+            {
+                SetShopItem(i);
+            }
         }
 
         protected override void OnShow()
@@ -60,6 +78,58 @@ namespace Service.View.UI.Panel
             this.UnRegisterEvent<ShopItemBoughtEvent>(OnShopItemBought);
         }
 
+
+        /// 设置商店槽位商品
+        public void SetShopItem(int shopIndex)
+        {
+            Debug.Log($"[cjh test] UIShopPanel.SetShopItem() - 设置槽位 {shopIndex}");
+            
+            //获取商店槽位商品
+            var shopItemID = _shopModel.GetShopContainerItemID(shopIndex);
+            
+            if (shopItemID < 0)
+            {
+                Debug.LogWarning($"[cjh test] UIShopPanel.SetShopItem() - 警告：槽位 {shopIndex} 没有商品");
+                return;
+            }
+
+            //获取商店物品配置
+            var shopItemConfig = _shopModel.GetItemShopConfig(shopItemID);
+            //获取物品配置
+            var itemConfig = _shopModel.GetItemConfig(shopItemID);
+
+            //获取价格
+            var price = _shopModel.GetItemPrice(shopIndex, shopItemConfig.Price);
+            
+            // 设置图标
+            Transform iconTransform = _shopContainerGo[shopIndex].transform.Find("Icon");
+            if (iconTransform != null)
+            {
+                Image iconImage = iconTransform.GetComponent<Image>();
+                if (iconImage != null)
+                {
+                    iconImage.sprite = itemConfig.Sprite;
+                }
+            }
+
+            // 设置价格文本
+            Transform priceTransform = _shopContainerGo[shopIndex].transform.Find("Price");
+            if (priceTransform != null)
+            {
+                Transform textTransform = priceTransform.Find("Text (TMP)");
+                if (textTransform != null)
+                {
+                    TextMeshProUGUI priceText = textTransform.GetComponent<TextMeshProUGUI>();
+                    if (priceText != null)
+                    {
+                        priceText.text = price.ToString();
+                    }
+                }
+
+            }
+
+        }
+        
         /// <summary>
         /// 为 Shop Image 添加拖拽事件监听
         /// </summary>
@@ -243,8 +313,10 @@ namespace Service.View.UI.Panel
             // 在世界坐标生成物品
             SpawnItemInWorld(evt.ItemID, _lastDropWorldPosition);
             
+            // 刷新对应槽位的显示（显示新商品和更新价格）
+            SetShopItem(evt.SlotIndex);
+            
             // TODO: 其他UI更新
-            // - 刷新对应槽位的显示
             // - 播放购买音效
             // - 显示购买特效
             // - 更新金钱显示

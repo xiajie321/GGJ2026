@@ -109,6 +109,7 @@ namespace Script.Service.Model
         public void SelectLevel(int levelID)
         {
             _levelID = levelID;
+            Debug.Log($"[cjh test] LevelModel.SelectLevel() - 设置 LevelID = {levelID}");
         }
 
         /// <summary>
@@ -128,13 +129,26 @@ namespace Script.Service.Model
         /// </summary>
         public void StartLevel()
         {
+            Debug.Log($"[cjh test] LevelModel.StartLevel() 开始执行");
+            
             _currentWave = 0;
             _levelState = LevelState.PreparationFirst;
             _preparationTimeRemaining = -1f;  // 第一波无限时间
+            
+            Debug.Log($"[cjh test] LevelModel.StartLevel() - 初始化：CurrentWave={_currentWave}, State={_levelState}, PrepTime={_preparationTimeRemaining}");
 
             // 从配置加载总波次
             var levelData = GetLevelData();
+            if (levelData == null)
+            {
+                Debug.LogError($"[cjh test] LevelModel.StartLevel() - 错误：关卡配置为空！LevelID={_levelID}");
+                _totalWaves = 0;
+                return;
+            }
+            
             _totalWaves = levelData.TrapCount;  // 假设使用 TrapCount 作为波次数，可根据实际调整
+            
+            Debug.Log($"[cjh test] LevelModel.StartLevel() 执行完成 - TotalWaves={_totalWaves}");
         }
 
         /// <summary>
@@ -142,7 +156,21 @@ namespace Script.Service.Model
         /// </summary>
         public void InitMoney()
         {
-            _levelInitMoney = GetLevelData().InitialMoney;
+            Debug.Log($"[cjh test] LevelModel.InitMoney() 开始执行 - LevelID: {_levelID}");
+            
+            var levelData = GetLevelData();
+            if (levelData == null)
+            {
+                Debug.LogError($"[cjh test] LevelModel.InitMoney() - 错误：关卡数据为空！");
+                _levelInitMoney = 0;
+                return;
+            }
+            
+            _levelInitMoney = levelData.InitialMoney;
+            _levelNpcMoney = 0;
+            // 注意：_starMoney 不会被重置，因为它会在关卡间保留
+            
+            Debug.Log($"[cjh test] LevelModel.InitMoney() 完成 - 初始金钱: {_levelInitMoney}, 总金钱: {Money}");
         }
 
         #endregion
@@ -230,10 +258,14 @@ namespace Script.Service.Model
         /// <param name="isFirst">是否是第一波前的准备</param>
         public void EnterPreparationState(bool isFirst)
         {
+            Debug.Log($"[cjh test] LevelModel.EnterPreparationState() - isFirst={isFirst}");
+            
             _levelState = isFirst ? LevelState.PreparationFirst : LevelState.PreparationBetween;
 
             // 第一波无限时间（-1），中间波次有倒计时
             _preparationTimeRemaining = isFirst ? -1f : PREPARATION_DURATION;
+            
+            Debug.Log($"[cjh test] LevelModel.EnterPreparationState() 完成 - State={_levelState}, PrepTime={_preparationTimeRemaining}");
         }
 
         /// <summary>
@@ -341,7 +373,20 @@ namespace Script.Service.Model
         /// <returns>关卡数据</returns>
         public LevelData GetLevelData()
         {
-            return this.GetUtility<ConfigUtility>().Config.TbLevelConfig.Get(_levelID);
+            Debug.Log($"[cjh test] LevelModel.GetLevelData() - 尝试加载 LevelID={_levelID}");
+            
+            var data = this.GetUtility<ConfigUtility>().Config.TbLevelConfig.Get(_levelID);
+            
+            if (data == null)
+            {
+                Debug.LogError($"[cjh test] LevelModel.GetLevelData() - 错误：找不到关卡配置！LevelID={_levelID}");
+            }
+            else
+            {
+                Debug.Log($"[cjh test] LevelModel.GetLevelData() - 成功加载配置：TrapCount={data.TrapCount}, InitialMoney={data.InitialMoney}");
+            }
+            
+            return data;
         }
 
         /// <summary>

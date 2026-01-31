@@ -28,22 +28,37 @@ namespace Script.Service.System
         /// <param name="levelID">关卡ID</param>
         public void StartLevel(int levelID)
         {
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() 开始执行 - LevelID: {levelID}");
+            
             // 取消之前的倒计时
             CancelPreparationTimer();
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已取消之前的倒计时");
             
             // 选择关卡
             _levelModel.SelectLevel(levelID);
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已调用 SelectLevel({levelID})");
             
             // 开始关卡（加载配置）
             _levelModel.StartLevel();
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已调用 Model.StartLevel()");
+            
+            // 初始化金钱
+            _levelModel.InitMoney();
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已调用 InitMoney()，当前金钱: {_levelModel.Money}");
+            
+            // 初始化商店
+            this.GetSystem<ShopSystem>().InitShop();
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已调用 ShopSystem.InitShop()");
             
             // 进入第一波准备阶段（无倒计时）
             _levelModel.EnterPreparationState(isFirst: true);
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已调用 EnterPreparationState(true)");
             
             // 发送关卡开始事件
             this.SendEvent<GameEnterEvent>();
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已发送 GameEnterEvent");
             
-            Debug.Log($"[LevelSystem] 关卡 {levelID} 开始，第一波准备阶段（无限时间）");
+            Debug.Log($"[cjh test] LevelSystem.StartLevel() 执行完成 - 关卡 {levelID} 开始，第一波准备阶段（无限时间）");
         }
 
         /// <summary>
