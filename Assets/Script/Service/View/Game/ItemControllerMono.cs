@@ -49,8 +49,7 @@ namespace Script.Service.View.Game
         
         public void InitObject(int id)
         {
-            if(id == 0 ) return;
-            
+
             _rigidbody2D ??= GetComponent<Rigidbody2D>();
             _collider2D ??= GetComponent<Collider2D>();
             _spriteRenderer ??= GetComponent<SpriteRenderer>();
