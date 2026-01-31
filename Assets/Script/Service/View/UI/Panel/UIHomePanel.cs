@@ -9,8 +9,12 @@ namespace Service.View.UI.Panel
 	public class UIHomePanelData : UIPanelData
 	{
 	}
-	public partial class UIHomePanel : UIPanel
+	public partial class UIHomePanel : UIPanel,IController
 	{
+		public IArchitecture GetArchitecture()
+		{
+			return Script.Service.Architecture.GameArchitecture.Interface;
+		}
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
@@ -20,6 +24,12 @@ namespace Service.View.UI.Panel
 				CloseSelf();
 				
 				Debug.Log("[UIHomePanel] 开始游戏...");
+
+				this.GetSystem<CameraEdgeScrollingSystem>().InitCameraSystem();
+
+				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("Level1");
+
+				this.GetSystem<LevelSystem>().StartLevel(0); // 默认关卡
 			});
 			BtnSettings.onClick.AddListener(() => UIKit.OpenPanel<UISettingsPanel>());
 			BtnExit.onClick.AddListener(() => 
