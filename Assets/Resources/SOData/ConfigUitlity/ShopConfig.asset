@@ -17,11 +17,11 @@ MonoBehaviour:
       isCreated: 1
       data: "[\n    {\n        \"Key\": 0,\n        \"Value\": {\n            \"Id\":
         0,\n            \"Name\": \"Level1Shop\",\n            \"Shops\": [\n               
-        {\n                    \"Id\": 9\n                },\n                {\n                   
-        \"Id\": 15\n                },\n                {\n                    \"Id\":
-        23\n                },\n                {\n                    \"Id\": 25\n               
-        },\n                {\n                    \"Id\": 26\n                },\n               
-        {\n                    \"Id\": 12\n                }\n            ]\n       
+        {\n                    \"Id\": 0\n                },\n                {\n                   
+        \"Id\": 1\n                },\n                {\n                    \"Id\":
+        2\n                },\n                {\n                    \"Id\": 3\n               
+        },\n                {\n                    \"Id\": 4\n                },\n               
+        {\n                    \"Id\": 5\n                }\n            ]\n       
         }\n    }\n]"
     unityObjectReferences: []
   __alchemySerializationData_Script_SODataScript_TbConfig_SOShopConfig:
