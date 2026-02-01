@@ -35,7 +35,7 @@ namespace Service.View.UI.Panel
 				if (!mData.HasNextLevel) return;
 
 				// 加载下一关
-				int nextLevelIndex = mData.CurrentLevelIndex;
+				int nextLevelIndex = mData.CurrentLevelIndex+1;
 				EnemyExitMono.Index = nextLevelIndex;
 				
 				string sceneName = $"Level{nextLevelIndex}";
