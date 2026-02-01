@@ -33,10 +33,7 @@ namespace Service.View.UI.Panel
             {
                 UIKit.OpenPanel<UIPausePanel>();
             });
-            PauseBtn.BindGlobalSelectFrame();
-            
             SpeedBtn.onClick.AddListener(OnSpeedBtnClick);
-            SpeedBtn.BindGlobalSelectFrame();
             
             UpdateSpeedState();
         }

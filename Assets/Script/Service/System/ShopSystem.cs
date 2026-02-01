@@ -35,7 +35,7 @@ namespace Script.Service.System
             Debug.Log($"[cjh test] ShopSystem.InitShop() 执行完成");
 
             //打开商店面板
-            UIKit.OpenPanel<UIShopPanel>();
+            // UIKit.OpenPanel<UIShopPanel>();
         }
 
         /// <summary>

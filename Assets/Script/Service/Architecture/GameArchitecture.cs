@@ -33,7 +33,6 @@ namespace Script.Service.Architecture
             RegisterSystem(new CameraEdgeScrollingSystem());
             RegisterSystem(new ShopSystem());
             RegisterSystem(new LevelSystem());
-
         }
 
         protected override void Init()
