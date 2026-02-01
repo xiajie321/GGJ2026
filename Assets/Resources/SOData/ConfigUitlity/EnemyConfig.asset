@@ -21,26 +21,39 @@ MonoBehaviour:
         \"TicketCost\": 20,\n            \"MoodBoot\": 1,\n            \"MaxMood\":
         100,\n            \"LostOfMood\": 15,\n            \"MoodHp1\": 45,\n           
         \"MoodHp2\": 60,\n            \"ThinkProbability\": 0,\n            \"StandTime\":
-        0,\n            \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 10,\n           
-        \"InteractPBTY\": 100,\n            \"InteractTime\": 2\n        }\n    },\n   
-        {\n        \"Key\": 1,\n        \"Value\": {\n            \"Id\": 1,\n           
-        \"Name\": \"\u6025\u884C\u8005\",\n            \"RuntimeAnimatorController\":
-        1,\n            \"MoveSpeed\": 1.5,\n            \"LoveType\": 0,\n           
-        \"TicketCost\": 10,\n            \"MoodBoot\": 1,\n            \"MaxMood\":
-        80,\n            \"LostOfMood\": 10,\n            \"MoodHp1\": 30,\n           
-        \"MoodHp2\": 50,\n            \"ThinkProbability\": 0,\n            \"StandTime\":
-        0,\n            \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 10,\n           
-        \"InteractPBTY\": 70,\n            \"InteractTime\": 1\n        }\n    },\n   
-        {\n        \"Key\": 2,\n        \"Value\": {\n            \"Id\": 2,\n           
-        \"Name\": \"\u89C6\u5BDF\u5458\",\n            \"RuntimeAnimatorController\":
-        2,\n            \"MoveSpeed\": 0.5,\n            \"LoveType\": 0,\n           
-        \"TicketCost\": 50,\n            \"MoodBoot\": 1,\n            \"MaxMood\":
-        300,\n            \"LostOfMood\": 50,\n            \"MoodHp1\": 100,\n           
-        \"MoodHp2\": 200,\n            \"ThinkProbability\": 0,\n            \"StandTime\":
         0,\n            \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 5,\n           
-        \"InteractPBTY\": 100,\n            \"InteractTime\": 3\n        }\n    }\n]"
+        \"InteractPBTY\": 100,\n            \"InteractTime\": 2,\n            \"EnterSound\":
+        1,\n            \"LeaveSound\": 2,\n            \"InteractSound\": 3,\n           
+        \"PassSound\": null,\n            \"ExposedSound\": 4,\n            \"YellowFaceSound\":
+        null,\n            \"RedFaceSound\": null\n        }\n    },\n    {\n       
+        \"Key\": 1,\n        \"Value\": {\n            \"Id\": 1,\n            \"Name\":
+        \"\u6025\u884C\u8005\",\n            \"RuntimeAnimatorController\": 5,\n           
+        \"MoveSpeed\": 1.5,\n            \"LoveType\": 0,\n            \"TicketCost\":
+        10,\n            \"MoodBoot\": 1,\n            \"MaxMood\": 80,\n           
+        \"LostOfMood\": 10,\n            \"MoodHp1\": 30,\n            \"MoodHp2\":
+        50,\n            \"ThinkProbability\": 0,\n            \"StandTime\": 0,\n           
+        \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 5,\n            \"InteractPBTY\":
+        70,\n            \"InteractTime\": 1,\n            \"EnterSound\": null,\n           
+        \"LeaveSound\": 2,\n            \"InteractSound\": null,\n            \"PassSound\":
+        null,\n            \"ExposedSound\": 4,\n            \"YellowFaceSound\":
+        null,\n            \"RedFaceSound\": null\n        }\n    },\n    {\n       
+        \"Key\": 2,\n        \"Value\": {\n            \"Id\": 2,\n            \"Name\":
+        \"\u89C6\u5BDF\u5458\",\n            \"RuntimeAnimatorController\": 6,\n           
+        \"MoveSpeed\": 0.5,\n            \"LoveType\": 0,\n            \"TicketCost\":
+        50,\n            \"MoodBoot\": 1,\n            \"MaxMood\": 300,\n           
+        \"LostOfMood\": 50,\n            \"MoodHp1\": 100,\n            \"MoodHp2\":
+        200,\n            \"ThinkProbability\": 0,\n            \"StandTime\": 0,\n           
+        \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 4,\n            \"InteractPBTY\":
+        100,\n            \"InteractTime\": 3,\n            \"EnterSound\": null,\n           
+        \"LeaveSound\": 2,\n            \"InteractSound\": 3,\n            \"PassSound\":
+        null,\n            \"ExposedSound\": 4,\n            \"YellowFaceSound\":
+        null,\n            \"RedFaceSound\": null\n        }\n    }\n]"
     unityObjectReferences:
     - {fileID: 9100000, guid: 5c4be8edc19914801ac952cca66d0cbc, type: 2}
+    - {fileID: 8300000, guid: 0dae724cb893d234693f768c9f4c20b9, type: 3}
+    - {fileID: 8300000, guid: 9573e7bc516e04b6bacadf64511b85ae, type: 3}
+    - {fileID: 8300000, guid: b66c5ccb0960e49b684ec5904940c0da, type: 3}
+    - {fileID: 8300000, guid: 8bf12ec90d61846fa8df3e52f922e0d2, type: 3}
     - {fileID: 9100000, guid: bd16f767db6404e90bc9652ed9bfdbb8, type: 2}
     - {fileID: 9100000, guid: 3f0a6384bb2844158a05348c20d1c78c, type: 2}
   __alchemySerializationData_Script_SODataScript_TbConfig_SOEnemyConfig:

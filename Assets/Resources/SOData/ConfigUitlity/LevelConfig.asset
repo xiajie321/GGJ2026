@@ -21,10 +21,13 @@ MonoBehaviour:
         400,\n            \"MaxStar\": 3,\n            \"Ratio\": 0.1,\n           
         \"SMoveSpeed\": 0.6,\n            \"AMoveSpeed\": 1.1,\n            \"BMoveSpeed\":
         3,\n            \"ButtonSound1\": null,\n            \"ButtonSound2\": null,\n           
-        \"MainMenuBGM\": null,\n            \"BackgroundMusic\": 0,\n           
-        \"WinSound\": null,\n            \"LoseSound\": null,\n            \"TakeUpSound\":
-        null,\n            \"TakeDownSound\": null\n        }\n    }\n]"
+        \"MainMenuBGM\": 0,\n            \"BackgroundMusic\": 1,\n            \"WinSound\":
+        1,\n            \"LoseSound\": null,\n            \"TakeUpSound\": 2,\n           
+        \"TakeDownSound\": 3\n        }\n    }\n]"
     unityObjectReferences:
+    - {fileID: 8300000, guid: 5814903c22c084ba7aa3863bcfa90e36, type: 3}
     - {fileID: 8300000, guid: 0dae724cb893d234693f768c9f4c20b9, type: 3}
+    - {fileID: 8300000, guid: 11bef345fdfcd484cbe70893b761e24d, type: 3}
+    - {fileID: 8300000, guid: 56e7c44fba36a47ea85af9828bd4b5a7, type: 3}
   __alchemySerializationData_Script_SODataScript_TbConfig_SOLevelConfig:
     unityObjectReferences: []
