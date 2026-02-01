@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 152482570
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3ad77a6d617b8f2b07b971a1ade7e928
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 3ad77a6d617b8f2b07b971a1ade7e928
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Audio/BuyItem.mp3
+Dependencies: []

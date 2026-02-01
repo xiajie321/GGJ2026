@@ -1,82 +1,89 @@
 ManifestFileVersion: 0
-CRC: 3720306752
+CRC: 3945230663
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
+      Name: uihomepanel_prefab
+      Dependencies:
+        Dependency_0: character_6_png
+        Dependency_1: character_4_png
+        Dependency_2: character_5_png
+        Dependency_3: character_2_png
+        Dependency_4: character_3_png
+        Dependency_5: character_1_png
+    Info_1:
       Name: uimessagetippanel_prefab
       Dependencies: {}
-    Info_1:
-      Name: uimousecursorpanel_prefab
-      Dependencies: {}
     Info_2:
-      Name: uihomepanel_prefab
+      Name: uimousecursorpanel_prefab
       Dependencies: {}
     Info_3:
       Name: uisettingspanel_prefab
       Dependencies: {}
     Info_4:
-      Name: uidamagefloatingtextpanel_prefab
-      Dependencies: {}
+      Name: trap_prefab
+      Dependencies:
+        Dependency_0: background
     Info_5:
-      Name: uidamagetextcomponent_prefab
-      Dependencies: {}
-    Info_6:
-      Name: enemy_prefab
-      Dependencies: {}
-    Info_7:
       Name: item_prefab
       Dependencies:
         Dependency_0: background
-    Info_8:
-      Name: trap_prefab
+    Info_6:
+      Name: uidamagetextcomponent_prefab
       Dependencies: {}
-    Info_9:
+    Info_7:
+      Name: enemy_prefab
+      Dependencies: {}
+    Info_8:
       Name: uiloadingpanel_prefab
       Dependencies:
         Dependency_0: character_5_png
+    Info_9:
+      Name: uidamagefloatingtextpanel_prefab
+      Dependencies: {}
     Info_10:
       Name: uiminimap_prefab
       Dependencies:
         Dependency_0: background
         Dependency_1: character_1_png
     Info_11:
-      Name: background
+      Name: character_6_png
       Dependencies: {}
     Info_12:
       Name: enemygenerator_prefab
       Dependencies: {}
     Info_13:
-      Name: background_level1_png
-      Dependencies: {}
-    Info_14:
-      Name: character_6_png
-      Dependencies: {}
-    Info_15:
-      Name: character_5_png
-      Dependencies: {}
-    Info_16:
       Name: character_4_png
       Dependencies: {}
-    Info_17:
-      Name: character_3_png
+    Info_14:
+      Name: character_5_png
       Dependencies: {}
-    Info_18:
+    Info_15:
+      Name: background_level1_png
+      Dependencies: {}
+    Info_16:
+      Name: background
+      Dependencies: {}
+    Info_17:
       Name: character_2_png
       Dependencies: {}
+    Info_18:
+      Name: enemyexit_prefab
+      Dependencies: {}
     Info_19:
-      Name: character_1_png
+      Name: character_3_png
       Dependencies: {}
     Info_20:
-      Name: enemyexit_prefab
+      Name: character_1_png
       Dependencies: {}
     Info_21:
       Name: uipausepanel_prefab
       Dependencies: {}
     Info_22:
-      Name: emoji_png
+      Name: uihudpanel_prefab
       Dependencies: {}
     Info_23:
-      Name: uihudpanel_prefab
+      Name: emoji_png
       Dependencies: {}
     Info_24:
       Name: uiresultpanel_prefab
@@ -94,3 +101,22 @@ AssetBundleManifest:
       Name: uishoppanel_prefab
       Dependencies:
         Dependency_0: background
+    Info_29:
+      Name: mainmenu_bgm_mp3
+      Dependencies: {}
+    Info_30:
+      Name: level1_bgm_mp3
+      Dependencies: {}
+    Info_31:
+      Name: buttonclick_mp3
+      Dependencies: {}
+    Info_32:
+      Name: npcleave_wav
+      Dependencies: {}
+    Info_33:
+      Name: buyitem_mp3
+      Dependencies: {}
+    Info_34:
+      Name: uicreditspanel_prefab
+      Dependencies:
+        Dependency_0: character_4_png

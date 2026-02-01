@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 4284951559
+CRC: 3675371294
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d50a00c5e3ca7f9acf8079278e4664bc
+    Hash: cd9febad28a2870135e26c5517189409
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 50a65cd2b143dff34d89880185ac8328
+    Hash: 37e16ba8008cf55f9a51b408776bd817
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: d50a00c5e3ca7f9acf8079278e4664bc
+    Hash: cd9febad28a2870135e26c5517189409
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -21,11 +21,13 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
@@ -87,6 +89,8 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.UI.Slider/SliderEvent
 - AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.SpriteState
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Toggle/ToggleEvent
 Assets:
 - Assets/Art/UIPrefabs/UISettingsPanel.prefab
 Dependencies: []

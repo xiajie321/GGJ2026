@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2033185486
+CRC: 507383977
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bdf100bb47906373bb5592fedf4a1c60
+    Hash: 68dbcb660f4415b2f916d24e937d99f4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: aa51e1b1286012d9f120cc3bf83806a2
+    Hash: 346d42f74864b9c8e15b7e070bd5ca7e
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: bdf100bb47906373bb5592fedf4a1c60
+    Hash: 68dbcb660f4415b2f916d24e937d99f4
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,8 +17,6 @@ ClassTypes:
 - Class: 4
   Script: {instanceID: 0}
 - Class: 21
-  Script: {instanceID: 0}
-- Class: 28
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
@@ -39,4 +37,5 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Art/GamePrefabs/Trap.prefab
-Dependencies: []
+Dependencies:
+- F:/GGJ2026/AssetBundles/Windows/background

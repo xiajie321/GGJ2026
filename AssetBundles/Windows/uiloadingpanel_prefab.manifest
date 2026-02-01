@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2006813139
+CRC: 2509787564
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d02c761e006921ec1d46cd63452af748
+    Hash: 0a62ddc21d24f0cbc8fcec24b1d4fad2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: bab85a9a433976c1b8c7ec356b8ae346
+    Hash: 33639d751758175d340ea94666d86744
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: d02c761e006921ec1d46cd63452af748
+    Hash: 0a62ddc21d24f0cbc8fcec24b1d4fad2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,7 +17,11 @@ ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aa2c28e09811c42fca1af0745e46c1e9, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 6a6a33297258b4780a64ef3115309148, type: 3}
 - Class: 114
@@ -29,6 +33,8 @@ ClassTypes:
 - Class: 222
   Script: {instanceID: 0}
 - Class: 224
+  Script: {instanceID: 0}
+- Class: 225
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.CoreModule
@@ -42,4 +48,4 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - Assets/Art/UIPrefabs/UILoadingPanel.prefab
 Dependencies:
-- D:/Unity/UnityProject/GGJ2026/AssetBundles/Windows/character_5_png
+- F:/GGJ2026/AssetBundles/Windows/character_5_png

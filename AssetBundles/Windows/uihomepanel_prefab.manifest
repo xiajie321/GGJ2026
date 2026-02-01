@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2045858185
+CRC: 2754518276
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aa6b5b3e890ad3bef007dee085045074
+    Hash: cf14742226b32c31d9b19cc81787eb39
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 38f17519f1d4c0962c517364e04ae3f9
+    Hash: c63a8c2ae699732adb4e2d3db616243a
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: aa6b5b3e890ad3bef007dee085045074
+    Hash: cf14742226b32c31d9b19cc81787eb39
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,9 +17,15 @@ ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d297cf7f9951443cdb4badd2ffffb0ae, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aa2c28e09811c42fca1af0745e46c1e9, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
 - Class: 114
@@ -27,13 +33,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  Script: {fileID: 11500000, guid: 5c5c6c5f7c5af47ee952f468b3ada379, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: bce90cf876451f84794cdad0cdfb400a, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: d297cf7f9951443cdb4badd2ffffb0ae, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: aa2c28e09811c42fca1af0745e46c1e9, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 213
@@ -45,6 +47,10 @@ ClassTypes:
 SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent`1[System.Int32]
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.RectOffset
 - AssemblyName: UnityEngine.UI
@@ -61,4 +67,10 @@ SerializeReferenceClassIdentifiers:
   ClassName: UnityEngine.UI.SpriteState
 Assets:
 - Assets/Art/UIPrefabs/UIHomePanel.prefab
-Dependencies: []
+Dependencies:
+- F:/GGJ2026/AssetBundles/Windows/character_1_png
+- F:/GGJ2026/AssetBundles/Windows/character_2_png
+- F:/GGJ2026/AssetBundles/Windows/character_3_png
+- F:/GGJ2026/AssetBundles/Windows/character_4_png
+- F:/GGJ2026/AssetBundles/Windows/character_5_png
+- F:/GGJ2026/AssetBundles/Windows/character_6_png

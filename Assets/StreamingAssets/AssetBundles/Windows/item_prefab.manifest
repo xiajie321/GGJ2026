@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 947850620
+CRC: 2878670284
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9cba55ebfe0ff54779c029e926055a5e
+    Hash: 90a41625abad48d5abc6df771dc9276c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0ae759306472a8c0146371e1ddf0841f
+    Hash: 5aecfbec407cd46e9f249b38a134f3a8
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 9cba55ebfe0ff54779c029e926055a5e
+    Hash: 90a41625abad48d5abc6df771dc9276c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -38,4 +38,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Art/GamePrefabs/Item.prefab
 Dependencies:
-- D:/Unity/UnityProject/GGJ2026/AssetBundles/Windows/background
+- F:/GGJ2026/AssetBundles/Windows/background
