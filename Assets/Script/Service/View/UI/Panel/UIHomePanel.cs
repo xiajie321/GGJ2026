@@ -37,6 +37,7 @@ namespace Service.View.UI.Panel
 
 				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("Level1", v =>
 				{
+					AudioKit.PlayMusic("Level1_BGM");
 					Run(v).Forget();
 				});
 
@@ -62,6 +63,9 @@ namespace Service.View.UI.Panel
 			BtnStart.BindGlobalSelectFrame();
 			BtnSettings.BindGlobalSelectFrame();
 			BtnExit.BindGlobalSelectFrame();
+			
+			// 播放背景音乐
+			AudioKit.PlayMusic("MainMenu_BGM");
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

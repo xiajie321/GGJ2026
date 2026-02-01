@@ -1,0 +1,49 @@
+ManifestFileVersion: 0
+CRC: 1748504888
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ec1c9619a0f0a4525826793328ae8e75
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ed1d6d22c2ef2f59216fb90710c846d7
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: ec1c9619a0f0a4525826793328ae8e75
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aa2c28e09811c42fca1af0745e46c1e9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6a6a33297258b4780a64ef3115309148, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5c5c6c5f7c5af47ee952f468b3ada379, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent`1[System.Int32]
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- Assets/Art/UIPrefabs/UILoadingPanel.prefab
+Dependencies:
+- /Users/xuzi/Downloads/GGJ2026/AssetBundles/OSX/character_5_png

@@ -1,0 +1,100 @@
+ManifestFileVersion: 0
+CRC: 1611375086
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uimessagetippanel_prefab
+      Dependencies: {}
+    Info_1:
+      Name: uisettingspanel_prefab
+      Dependencies: {}
+    Info_2:
+      Name: uimousecursorpanel_prefab
+      Dependencies: {}
+    Info_3:
+      Name: uihomepanel_prefab
+      Dependencies: {}
+    Info_4:
+      Name: uidamagefloatingtextpanel_prefab
+      Dependencies: {}
+    Info_5:
+      Name: uidamagetextcomponent_prefab
+      Dependencies: {}
+    Info_6:
+      Name: enemy_prefab
+      Dependencies: {}
+    Info_7:
+      Name: uiloadingpanel_prefab
+      Dependencies:
+        Dependency_0: character_5_png
+    Info_8:
+      Name: item_prefab
+      Dependencies:
+        Dependency_0: background
+    Info_9:
+      Name: trap_prefab
+      Dependencies:
+        Dependency_0: background
+    Info_10:
+      Name: uiminimap_prefab
+      Dependencies:
+        Dependency_0: character_1_png
+        Dependency_1: background
+    Info_11:
+      Name: character_2_png
+      Dependencies: {}
+    Info_12:
+      Name: character_4_png
+      Dependencies: {}
+    Info_13:
+      Name: character_6_png
+      Dependencies: {}
+    Info_14:
+      Name: character_5_png
+      Dependencies: {}
+    Info_15:
+      Name: character_3_png
+      Dependencies: {}
+    Info_16:
+      Name: character_1_png
+      Dependencies: {}
+    Info_17:
+      Name: background
+      Dependencies: {}
+    Info_18:
+      Name: enemygenerator_prefab
+      Dependencies: {}
+    Info_19:
+      Name: background_level1_png
+      Dependencies: {}
+    Info_20:
+      Name: enemyexit_prefab
+      Dependencies: {}
+    Info_21:
+      Name: uipausepanel_prefab
+      Dependencies: {}
+    Info_22:
+      Name: uihudpanel_prefab
+      Dependencies: {}
+    Info_23:
+      Name: uiresultpanel_prefab
+      Dependencies: {}
+    Info_24:
+      Name: emoji_png
+      Dependencies: {}
+    Info_25:
+      Name: uicommoneffectpanel_prefab
+      Dependencies: {}
+    Info_26:
+      Name: uiconfirmpanel_prefab
+      Dependencies: {}
+    Info_27:
+      Name: uilevelselectionpanel_prefab
+      Dependencies: {}
+    Info_28:
+      Name: uishoppanel_prefab
+      Dependencies:
+        Dependency_0: background
+    Info_29:
+      Name: level1_bgm_mp3
+      Dependencies: {}

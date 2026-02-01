@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+CRC: 3329002471
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 546d9c2c34c543ec98eccd357d612c68
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 346d42f74864b9c8e15b7e070bd5ca7e
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 546d9c2c34c543ec98eccd357d612c68
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 652c9b9e94284f64a4d5e7867faeea7e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f0aad3f896084ce88b1cc256cfdfd271, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Art/GamePrefabs/Trap.prefab
+Dependencies:
+- /Users/xuzi/Downloads/GGJ2026/AssetBundles/OSX/background
