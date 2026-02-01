@@ -1,17 +1,19 @@
 ﻿using System;
+using DG.Tweening;
 using QFramework;
 using UnityEngine;
 
 namespace Script.Service.View.Game
 {
-    public class TrapAdsorberMono:MonoBehaviour
+    public class TrapAdsorberMono : MonoBehaviour
     {
         private bool _isJudgment;
-        private ItemControllerMono _currentItem;
+        private ItemControllerMono _currentItem; // 当前已吸附的物品
+        private ItemControllerMono _candidateItem; // 当前在范围内但未吸附的物品
         private TrapControllerMono _trapController;
         private Collider2D _collider;
-        
-        public bool IsJudgment => _isJudgment;//有媳妇对象
+
+        public bool IsJudgment => _isJudgment; // 有吸附对象
         public ItemControllerMono ItemControllerMono => _currentItem;
         public TrapControllerMono TrapControllerMono => _trapController;
 
@@ -23,61 +25,69 @@ namespace Script.Service.View.Game
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(other.tag.Equals("Trigger")) return;
-            
-            // 修复：如果记录有对象但对象已销毁，重置状态
-            if (_isJudgment && _currentItem == null)
-            {
-                _isJudgment = false;
-            }
-            
-            if(_isJudgment) return;
-            
+            if (other.tag.Equals("Trigger")) return;
+
             var item = other.GetComponent<ItemControllerMono>();
             if (item == null) return;
-            if(item.ItemData.Height != _trapController.TrapData.Height) return;
-            
-            _isJudgment = true;
-            _currentItem = item;
-            _currentItem.Parent(transform);
-            
-            // 如果正在拖拽，不要强制位置，也不要强制 Kinematic（因为 DraggableSprite 已经处理了）
-            // 只有非拖拽状态下（例如生成的物品掉进陷阱？）才需要强制
-            bool isDragging = _currentItem.DraggableSprite != null && _currentItem.DraggableSprite.IsDragging;
-            
-            if (!isDragging)
+            if (item.ItemData.Height != _trapController.TrapData.Height) return;
+
+            // 如果当前没有吸附物品，则将进入的物品设为候选
+            if (_currentItem == null)
             {
-                _currentItem.transform.localPosition = new Vector3(0, 0, -0.1f);
-                
-                if (_currentItem.Rigidbody2D != null)
-                {
-                    _currentItem.Rigidbody2D.isKinematic = true;
-                    _currentItem.Rigidbody2D.velocity = Vector2.zero;
-                }
+                _candidateItem = item;
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if(other.tag.Equals("Trigger")) return;
-            if(!_isJudgment) return;
-            
-            if (_currentItem != null && _currentItem.gameObject == other.gameObject)
+            if (other.tag.Equals("Trigger")) return;
+
+            var item = other.GetComponent<ItemControllerMono>();
+            if (item == null) return;
+
+            // 如果离开的是候选物品，清空候选
+            if (_candidateItem == item)
             {
-                // 移除高度检查，只要离开了就应该断开
+                _candidateItem = null;
+            }
+
+            // 如果离开的是已吸附物品（通常发生在拖拽离开范围时）
+            if (_currentItem == item)
+            {
                 ReleaseItem();
             }
         }
-        
+
+        private void AdsorbItem(ItemControllerMono item)
+        {
+            if (_currentItem != null) return; // 已经有物品了
+
+            _isJudgment = true;
+            _currentItem = item;
+            _currentItem.Parent(transform);
+
+            if (_currentItem.Rigidbody2D != null)
+            {
+                _currentItem.Rigidbody2D.isKinematic = true;
+                _currentItem.Rigidbody2D.velocity = Vector2.zero;
+            }
+
+            // 平滑吸附动画
+            _currentItem.transform.DOKill();
+            _currentItem.transform.DOLocalMove(new Vector3(0, 0, -0.1f), 0.2f).SetEase(Ease.OutQuad);
+        }
+
         private void ReleaseItem()
         {
             _isJudgment = false;
             if (_currentItem != null)
             {
+                _currentItem.transform.DOKill();
+                
                 if (gameObject.activeInHierarchy && _currentItem.gameObject.activeInHierarchy)
                 {
                     _currentItem.transform.SetParent(null);
-                    
+
                     // 恢复物理状态
                     // 如果正在拖拽，由 DraggableSprite 在松手时负责恢复，这里不干涉
                     bool isDragging = _currentItem.DraggableSprite != null && _currentItem.DraggableSprite.IsDragging;
@@ -98,40 +108,44 @@ namespace Script.Service.View.Game
                 _isJudgment = false;
                 return;
             }
-            
-            if(!_isJudgment || _currentItem == null) return;
-            
-            // 2. 检查父物体是否不再是当前陷阱（被其他陷阱吸附）
-            if (_currentItem.transform.parent != transform)
+
+            // 2. 吸附逻辑：如果有候选物品且未在拖拽，则吸附
+            if (_currentItem == null && _candidateItem != null)
             {
-                _isJudgment = false;
-                _currentItem = null;
-                return;
+                bool isDragging = _candidateItem.DraggableSprite != null && _candidateItem.DraggableSprite.IsDragging;
+                if (!isDragging)
+                {
+                    AdsorbItem(_candidateItem);
+                    _candidateItem = null; // 吸附后不再是候选
+                }
             }
 
-            // 3. 处理拖拽
-            if(_currentItem.DraggableSprite != null && _currentItem.DraggableSprite.IsDragging) 
+            // 3. 释放逻辑：如果已吸附物品开始被拖拽
+            if (_currentItem != null)
             {
-                // 修复：如果拖拽出了范围但 OnTriggerExit2D 没触发（快速移动），手动断开
-                // 使用距离检测代替 IsTouching，因为 IsTouching 在快速移动时可能不稳定
-                // 假设陷阱半径约为 0.5 (根据 Sprite 大小调整)，物品半径约为 0.5
-                // 阈值设为 1.5f 比较宽松，避免误判
-                if (Vector2.Distance(transform.position, _currentItem.transform.position) > 1.5f)
+                bool isDragging = _currentItem.DraggableSprite != null && _currentItem.DraggableSprite.IsDragging;
+                if (isDragging)
                 {
+                    // 变为候选，以便松手后能再次吸附（如果还在范围内）
+                    _candidateItem = _currentItem;
                     ReleaseItem();
+                    return;
                 }
-                return;
-            }
-            
-            // 4. 强制位置
-            _currentItem.transform.localPosition = new Vector3(0, 0, -0.1f);
-            
-            // 5. 强制物理状态
-            // 确保吸附且未拖拽时为 Kinematic，防止 DraggableSprite 松手后改回 Dynamic 导致下落
-            if (_currentItem.Rigidbody2D != null && !_currentItem.Rigidbody2D.isKinematic)
-            {
-                _currentItem.Rigidbody2D.isKinematic = true;
-                _currentItem.Rigidbody2D.velocity = Vector2.zero;
+                
+                // 4. 检查父物体是否不再是当前陷阱（被其他陷阱吸附）
+                if (_currentItem.transform.parent != transform)
+                {
+                    _isJudgment = false;
+                    _currentItem = null;
+                    return;
+                }
+                
+                // 5. 强制物理状态（防止意外掉落）
+                if (_currentItem.Rigidbody2D != null && !_currentItem.Rigidbody2D.isKinematic)
+                {
+                    _currentItem.Rigidbody2D.isKinematic = true;
+                    _currentItem.Rigidbody2D.velocity = Vector2.zero;
+                }
             }
         }
     }
