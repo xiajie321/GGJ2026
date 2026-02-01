@@ -198,7 +198,7 @@ namespace Service.View.UI.Panel
 
 			// 3. 显示按钮
 			await UniTask.Delay(200);
-			NextLevelBtn.gameObject.SetActive(mData.HasNextLevel);
+			NextLevelBtn.gameObject.SetActive(true);
 			TryAgainBtn.gameObject.SetActive(true);
 			MainMenuBtn.gameObject.SetActive(true);
 			CloseBtn.gameObject.SetActive(true);
