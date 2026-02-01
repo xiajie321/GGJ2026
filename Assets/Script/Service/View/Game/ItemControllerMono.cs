@@ -39,10 +39,20 @@ namespace Script.Service.View.Game
             _collider2D ??= GetComponent<Collider2D>();
             _spriteRenderer ??= GetComponent<SpriteRenderer>();
             _draggableSprite ??= GetComponent<DraggableSprite>();
-            _itemData = this.GetUtility<ConfigUtility>().Config.TbItemConfig.Get(ItemId);
-            _spriteRenderer.sprite = _itemData.Sprite;
-            _draggableSprite.enabled = _itemData.IsMoveable;
-            _rigidbody2D.gravityScale = _itemData.Gravity;
+            
+            var config = this.GetUtility<ConfigUtility>().Config.TbItemConfig;
+            if (config != null)
+            {
+                _itemData = config.Get(ItemId);
+                if (_itemData != null)
+                {
+                    _spriteRenderer.sprite = _itemData.Sprite;
+                    _draggableSprite.enabled = _itemData.IsMoveable;
+                    _rigidbody2D.gravityScale = _itemData.Gravity;
+                    // 初始化时，根据当前 Sprite 重置碰撞体大小
+                    _draggableSprite.UpdateColliderSize(); 
+                }
+            }
         }
 
         private void OnEnable()
@@ -57,10 +67,22 @@ namespace Script.Service.View.Game
             _collider2D ??= GetComponent<Collider2D>();
             _spriteRenderer ??= GetComponent<SpriteRenderer>();
             _draggableSprite ??= GetComponent<DraggableSprite>();
+            
             _itemData = this.GetUtility<ConfigUtility>().Config.TbItemConfig.Get(id);
-            _spriteRenderer.sprite = _itemData.Sprite;
-            _draggableSprite.enabled = _itemData.IsMoveable;
-            _rigidbody2D.gravityScale = _itemData.Gravity;
+            if (_itemData != null)
+            {
+                // 设置新的图片
+                _spriteRenderer.sprite = _itemData.Sprite;
+                
+                // 是否可拖拽
+                _draggableSprite.enabled = _itemData.IsMoveable;
+                
+                // 设置重力
+                _rigidbody2D.gravityScale = _itemData.Gravity;
+                
+                // 碰撞体重新包裹
+                _draggableSprite.UpdateColliderSize(); 
+            }
         }
 
         public IArchitecture GetArchitecture()

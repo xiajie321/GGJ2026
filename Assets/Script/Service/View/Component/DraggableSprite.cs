@@ -22,6 +22,9 @@ namespace Script.Service.View.Component
         [Header("拖拽设置")]
         [SerializeField] private float dragZ = 0f;  // 拖拽时的 Z 坐标
         [SerializeField] private bool handleRigidbody = true; // 是否自动处理 Rigidbody
+
+        [Header("碰撞体设置")]
+        [SerializeField] private bool autoFitCollider = true; // 是否自动调整碰撞体大小以包裹 Sprite
         
         private Camera _mainCamera;
         private Vector3 _screenPoint;
@@ -38,11 +41,78 @@ namespace Script.Service.View.Component
             _mainCamera = Camera.main;
             _rb = GetComponent<Rigidbody2D>();
             
-            // 确保有 Collider
-            if (GetComponent<Collider2D>() == null)
+            // 自动适配 Collider
+            if (autoFitCollider)
             {
-                Debug.LogWarning($"[DraggableSprite] {gameObject.name} 需要 Collider2D！正在添加 BoxCollider2D...");
-                gameObject.AddComponent<BoxCollider2D>();
+                UpdateColliderSize();
+            }
+            else
+            {
+                // 原有逻辑：仅当没有任何碰撞体时添加
+                if (GetComponent<Collider2D>() == null)
+                {
+                    Debug.LogWarning($"[DraggableSprite] {gameObject.name} 需要 Collider2D！正在添加 BoxCollider2D...");
+                    gameObject.AddComponent<BoxCollider2D>();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 自动更新碰撞体大小以包裹精灵
+        /// 支持 Simple 和 Sliced 模式，自动处理 Pivot 偏移
+        /// </summary>
+        [ContextMenu("Fit Collider To Sprite")]
+        public void UpdateColliderSize()
+        {
+            var spriteRenderer = GetComponent<SpriteRenderer>();
+            
+            // 如果没有 SpriteRenderer，无法计算，仅做保底处理
+            if (spriteRenderer == null || spriteRenderer.sprite == null)
+            {
+                if (GetComponent<Collider2D>() == null)
+                {
+                    gameObject.AddComponent<BoxCollider2D>();
+                }
+                return;
+            }
+            
+            var boxCollider = GetComponent<BoxCollider2D>();
+            
+            if (boxCollider == null)
+            {
+                if (GetComponent<Collider2D>() == null)
+                {
+                    boxCollider = gameObject.AddComponent<BoxCollider2D>();
+                }
+                else
+                {
+                    // 如果已经有其他形状的碰撞体（如圆形、多边形），，直接返回
+                    return;
+                }
+            }
+
+            // 根据 Sprite 模式计算大小和偏移
+            if (spriteRenderer.drawMode == SpriteDrawMode.Simple)
+            {
+                // Simple 模式：直接使用 sprite 的 bounds（包含 Pivot 偏移信息）
+                boxCollider.size = spriteRenderer.sprite.bounds.size;
+                boxCollider.offset = spriteRenderer.sprite.bounds.center;
+            }
+            else
+            {
+                // Sliced / Tiled 模式：使用 SpriteRenderer 的 size
+                boxCollider.size = spriteRenderer.size;
+
+                // 计算 Pivot 带来的中心偏移
+                // Pivot (0.5, 0.5) -> Offset (0, 0)
+                // Pivot (0, 0) -> Offset (size/2, size/2)
+                float pivotX = spriteRenderer.sprite.pivot.x / spriteRenderer.sprite.rect.width;
+                float pivotY = spriteRenderer.sprite.pivot.y / spriteRenderer.sprite.rect.height;
+
+                boxCollider.offset = new Vector2(
+                    (0.5f - pivotX) * spriteRenderer.size.x,
+                    (0.5f - pivotY) * spriteRenderer.size.y
+                );
             }
         }
 
@@ -67,7 +137,7 @@ namespace Script.Service.View.Component
 
             OnDragStart(Input.mousePosition);
             
-            Debug.Log($"[DraggableSprite] 开始拖拽 {gameObject.name} - CanDragX: {canDragX}, CanDragY: {canDragY}");
+            Debug.Log($"[DraggableSprite] 开始拖拽 {gameObject.name}");
         }
 
         private void OnMouseDrag()
@@ -117,20 +187,9 @@ namespace Script.Service.View.Component
         }
 
         // ICanDrag 接口实现
-        public virtual void OnDragStart(Vector2 position)
-        {
-            // 可以被子类重写
-        }
-
-        public virtual void OnDragging(Vector2 position)
-        {
-            // 可以被子类重写
-        }
-
-        public virtual void OnDragEnd(Vector2 position)
-        {
-            // 可以被子类重写
-        }
+        public virtual void OnDragStart(Vector2 position) { }
+        public virtual void OnDragging(Vector2 position) { }
+        public virtual void OnDragEnd(Vector2 position) { }
 
         /// <summary>
         /// 设置拖拽轴

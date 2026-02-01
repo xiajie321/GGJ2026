@@ -1088,6 +1088,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Furniture_L1_46
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 126
+        width: 13
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aadd0c94f6abe430ca8f738793b68776
+      internalID: 926350648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1140,6 +1161,7 @@ TextureImporter:
       Furniture_L1_43: -1077647165
       Furniture_L1_44: 656296841
       Furniture_L1_45: -899325802
+      Furniture_L1_46: 926350648
       Furniture_L1_5: 1700782686
       Furniture_L1_6: 1001760415
       Furniture_L1_7: 909593683
