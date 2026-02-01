@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2494758752
+CRC: 2340436531
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cc42e642d0eb6e798e8e0ba428f0c645
+    Hash: 38336fa15d0b6895c379357df440b833
   TypeTreeHash:
     serializedVersion: 2
     Hash: 812c62736aa43d1dc88d85cab49b0bad
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: cc42e642d0eb6e798e8e0ba428f0c645
+    Hash: 38336fa15d0b6895c379357df440b833
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -52,5 +52,5 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - Assets/Art/UIPrefabs/UIMiniMap.prefab
 Dependencies:
-- D:/Unity/UnityProject/GGJ2026/AssetBundles/Windows/background
-- D:/Unity/UnityProject/GGJ2026/AssetBundles/Windows/character_1_png
+- F:/GGJ2026/AssetBundles/Windows/background
+- F:/GGJ2026/AssetBundles/Windows/character_1_png

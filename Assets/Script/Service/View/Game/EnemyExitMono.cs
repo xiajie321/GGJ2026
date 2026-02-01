@@ -56,6 +56,11 @@ namespace Script.Service.View.Game
                 var levelData = this.GetUtility<ConfigUtility>().Config.TbLevelConfig.Get(Index - 1);
                 int currentLevelIndex = Index;
 
+                if (hasNextLevel)
+                {
+                    Index++;
+                }
+
                 UIKit.OpenPanel<UIResultPanel>(UILevel.PopUI, new UIResultPanelData()
                 {
                     LevelData = levelData,

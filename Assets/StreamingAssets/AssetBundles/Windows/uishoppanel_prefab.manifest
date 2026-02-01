@@ -3,13 +3,13 @@ CRC: 1706926924
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5c8dcbed7face4256fe7d3c83a1df72d
+    Hash: ac90eb07cc5ef9fe11d987db8b33392d
   TypeTreeHash:
     serializedVersion: 2
     Hash: a836886290b3f719c5476a66f1482e94
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 5c8dcbed7face4256fe7d3c83a1df72d
+    Hash: ac90eb07cc5ef9fe11d987db8b33392d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -56,4 +56,4 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - Assets/Art/UIPrefabs/UIShopPanel.prefab
 Dependencies:
-- D:/Unity/UnityProject/GGJ2026/AssetBundles/Windows/background
+- F:/GGJ2026/AssetBundles/Windows/background

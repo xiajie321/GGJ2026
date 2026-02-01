@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 169642299
+CRC: 118865545
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8d0f83f7eb62e4dac40cd3486919834c
+    Hash: 5de385680b9d534ce5022e068206253f
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2d8df09e698f722ada1caa03d3413830
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 8d0f83f7eb62e4dac40cd3486919834c
+    Hash: 5de385680b9d534ce5022e068206253f
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -37,6 +37,7 @@ Assets:
 - Assets/Art/Texture/Background/Level_2/BG/T_22.png
 - Assets/Art/Texture/Background/Level_1/Hole/Wall/scratch.png
 - Assets/Art/Texture/Background/Level_1/Hole/Wall/GiantHole.png
+- Assets/Art/Texture/Background/Level_0/BG_level0.png
 - Assets/Art/Texture/Background/Level_2/Background_Level2.png
 - Assets/Art/Texture/Background/Level_1/Background/Level1_OrangeWall.png
 - Assets/Art/Texture/Background/Level_1/Furniture_L1.png
