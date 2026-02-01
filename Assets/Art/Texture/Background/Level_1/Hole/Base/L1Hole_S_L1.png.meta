@@ -123,169 +123,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hole_Mouse_L1_0
+      name: L1Hole_S_L1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 29
         height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df14d344636014daf911108da6466b70
-      internalID: 304712166
+      spriteID: 61ba0d58138204897ab54c1713d3bf89
+      internalID: -1321887163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_Mouse_L1_1
+      name: L1Hole_S_L1_1
       rect:
         serializedVersion: 2
         x: 29
         y: 0
         width: 29
         height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14ee856eebc334852bb86665270bd688
-      internalID: -176389549
+      spriteID: aae5d13b649214618a3f2d241318c969
+      internalID: -1281676739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_Mouse_L1_2
+      name: L1Hole_S_L1_2
       rect:
         serializedVersion: 2
         x: 58
         y: 0
         width: 29
         height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df192e40b5cd943ccbe77be261af7638
-      internalID: -1169791624
+      spriteID: b3896452ed14f4eefafd3aac87df1b41
+      internalID: -507432350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_Mouse_L1_3
+      name: L1Hole_S_L1_3
       rect:
         serializedVersion: 2
         x: 87
         y: 0
         width: 29
         height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a877059ccdad249b89dac25fbdec9c48
-      internalID: -1555905379
+      spriteID: 7269ed08fcfe340559dd0349cb4aa206
+      internalID: -900823103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_Mouse_L1_4
+      name: L1Hole_S_L1_4
       rect:
         serializedVersion: 2
         x: 116
         y: 0
         width: 29
         height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfe097c1e7c9e416fb92d7fd21cf5de1
-      internalID: -822979880
+      spriteID: 0be02810fa79a4802aed3b85af5bd793
+      internalID: -1880867257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_Mouse_L1_5
+      name: L1Hole_S_L1_5
       rect:
         serializedVersion: 2
         x: 145
         y: 0
         width: 29
         height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b7d1b77164a745809ef5c2818e04ead
-      internalID: 1110849650
+      spriteID: 1d2840a0a3e5549a09b11359ce16f767
+      internalID: -82377085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_Mouse_L1_6
+      name: L1Hole_S_L1_6
       rect:
         serializedVersion: 2
         x: 174
         y: 0
         width: 29
         height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ce1d64b2daa44b0f81a18ed48ef4d5e
-      internalID: -1435766296
+      spriteID: 1923f3462ca724d54a539c4cc0407e09
+      internalID: -1095481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hole_Mouse_L1_7
+      name: L1Hole_S_L1_7
       rect:
         serializedVersion: 2
         x: 203
         y: 0
         width: 29
         height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 709e06f9424af4a51b9c591b89f80092
-      internalID: -573416382
+      spriteID: cb3eefc3eef2d46dbade61c37da96e57
+      internalID: 652457034
       vertices: []
       indices: 
       edges: []
@@ -301,14 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hole_Mouse_L1_0: 304712166
-      Hole_Mouse_L1_1: -176389549
-      Hole_Mouse_L1_2: -1169791624
-      Hole_Mouse_L1_3: -1555905379
-      Hole_Mouse_L1_4: -822979880
-      Hole_Mouse_L1_5: 1110849650
-      Hole_Mouse_L1_6: -1435766296
-      Hole_Mouse_L1_7: -573416382
+      L1Hole_S_L1_0: -1321887163
+      L1Hole_S_L1_1: -1281676739
+      L1Hole_S_L1_2: -507432350
+      L1Hole_S_L1_3: -900823103
+      L1Hole_S_L1_4: -1880867257
+      L1Hole_S_L1_5: -82377085
+      L1Hole_S_L1_6: -1095481
+      L1Hole_S_L1_7: 652457034
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
