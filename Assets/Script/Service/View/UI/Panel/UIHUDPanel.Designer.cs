@@ -5,13 +5,15 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:a6657482-a50c-4d13-8eca-7a48c9b4ad4f
+	// Generate Id:8c2db288-7803-4dd3-8bf7-1a0fbb8b275e
 	public partial class UIHUDPanel
 	{
 		public const string Name = "UIHUDPanel";
 		
 		[SerializeField]
 		public UnityEngine.UI.Button PauseBtn;
+		[SerializeField]
+		public UnityEngine.UI.Button SpeedBtn;
 		/// <summary>
 		/// 用于显示积分
 		/// </summary>
@@ -23,6 +25,7 @@ namespace Service.View.UI.Panel
 		protected override void ClearUIComponents()
 		{
 			PauseBtn = null;
+			SpeedBtn = null;
 			Gold = null;
 			
 			mData = null;
