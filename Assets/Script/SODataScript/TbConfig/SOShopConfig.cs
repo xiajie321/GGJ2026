@@ -17,6 +17,7 @@ namespace Script.SODataScript.TbConfig
             {
                 Id = id,
                 Name = _ls.Name,
+                BuySound = _ls.BuySound,
                 Shops = _ls.GetShops(),
             };
         }
@@ -27,6 +28,10 @@ namespace Script.SODataScript.TbConfig
         public int Id;
         public string Name = "";
         public List<ShopConfigData> Shops = new();
+        
+        public AudioClip BuySound;//交易成功时的音效
+
+        
         public List<ShopConfigData> GetShops()//深拷贝数组
         {
             List<ShopConfigData> _ls = new();
@@ -45,5 +50,7 @@ namespace Script.SODataScript.TbConfig
     public class ShopConfigData
     {
         public int Id;
+
+        
     }
 }

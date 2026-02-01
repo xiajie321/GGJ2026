@@ -34,6 +34,14 @@ namespace Script.SODataScript.TbConfig
                 
                 InteractPBTY = _ls.InteractPBTY,
                 InteractTime = _ls.InteractTime,
+                
+                EnterSound = _ls.EnterSound,
+                LeaveSound = _ls.LeaveSound,
+                InteractSound = _ls.InteractSound,
+                PassSound = _ls.PassSound,
+                ExposedSound = _ls.ExposedSound,
+                YellowFaceSound = _ls.YellowFaceSound,
+                RedFaceSound = _ls.RedFaceSound,
             };
         }
     }
@@ -61,6 +69,15 @@ namespace Script.SODataScript.TbConfig
         
         public int InteractPBTY; // 交互概率, 1-100
         public float InteractTime; // 交互时间
+
+        public AudioClip EnterSound;//敌人生成时的音效
+        public AudioClip LeaveSound;//敌人离开（销毁）时
+        public AudioClip InteractSound;//开始思考过程的音效
+        public AudioClip PassSound;//检查通过的音效
+        public AudioClip ExposedSound;//发现破绽的音效
+        public AudioClip YellowFaceSound;//切换到黄脸时的音效
+        public AudioClip RedFaceSound;//切换到红脸时的音效
+        
     }
     
 }
