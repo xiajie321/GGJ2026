@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using QFramework;
 using Script.Service.Architecture;
 using Script.Service.System;
+using Script.Service.View.UI.Panel;
 
 namespace Service.View.UI.Panel
 {
@@ -27,10 +28,12 @@ namespace Service.View.UI.Panel
                 UIKit.OpenPanel<UIConfirmPanel>(new UIConfirmPanelData() {
                     OnConfirm = () => {
                         Time.timeScale = 1f;
-                        this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("GameBoot", () =>
+                        this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("GameBoot", v =>
                         {
                             UIKit.CloseAllPanel();
+                            UIKit.OpenPanel<UIMouseCursorPanel>(UILevel.PopUI);
                             UIKit.OpenPanel<UIHomePanel>();
+                            UIKit.ClosePanel(v);
                         });
                         
                     }

@@ -8,6 +8,7 @@
 
 using System;
 using System.Linq;
+using MoonSharp.Interpreter;
 using UnityEngine;
 
 namespace QFramework

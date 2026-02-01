@@ -5,7 +5,7 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:8ea72033-ec8e-4dc9-852d-dc5ba5f2f3e7
+	// Generate Id:c034b3e2-adbe-4e33-a1fa-388c518c0b19
 	public partial class UIMiniMap
 	{
 		public const string Name = "UIMiniMap";
@@ -20,6 +20,8 @@ namespace Service.View.UI.Panel
 		/// </summary>
 		[SerializeField]
 		public UnityEngine.UI.Image CameraViewRect;
+		[SerializeField]
+		public UnityEngine.UI.Slider Progress;
 		
 		private UIMiniMapData mPrivateData = null;
 		
@@ -27,6 +29,7 @@ namespace Service.View.UI.Panel
 		{
 			Area = null;
 			CameraViewRect = null;
+			Progress = null;
 			
 			mData = null;
 		}

@@ -1,7 +1,9 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using QFramework;
 using Script.Service.Architecture;
+using Script.Service.Model;
 using Script.Service.System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,11 +27,22 @@ namespace Service.View.UI.Panel
         private EventTrigger _areaEventTrigger;
         
         private bool _isDragging = false;
+        private float _time;
+        private void Update()
+        {
+            if (!_gameModel?.EnemyGeneratorMono)
+            {
+                _time = 0;
+                return;
+            }
+            _time += Time.deltaTime;
+            Progress.value = _gameModel.EnemyGeneratorMono.GetCurrentTimeLength()/_gameModel.EnemyGeneratorMono.GetMaxTimeLength();
+        }
 
+        private GameModel _gameModel;
         protected override void OnInit(IUIData uiData = null)
         {
             mData = uiData as UIMiniMapData ?? new UIMiniMapData();
-
             _mainCamera = Camera.main;
             _cameraSystem = this.GetSystem<CameraEdgeScrollingSystem>();
             
@@ -52,7 +65,7 @@ namespace Service.View.UI.Panel
             
             // 添加点击监听到 Area
             AddClickListener();
-            
+            _gameModel = this.GetModel<GameModel>();
             Debug.Log($"[MiniMap] 初始化完成 - 小地图宽度: {_minimapWidth}px, 比例: {Data.CameraViewRatio:P0}, 矩形宽度: {_cameraRectWidth}px");
         }
 
