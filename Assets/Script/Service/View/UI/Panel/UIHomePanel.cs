@@ -43,8 +43,6 @@ namespace Service.View.UI.Panel
 					AudioKit.PlayMusic("Level1_BGM");
 					Run(v).Forget();
 				});
-
-
 			});
 			BtnSettings.onClick.AddListener(() => UIKit.OpenPanel<UISettingsPanel>());
 			BtnCredits.onClick.AddListener(() => UIKit.OpenPanel<UICreditsPanel>());
