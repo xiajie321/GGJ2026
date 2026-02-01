@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: TrapId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5108172011549572178, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
+      propertyPath: _state
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6286137607028648055, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
       propertyPath: m_Name
       value: Trap (2)
@@ -275,6 +279,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5108172011549572178, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
+      propertyPath: _state
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6286137607028648055, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
       propertyPath: m_Name
       value: Trap (1)
@@ -741,6 +749,10 @@ PrefabInstance:
       propertyPath: TrapId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5108172011549572178, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
+      propertyPath: _state
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6286137607028648055, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
       propertyPath: m_Name
       value: Trap (3)
@@ -1200,6 +1212,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5108172011549572178, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
+      propertyPath: _state
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6286137607028648055, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
       propertyPath: m_Name
       value: Trap
@@ -1548,6 +1564,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5108172011549572178, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
+      propertyPath: _state
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6286137607028648055, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
       propertyPath: m_Name
       value: Trap (5)
@@ -1800,6 +1820,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5108172011549572178, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
+      propertyPath: _state
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6286137607028648055, guid: 974bdc66c0d3fa7499ff74b17359b690, type: 3}
       propertyPath: m_Name
       value: Trap (4)
