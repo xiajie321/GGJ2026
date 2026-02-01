@@ -30,6 +30,7 @@ namespace Script.Service.View.Game
             var item = other.GetComponent<ItemControllerMono>();
             if (item == null) return;
             if (item.ItemData.Height != _trapController.TrapData.Height) return;
+            if ((int)_trapController.TrapData.Level <= (int)item.ItemData.Level) return;
 
             // 如果当前没有吸附物品，则将进入的物品设为候选
             if (_currentItem == null)
