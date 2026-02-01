@@ -129,7 +129,7 @@ namespace Service.View.UI.Panel
 			stars = Mathf.Min(stars, levelData.MaxStar);
 
 			// 胜利/失败标题显示
-			if (stars > 0)
+			if (targetProfit >= 0)
 			{
 				TitleImage.gameObject.SetActive(false);
 			}

@@ -43,7 +43,14 @@ namespace Script.Service.View.Game
                 }
             }
             other.gameObject.SetActive(false);
-            if (this.GetModel<GameModel>().EnemyControllerMonos.Count == 0)
+            
+            var gameModel = this.GetModel<GameModel>();
+            var generator = gameModel.EnemyGeneratorMono;
+            
+            // 结束条件：时间达到最大长度 且 场上没有敌人
+            if (generator != null && 
+                generator.GetCurrentTimeLength() >= generator.GetMaxTimeLength() && 
+                gameModel.EnemyControllerMonos.Count == 0)
             {
                 bool hasNextLevel = SceneManager.sceneCountInBuildSettings > Index + 1;
                 var levelData = this.GetUtility<ConfigUtility>().Config.TbLevelConfig.Get(Index - 1);
