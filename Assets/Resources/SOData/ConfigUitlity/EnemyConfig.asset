@@ -21,7 +21,7 @@ MonoBehaviour:
         \"TicketCost\": 20,\n            \"MoodBoot\": 1,\n            \"MaxMood\":
         100,\n            \"LostOfMood\": 15,\n            \"MoodHp1\": 45,\n           
         \"MoodHp2\": 60,\n            \"ThinkProbability\": 0,\n            \"StandTime\":
-        0,\n            \"ThinkTime\": 2,\n            \"ThinkCoolingTime\": 10,\n           
+        0,\n            \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 10,\n           
         \"InteractPBTY\": 100,\n            \"InteractTime\": 2\n        }\n    },\n   
         {\n        \"Key\": 1,\n        \"Value\": {\n            \"Id\": 1,\n           
         \"Name\": \"\u6025\u884C\u8005\",\n            \"RuntimeAnimatorController\":
@@ -30,14 +30,14 @@ MonoBehaviour:
         80,\n            \"LostOfMood\": 10,\n            \"MoodHp1\": 30,\n           
         \"MoodHp2\": 50,\n            \"ThinkProbability\": 0,\n            \"StandTime\":
         0,\n            \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 10,\n           
-        \"InteractPBTY\": 50,\n            \"InteractTime\": 1\n        }\n    },\n   
+        \"InteractPBTY\": 70,\n            \"InteractTime\": 1\n        }\n    },\n   
         {\n        \"Key\": 2,\n        \"Value\": {\n            \"Id\": 2,\n           
         \"Name\": \"\u89C6\u5BDF\u5458\",\n            \"RuntimeAnimatorController\":
         2,\n            \"MoveSpeed\": 0.5,\n            \"LoveType\": 0,\n           
         \"TicketCost\": 50,\n            \"MoodBoot\": 1,\n            \"MaxMood\":
         300,\n            \"LostOfMood\": 50,\n            \"MoodHp1\": 100,\n           
-        \"MoodHp2\": 200,\n            \"ThinkProbability\": 1,\n            \"StandTime\":
-        1,\n            \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 5,\n           
+        \"MoodHp2\": 200,\n            \"ThinkProbability\": 0,\n            \"StandTime\":
+        0,\n            \"ThinkTime\": 0,\n            \"ThinkCoolingTime\": 5,\n           
         \"InteractPBTY\": 100,\n            \"InteractTime\": 3\n        }\n    }\n]"
     unityObjectReferences:
     - {fileID: 9100000, guid: 5c4be8edc19914801ac952cca66d0cbc, type: 2}
