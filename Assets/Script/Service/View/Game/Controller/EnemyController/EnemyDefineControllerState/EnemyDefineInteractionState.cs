@@ -23,6 +23,11 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
             }
             Debug.Log($"[敌人交互] 进入交互。随机值: {randomVal}, 概率: {mOwner.EnemyData.InteractPBTY}");
             
+            if (mOwner.EnemyData.InteractSound)
+            {
+                AudioSource.PlayClipAtPoint(mOwner.EnemyData.InteractSound, mOwner.Rigidbody2D.transform.position);
+            }
+            
             mOwner.Animator.Play("Interact");
             _time = 0;
             _thinking = false;
@@ -62,9 +67,19 @@ namespace Script.Service.View.Game.Controller.EnemyController.EnemyDefineControl
                     {
                         //this.GetSystem<DamageFloatingTextSystem>().SetText($"{0}",mOwner.Rigidbody2D.transform.position);//心情增加
                     }
+                    
+                    if (mOwner.EnemyData.PassSound)
+                    {
+                        AudioSource.PlayClipAtPoint(mOwner.EnemyData.PassSound, mOwner.Rigidbody2D.transform.position);
+                    }
                 }
                 else
                 {
+                    if (mOwner.EnemyData.ExposedSound)
+                    {
+                        AudioSource.PlayClipAtPoint(mOwner.EnemyData.ExposedSound, mOwner.Rigidbody2D.transform.position);
+                    }
+                    
                     // 心情损耗
                     mOwner.CurrentMood = Mathf.Max(0, mOwner.CurrentMood - mOwner.EnemyData.LostOfMood);
                     mOwner.TotalLostMood += mOwner.EnemyData.LostOfMood;

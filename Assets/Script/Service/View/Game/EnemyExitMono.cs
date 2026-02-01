@@ -9,6 +9,8 @@ using Script.Service.View.UI.Panel;
 using Service.View.UI.Panel;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Script.Service.Utility;
+using Script.SODataScript.TbConfig;
 
 namespace Script.Service.View.Game
 {
@@ -23,6 +25,11 @@ namespace Script.Service.View.Game
                 var controller = enemy.Controller;
                 if (controller != null && controller.Data != null)
                 {
+                    if (enemy.EnemyData.LeaveSound)
+                    {
+                        AudioSource.PlayClipAtPoint(enemy.EnemyData.LeaveSound, enemy.transform.position);
+                    }
+                    
                     if (controller.Data.CurrentMood > 0)
                     {
                         float tip = controller.Data.CurrentMood * enemy.EnemyData.MoodBoot;
@@ -36,35 +43,19 @@ namespace Script.Service.View.Game
                 }
             }
             other.gameObject.SetActive(false);
-            if (this.GetModel<GameModel>().EnemyControllerMonos.Count == 0 && SceneManager.sceneCountInBuildSettings > Index)
+            if (this.GetModel<GameModel>().EnemyControllerMonos.Count == 0)
             {
-                Index++;
-                this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>($"Level{Index}", v =>
+                bool hasNextLevel = SceneManager.sceneCountInBuildSettings > Index + 1;
+                var levelData = this.GetUtility<ConfigUtility>().Config.TbLevelConfig.Get(Index - 1);
+                int currentLevelIndex = Index;
+
+                UIKit.OpenPanel<UIResultPanel>(UILevel.PopUI, new UIResultPanelData()
                 {
-                    Run(v).Forget();
-                    
+                    LevelData = levelData,
+                    HasNextLevel = hasNextLevel,
+                    CurrentLevelIndex = currentLevelIndex
                 });
             }
-            else if(this.GetModel<GameModel>().EnemyControllerMonos.Count == 0)
-            {
-                this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("GameBoot", v =>
-                {
-                    UIKit.CloseAllPanel();
-                    UIKit.OpenPanel<UIHomePanel>();
-                    UIKit.ClosePanel(v);
-                });
-            }
-        }
-        private async UniTask Run(UIPanel panel)
-        {
-            await UniTask.Delay(500);
-            this.GetSystem<LevelSystem>().StartLevel(Index); // 默认关卡
-            await UniTask.Yield();
-            UIKit.CloseAllPanel();
-            UIKit.OpenPanel<UIMouseCursorPanel>(UILevel.PopUI);
-            UIKit.OpenPanel<UIHUDPanel>();
-			await UniTask.Yield();
-            UIKit.ClosePanel(panel);
         }
         public IArchitecture GetArchitecture()
         {

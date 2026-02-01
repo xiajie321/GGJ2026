@@ -34,6 +34,9 @@ namespace Service.View.UI.Panel
 				CloseSelf();
 				
 				Debug.Log("[UIHomePanel] 开始游戏...");
+				
+				// 重置关卡索引
+				Script.Service.View.Game.EnemyExitMono.Index = 1;
 
 				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("Level1", v =>
 				{

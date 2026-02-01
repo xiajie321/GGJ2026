@@ -57,7 +57,15 @@ namespace Script.Service.System
         /// <param name="position">显示的目标位置</param>
         public void SetText(string text, Vector3 position)
         {
-            if(!_panel.gameObject.activeInHierarchy) UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            if (_panel == null)
+            {
+                _panel = UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            }
+            else if (!_panel.gameObject.activeInHierarchy)
+            {
+                UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            }
+            
             if (_mainCamera == null) _mainCamera = Camera.main;
             if (_mainCamera == null) return;
 
@@ -73,7 +81,15 @@ namespace Script.Service.System
         /// <param name="color">文字颜色</param>
         public void SetText(string text, Color color)
         {
-            if(!_panel.gameObject.activeInHierarchy) UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            if (_panel == null)
+            {
+                _panel = UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            }
+            else if (!_panel.gameObject.activeInHierarchy)
+            {
+                UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            }
+
             if (_mainCamera == null) _mainCamera = Camera.main;
             if (_mainCamera == null) return;
 
@@ -88,7 +104,15 @@ namespace Script.Service.System
         /// <param name="position">显示的目标位置</param>
         public void SetText(string text, Color color, Vector2 position)
         {
-            if(!_panel.gameObject.activeInHierarchy) UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            if (_panel == null)
+            {
+                _panel = UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            }
+            else if (!_panel.gameObject.activeInHierarchy)
+            {
+                UIKit.OpenPanel<UIDamageFloatingTextPanel>(UILevel.PopUI);
+            }
+
             if (_mainCamera == null) _mainCamera = Camera.main;
             if (_mainCamera == null) return;
 

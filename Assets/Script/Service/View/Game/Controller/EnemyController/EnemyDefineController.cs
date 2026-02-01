@@ -84,20 +84,41 @@ namespace Script.Service.View.Game.Controller.EnemyController
         {
             if (data.EmojiRenderer == null) return;
             
+            Sprite targetSprite = null;
+            AudioClip targetSound = null;
+
             if (data.TotalLostMood < data.EnemyData.MoodHp1)
             {
-                data.EmojiRenderer.sprite = data.HappySprite;
+                targetSprite = data.HappySprite;
                 Debug.Log($"[敌人表情] 设置为开心。累计损失: {data.TotalLostMood}, 阈值1: {data.EnemyData.MoodHp1}");
             }
             else if (data.TotalLostMood < data.EnemyData.MoodHp2)
             {
-                data.EmojiRenderer.sprite = data.ThinkingSprite;
+                targetSprite = data.ThinkingSprite;
+                if (data.EmojiRenderer.sprite != targetSprite)
+                {
+                    targetSound = data.EnemyData.YellowFaceSound;
+                }
                 Debug.Log($"[敌人表情] 设置为思考。累计损失: {data.TotalLostMood}, 阈值2: {data.EnemyData.MoodHp2}");
             }
             else
             {
-                data.EmojiRenderer.sprite = data.AngrySprite;
+                targetSprite = data.AngrySprite;
+                if (data.EmojiRenderer.sprite != targetSprite)
+                {
+                    targetSound = data.EnemyData.RedFaceSound;
+                }
                 Debug.Log($"[敌人表情] 设置为生气。累计损失: {data.TotalLostMood}");
+            }
+
+            if (targetSprite != null)
+            {
+                data.EmojiRenderer.sprite = targetSprite;
+            }
+
+            if (targetSound != null)
+            {
+                AudioSource.PlayClipAtPoint(targetSound, data.Rigidbody2D.transform.position);
             }
         }
     }

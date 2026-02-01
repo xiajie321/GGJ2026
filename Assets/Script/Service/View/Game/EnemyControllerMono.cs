@@ -49,6 +49,11 @@ namespace Script.Service.View.Game.Controller
             this.GetModel<LevelModel>().AddMoney(_enemyData.TicketCost, MoneySource.LevelNpc);
             Debug.Log($"[敌人初始化] 初始化敌人 ID: {id}, 名称: {_enemyData.Name}, 入场费: {_enemyData.TicketCost}, 交互概率: {_enemyData.InteractPBTY}");
             
+            if (_enemyData.EnterSound)
+            {
+                AudioSource.PlayClipAtPoint(_enemyData.EnterSound, transform.position);
+            }
+            
             SetController(new EnemyDefineController());//TODO 默认控制器
         }
 

@@ -16,7 +16,7 @@ namespace Service.View.UI.Panel
 
 		protected override void OnClose()
 		{
-			throw new System.NotImplementedException();
+			
 		}
 		
 		public void ShowFrame(Vector3 position, Vector2 size)

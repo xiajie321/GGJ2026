@@ -47,7 +47,7 @@ namespace Script.Service.System
             Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已调用 InitMoney()，当前金钱: {_levelModel.Money}");
             
             // 初始化商店
-            this.GetSystem<ShopSystem>().InitShop();
+            //this.GetSystem<ShopSystem>().InitShop();
             Debug.Log($"[cjh test] LevelSystem.StartLevel() - 已调用 ShopSystem.InitShop()");
             
             // 进入第一波准备阶段（无倒计时）
