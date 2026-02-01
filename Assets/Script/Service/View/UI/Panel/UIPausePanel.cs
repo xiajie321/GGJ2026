@@ -31,8 +31,8 @@ namespace Service.View.UI.Panel
                         this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>("GameBoot", v =>
                         {
                             UIKit.CloseAllPanel();
-                            UIKit.OpenPanel<UIMouseCursorPanel>(UILevel.PopUI);
                             UIKit.OpenPanel<UIHomePanel>();
+                            UIKit.OpenPanel<UIMouseCursorPanel>(UILevel.PopUI);
                             UIKit.ClosePanel(v);
                         });
                         

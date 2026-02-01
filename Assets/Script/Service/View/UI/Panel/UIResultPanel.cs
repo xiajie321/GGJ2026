@@ -17,6 +17,7 @@ namespace Service.View.UI.Panel
 		public LevelData LevelData;
 		public bool HasNextLevel;
 		public int CurrentLevelIndex;
+		public string NextLevelName;
 	}
 	public partial class UIResultPanel : QFramework.UIPanel, QFramework.IController
 	{
@@ -31,11 +32,20 @@ namespace Service.View.UI.Panel
 			
 			NextLevelBtn.onClick.AddListener(() =>
 			{
+				if (!mData.HasNextLevel) return;
+
 				// 加载下一关
 				int nextLevelIndex = mData.CurrentLevelIndex + 1;
 				EnemyExitMono.Index = nextLevelIndex;
 				
-				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>($"Level{nextLevelIndex}", v =>
+				string sceneName = mData.NextLevelName;
+				if (string.IsNullOrEmpty(sceneName))
+				{
+					Debug.LogError($"[UIResultPanel] Next level name is empty! Index: {nextLevelIndex}");
+					return;
+				}
+				
+				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>(sceneName, v =>
 				{
 					Run(v).Forget();
 				});
@@ -75,8 +85,8 @@ namespace Service.View.UI.Panel
 			this.GetSystem<LevelSystem>().StartLevel(EnemyExitMono.Index - 1); 
 			await UniTask.Yield();
 			UIKit.CloseAllPanel();
-			UIKit.OpenPanel<UIMouseCursorPanel>(UILevel.PopUI);
 			UIKit.OpenPanel<UIHUDPanel>();
+			UIKit.OpenPanel<UIMouseCursorPanel>(UILevel.PopUI);
 			await UniTask.Yield();
 			if(panel != null && panel.gameObject != null)
 				UIKit.ClosePanel(panel);
