@@ -367,6 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4872530689891044994}
   - component: {fileID: 728859077385140486}
+  - component: {fileID: 2390990370844268424}
   m_Layer: 0
   m_Name: UILoadingPanel
   m_TagString: Untagged
@@ -409,3 +410,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6a33297258b4780a64ef3115309148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mCanvasGroup: {fileID: 2390990370844268424}
+  fadeSpeed: 2
+  minStayTime: 1
+--- !u!225 &2390990370844268424
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797693247347945658}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
