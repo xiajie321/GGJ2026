@@ -77,14 +77,15 @@ namespace Service.View.UI.Panel
 		private async UniTask Run(UIPanel panel)
 		{
 			await UniTask.Delay(500);
+			UIKit.CloseAllPanel();
 			this.GetSystem<LevelSystem>().StartLevel(EnemyExitMono.Index - 1); 
 			await UniTask.Yield();
-			UIKit.CloseAllPanel();
 			UIKit.OpenPanel<UIHUDPanel>();
 			UIKit.OpenPanel<UIMouseCursorPanel>(UILevel.PopUI);
 			await UniTask.Yield();
 			if(panel != null && panel.gameObject != null)
 				UIKit.ClosePanel(panel);
+			if(mData.CurrentLevelIndex+1>= SceneManager.sceneCountInBuildSettings) NextLevelBtn.gameObject.SetActive(false);
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
