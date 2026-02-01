@@ -35,15 +35,10 @@ namespace Service.View.UI.Panel
 				if (!mData.HasNextLevel) return;
 
 				// 加载下一关
-				int nextLevelIndex = mData.CurrentLevelIndex + 1;
+				int nextLevelIndex = mData.CurrentLevelIndex;
 				EnemyExitMono.Index = nextLevelIndex;
 				
-				string sceneName = mData.NextLevelName;
-				if (string.IsNullOrEmpty(sceneName))
-				{
-					Debug.LogError($"[UIResultPanel] Next level name is empty! Index: {nextLevelIndex}");
-					return;
-				}
+				string sceneName = $"Level{nextLevelIndex}";
 				
 				this.GetSystem<SceneSwitchSystem>().LoadSceneAsync<UILoadingPanel>(sceneName, v =>
 				{
