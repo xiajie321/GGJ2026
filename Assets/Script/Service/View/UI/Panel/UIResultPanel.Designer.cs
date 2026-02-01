@@ -15,8 +15,6 @@ namespace Service.View.UI.Panel
 		[SerializeField]
 		public UnityEngine.UI.Image TitleImage;
 		[SerializeField]
-		public TMPro.TextMeshProUGUI ProfitText;
-		[SerializeField]
 		public TMPro.TextMeshProUGUI ScoreText;
 		[SerializeField]
 		public UnityEngine.UI.Button NextLevelBtn;
@@ -37,7 +35,6 @@ namespace Service.View.UI.Panel
 		{
 			CloseBtn = null;
 			TitleImage = null;
-			ProfitText = null;
 			ScoreText = null;
 			NextLevelBtn = null;
 			TryAgainBtn = null;

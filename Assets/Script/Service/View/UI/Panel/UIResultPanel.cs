@@ -102,7 +102,6 @@ namespace Service.View.UI.Panel
 			UIResultStar_1.gameObject.SetActive(false);
 			UIResultStar_2.gameObject.SetActive(false);
 			UIResultStar_3.gameObject.SetActive(false);
-			ProfitText.text = "0";
 			ScoreText.text = "0";
 			
 			// 初始隐藏按钮
@@ -150,24 +149,14 @@ namespace Service.View.UI.Panel
 				float currentProfit = Mathf.Lerp(0, targetProfit, t);
 				float currentScoreVal = Mathf.Lerp(0, targetScore, t);
 				
-				ProfitText.text = $"{Mathf.RoundToInt(currentProfit)}";
 				ScoreText.text = $"{Mathf.RoundToInt(currentScoreVal)}";
-				
-				// 颜色更新
-				if (currentProfit > 0) ProfitText.color = Color.green;
-				else if (currentProfit < 0) ProfitText.color = Color.red;
-				else ProfitText.color = Color.white;
 
 				await UniTask.Yield();
 			}
 			
 			// 确保最终值正确
-			ProfitText.text = $"{targetProfit}";
 			ScoreText.text = $"{targetScore}";
-			if (targetProfit > 0) ProfitText.color = Color.green;
-			else if (targetProfit < 0) ProfitText.color = Color.red;
-			else ProfitText.color = Color.white;
-
+			
 			// 2. 星星逐个显示动画
 			if (stars >= 1)
 			{
