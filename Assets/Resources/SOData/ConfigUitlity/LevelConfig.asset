@@ -19,7 +19,11 @@ MonoBehaviour:
         0,\n            \"Name\": \"Level1\",\n            \"InitialMoney\": 100,\n           
         \"TrapCount\": 8,\n            \"QualifiedLine\": 1600,\n            \"PerStarCost\":
         400,\n            \"MaxStar\": 3,\n            \"Ratio\": 0.1,\n           
-        \"BackgroundMusic\": 0\n        }\n    }\n]"
+        \"SMoveSpeed\": 0.6,\n            \"AMoveSpeed\": 1.1,\n            \"BMoveSpeed\":
+        3,\n            \"ButtonSound1\": null,\n            \"ButtonSound2\": null,\n           
+        \"MainMenuBGM\": null,\n            \"BackgroundMusic\": 0,\n           
+        \"WinSound\": null,\n            \"LoseSound\": null,\n            \"TakeUpSound\":
+        null,\n            \"TakeDownSound\": null\n        }\n    }\n]"
     unityObjectReferences:
     - {fileID: 8300000, guid: 0dae724cb893d234693f768c9f4c20b9, type: 3}
   __alchemySerializationData_Script_SODataScript_TbConfig_SOLevelConfig:

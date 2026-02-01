@@ -1,5 +1,7 @@
 using UnityEngine;
 using Script.Service.Interface;
+using Script.Service.Utility;
+using Script.SODataScript.TbConfig;
 
 namespace Script.Service.View.Component
 {
@@ -31,6 +33,8 @@ namespace Script.Service.View.Component
         private Vector3 _offset;
         private bool _isDragging = false;
         private Rigidbody2D _rb;
+        private Vector3 _targetPosition;
+        private float _moveSpeed = 5f;
         
         public bool IsDragging => _isDragging;
         public bool CanDragX { get => canDragX; set => canDragX = value; }
@@ -135,6 +139,8 @@ namespace Script.Service.View.Component
             _offset = transform.position - _mainCamera.ScreenToWorldPoint(
                 new Vector3(Input.mousePosition.x, Input.mousePosition.y, _screenPoint.z));
 
+            GetMoveSpeed();
+
             OnDragStart(Input.mousePosition);
             
             Debug.Log($"[DraggableSprite] 开始拖拽 {gameObject.name}");
@@ -163,9 +169,53 @@ namespace Script.Service.View.Component
                 newY = Mathf.Clamp(newY, minPosition.y, maxPosition.y);
             }
 
-            transform.position = new Vector3(newX, newY, newZ);
+            _targetPosition = new Vector3(newX, newY, newZ);
+            
+            if (_isDragging)
+            {
+                // 获取重力值
+                float gravity = 0f;
+                var itemController = GetComponent<Script.Service.View.Game.ItemControllerMono>();
+                if (itemController != null && itemController.ItemData != null)
+                {
+                    gravity = itemController.ItemData.Gravity;
+                }
+
+                // 计算移动方向
+                Vector3 direction = _targetPosition - transform.position;
+                float distance = direction.magnitude;
+                if (distance > 0.01f) // 避免除以零
+                {
+                    direction.Normalize();
+
+                    // 根据重力和移动方向调整速度
+                    float adjustedSpeed = _moveSpeed;
+                    if (gravity > 0)
+                    {
+                        // 向下移动更快，向上移动更慢
+                        if (direction.y < 0) // 向下移动
+                        {
+                            adjustedSpeed *= (1 + gravity * 0.5f);
+                        }
+                        else if (direction.y > 0) // 向上移动
+                        {
+                            adjustedSpeed *= (1 - gravity * 0.3f);
+                            // 确保速度不会过低
+                            adjustedSpeed = Mathf.Max(adjustedSpeed, _moveSpeed * 0.5f);
+                        }
+                    }
+
+                    // 使用线性插值平滑移动到目标位置
+                    transform.position = Vector3.Lerp(transform.position, _targetPosition, adjustedSpeed * Time.deltaTime);
+                }
+            }
             
             OnDragging(Input.mousePosition);
+        }
+
+        private void Update()
+        {
+
         }
 
         private void OnMouseUp()
@@ -180,6 +230,7 @@ namespace Script.Service.View.Component
             {
                 _rb.isKinematic = false;
             }
+            
             
             OnDragEnd(Input.mousePosition);
             
@@ -208,6 +259,42 @@ namespace Script.Service.View.Component
             minPosition = min;
             maxPosition = max;
             useConstraints = enable;
+        }
+
+        /// <summary>
+        /// 获取Item等级与对应移动速度
+        /// </summary>
+        public void GetMoveSpeed()
+        {
+            // 获取Item等级和对应移动速度
+            var itemController = GetComponent<Script.Service.View.Game.ItemControllerMono>();
+            if (itemController != null && itemController.ItemData != null)
+            {
+                var configUtility = itemController.GetArchitecture().GetUtility<ConfigUtility>();
+                if (configUtility != null && configUtility.Config != null && configUtility.Config.TbLevelConfig != null)
+                {
+                    // 假设当前是第一关，获取第一关的配置
+                    var levelData = configUtility.Config.TbLevelConfig.Get(0);
+                    if (levelData != null)
+                    {
+                        switch (itemController.ItemData.Level)
+                        {
+                            case ItemLevel.S:
+                                _moveSpeed = levelData.SMoveSpeed;
+                                break;
+                            case ItemLevel.A:
+                                _moveSpeed = levelData.AMoveSpeed;
+                                break;
+                            case ItemLevel.B:
+                                _moveSpeed = levelData.BMoveSpeed;
+                                break;
+                            default:
+                                _moveSpeed = 5f; // 默认速度
+                                break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

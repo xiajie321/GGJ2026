@@ -21,8 +21,8 @@ MonoBehaviour:
         \"Id\": 1\n                },\n                {\n                    \"Id\":
         2\n                },\n                {\n                    \"Id\": 3\n               
         },\n                {\n                    \"Id\": 4\n                },\n               
-        {\n                    \"Id\": 5\n                }\n            ]\n       
-        }\n    }\n]"
+        {\n                    \"Id\": 5\n                }\n            ],\n           
+        \"BuySound\": null\n        }\n    }\n]"
     unityObjectReferences: []
   __alchemySerializationData_Script_SODataScript_TbConfig_SOShopConfig:
     unityObjectReferences: []
