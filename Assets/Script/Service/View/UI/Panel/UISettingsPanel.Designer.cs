@@ -5,7 +5,7 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:22ce3e5f-093a-43b3-a13e-d1d482c342fd
+	// Generate Id:42e36e29-158e-463b-9ba9-15e8c98d2f5f
 	public partial class UISettingsPanel
 	{
 		public const string Name = "UISettingsPanel";
@@ -22,6 +22,8 @@ namespace Service.View.UI.Panel
 		public UnityEngine.UI.Button RightArrowBtn;
 		[SerializeField]
 		public TMPro.TextMeshProUGUI ResText;
+		[SerializeField]
+		public UnityEngine.UI.Toggle FullScreenToggle;
 		
 		private UISettingsPanelData mPrivateData = null;
 		
@@ -33,6 +35,7 @@ namespace Service.View.UI.Panel
 			LeftArrowBtn = null;
 			RightArrowBtn = null;
 			ResText = null;
+			FullScreenToggle = null;
 			
 			mData = null;
 		}
