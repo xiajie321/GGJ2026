@@ -5,7 +5,7 @@ using QFramework;
 
 namespace Service.View.UI.Panel
 {
-	// Generate Id:1a4e0f75-ed03-470a-8eed-10c53699c853
+	// Generate Id:2b1d1132-e791-4288-8740-ce86562bafde
 	public partial class UIHomePanel
 	{
 		public const string Name = "UIHomePanel";
@@ -15,6 +15,8 @@ namespace Service.View.UI.Panel
 		[SerializeField]
 		public UnityEngine.UI.Button BtnSettings;
 		[SerializeField]
+		public UnityEngine.UI.Button BtnCredits;
+		[SerializeField]
 		public UnityEngine.UI.Button BtnExit;
 		
 		private UIHomePanelData mPrivateData = null;
@@ -23,6 +25,7 @@ namespace Service.View.UI.Panel
 		{
 			BtnStart = null;
 			BtnSettings = null;
+			BtnCredits = null;
 			BtnExit = null;
 			
 			mData = null;

@@ -44,6 +44,7 @@ namespace Service.View.UI.Panel
 
 			});
 			BtnSettings.onClick.AddListener(() => UIKit.OpenPanel<UISettingsPanel>());
+			BtnCredits.onClick.AddListener(() => UIKit.OpenPanel<UICreditsPanel>());
 			BtnExit.onClick.AddListener(() => 
 			{
 				// 打开确认面板
@@ -62,6 +63,7 @@ namespace Service.View.UI.Panel
 			
 			BtnStart.BindGlobalSelectFrame();
 			BtnSettings.BindGlobalSelectFrame();
+			BtnCredits.BindGlobalSelectFrame();
 			BtnExit.BindGlobalSelectFrame();
 			
 			// 播放背景音乐
