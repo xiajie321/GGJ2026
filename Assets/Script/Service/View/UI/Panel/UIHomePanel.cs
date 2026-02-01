@@ -28,8 +28,6 @@ namespace Service.View.UI.Panel
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIHomePanelData ?? new UIHomePanelData();
-			
-			// UIKit.OpenPanel<UICommonEffectPanel>();
 
 			BtnStart.onClick.AddListener(() =>
 			{
